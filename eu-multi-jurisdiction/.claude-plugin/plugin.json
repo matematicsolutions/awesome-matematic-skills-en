@@ -1,0 +1,9 @@
+{
+  "name": "eu-multi-jurisdiction",
+  "description": "Nine EU national law connectors in one install: Germany, Austria, Spain, Finland, Ireland, Netherlands, Sweden, France, Luxembourg. Each grounds legislation (and case law where available) against the official source with ELI/ECLI identifiers. Requires uv/uvx; France needs free PISTE credentials.",
+  "version": "1.0.0",
+  "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
+  "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "license": "Apache-2.0",
+  "keywords": ["legal-ai", "eu-law", "multi-jurisdiction", "eli", "ecli", "mcp", "vendor-agnostic"]
+}

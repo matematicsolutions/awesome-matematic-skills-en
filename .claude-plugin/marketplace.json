@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-plugin-marketplace.json",
   "name": "matematic-skills-en",
-  "version": "2026.06.26",
-  "description": "English hub of method-neutral legal AI skills - verification core (grounding, red-team, scoring), content quality, and EU law sources. Deep Polish-jurisdiction skills live in the Polish marketplace. Vendor-agnostic.",
+  "version": "2026.06.26-2",
+  "description": "English hub of method-neutral legal AI skills - verification core (grounding, red-team, scoring), content quality, EU law sources, and nine EU national-law connectors in one install. Deep Polish-jurisdiction skills live in the Polish marketplace. Vendor-agnostic.",
   "owner": {
     "name": "Wieslaw Mazur / MateMatic Solutions",
     "email": "wieslaw@matematic.co",
@@ -34,6 +34,14 @@
       "author": { "name": "Wieslaw Mazur / MateMatic" },
       "license": "Apache-2.0",
       "source": "./eu-law-sources"
+    },
+    {
+      "name": "eu-multi-jurisdiction",
+      "description": "Nine EU national-law connectors in one install (DE, AT, ES, FI, IE, NL, SE, FR, LU) - legislation and case law against each official source, with ELI/ECLI identifiers. Requires uv/uvx; France needs free PISTE credentials.",
+      "version": "1.0.0",
+      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "license": "Apache-2.0",
+      "source": "./eu-multi-jurisdiction"
     }
   ],
   "tags": [
