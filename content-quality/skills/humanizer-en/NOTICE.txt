@@ -1,0 +1,8 @@
+HUMANIZER (humanizer-en) - NOTICE
+
+This skill is based on the open-source "humanizer" skill (MIT licence), which in turn
+draws on Wikipedia's "Signs of AI writing" guide, maintained by WikiProject AI Cleanup.
+The original MIT licence and attribution to the upstream authors remain in force for the
+adapted logic. English edition packaged for MateMatic Boutique by MateMatic Solutions Sp. z o.o.
+
+Reference: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing

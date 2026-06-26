@@ -1,0 +1,7 @@
+REVIEWER (reviewer-en) - NOTICE
+
+English content-review adaptation of "Marko" by julianmemberstack
+(https://github.com/julianmemberstack/marko), a code reviewer for Claude Code.
+The verdict format and the "no fixes" rule are kept 1:1. Charge categories, language
+and scope are MateMatic's own. Packaged for MateMatic Boutique by MateMatic Solutions Sp. z o.o.
+Polish counterpart: marko-pl-content.

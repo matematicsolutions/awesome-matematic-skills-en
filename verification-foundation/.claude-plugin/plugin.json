@@ -1,0 +1,9 @@
+{
+  "name": "verification-foundation",
+  "description": "Jurisdiction-neutral verification core: legal syllogism, citation extraction, clause checklist, adversarial red-team review, and output scoring. No connectors, sends no data out.",
+  "version": "1.0.0",
+  "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
+  "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "license": "Apache-2.0",
+  "keywords": ["legal-ai", "grounding", "anti-hallucination", "ai-act-art-12", "vendor-agnostic"]
+}

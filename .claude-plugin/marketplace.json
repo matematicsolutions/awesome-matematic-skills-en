@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json.schemastore.org/claude-plugin-marketplace.json",
+  "name": "matematic-skills-en",
+  "version": "2026.06.26",
+  "description": "English hub of method-neutral legal AI skills - verification core (grounding, red-team, scoring), content quality, and EU law sources. Deep Polish-jurisdiction skills live in the Polish marketplace. Vendor-agnostic.",
+  "owner": {
+    "name": "Wieslaw Mazur / MateMatic Solutions",
+    "email": "wieslaw@matematic.co",
+    "url": "https://matematicsolutions.com"
+  },
+  "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "language": "en",
+  "plugins": [
+    {
+      "name": "verification-foundation",
+      "description": "Jurisdiction-neutral verification core (5 skills): legal syllogism, citation extraction, clause checklist, adversarial red-team review, output scoring. No connectors, sends no data out.",
+      "version": "1.0.0",
+      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "license": "Apache-2.0",
+      "source": "./verification-foundation"
+    },
+    {
+      "name": "content-quality",
+      "description": "English-writing quality tools (2 skills): humanizer (strips AI-writing patterns) and reviewer (senior editor, verdict + charges). Changes wording, never facts.",
+      "version": "1.0.0",
+      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "license": "MIT",
+      "source": "./content-quality"
+    },
+    {
+      "name": "eu-law-sources",
+      "description": "EU legislation and CJEU case law via EUR-Lex / Cellar SPARQL (1 skill). Ships the eu-sparql MCP connector (read-only, public API). Requires node/npx.",
+      "version": "1.0.0",
+      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "license": "Apache-2.0",
+      "source": "./eu-law-sources"
+    }
+  ],
+  "tags": [
+    "legal-ai",
+    "english",
+    "eu-law",
+    "ai-act-art-12",
+    "agent-skills",
+    "claude-code",
+    "claude-cowork",
+    "legaltech",
+    "vendor-agnostic",
+    "mcp-connectors"
+  ]
+}

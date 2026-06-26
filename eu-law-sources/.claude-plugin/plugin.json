@@ -1,0 +1,9 @@
+{
+  "name": "eu-law-sources",
+  "description": "EU legislation and CJEU case law search via EUR-Lex / Cellar SPARQL. Ships the eu-sparql MCP connector (read-only, public API). EU-level, language-neutral. Requires node/npx.",
+  "version": "1.0.0",
+  "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
+  "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "license": "Apache-2.0",
+  "keywords": ["legal-ai", "eur-lex", "cjeu", "celex", "eli", "mcp", "vendor-agnostic"]
+}

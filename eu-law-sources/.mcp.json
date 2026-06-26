@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "eu-sparql": {
+      "command": "npx",
+      "args": ["-y", "@matematicsolutions/mcp-eu-sparql"]
+    }
+  }
+}
