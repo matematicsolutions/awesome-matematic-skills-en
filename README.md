@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/skills-8-blue.svg)](#installable-skills-8)
 [![Plugin](https://img.shields.io/badge/Claude%20Code-plugin%20marketplace-orange.svg)](.claude-plugin/marketplace.json)
+[![skills.sh](https://skills.sh/b/matematicsolutions/awesome-matematic-skills-en)](https://skills.sh/matematicsolutions/awesome-matematic-skills-en)
 [![EU law](https://img.shields.io/badge/jurisdiction-EU%20%2B%20neutral-blue.svg)](#why-an-english-hub)
 [![GDPR-safe](https://img.shields.io/badge/GDPR--safe-by%20default-green.svg)](#why-an-english-hub)
 
