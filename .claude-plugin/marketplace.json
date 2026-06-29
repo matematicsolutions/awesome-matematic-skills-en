@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-plugin-marketplace.json",
   "name": "matematic-skills-en",
-  "version": "2026.06.26-2",
+  "version": "2026.06.29",
   "description": "English hub of method-neutral legal AI skills - verification core (grounding, red-team, scoring), content quality, EU law sources, and nine EU national-law connectors in one install. Deep Polish-jurisdiction skills live in the Polish marketplace. Vendor-agnostic.",
   "owner": {
     "name": "Wieslaw Mazur / MateMatic Solutions",
@@ -22,7 +22,7 @@
     {
       "name": "content-quality",
       "description": "English-writing quality tools (2 skills): humanizer (strips AI-writing patterns) and reviewer (senior editor, verdict + charges). Changes wording, never facts.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": { "name": "Wieslaw Mazur / MateMatic" },
       "license": "MIT",
       "source": "./content-quality"

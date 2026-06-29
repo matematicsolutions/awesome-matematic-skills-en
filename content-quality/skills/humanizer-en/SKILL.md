@@ -1,13 +1,15 @@
 ---
 name: humanizer-en
-version: 2.5.1
+version: 2.6.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, and filler phrases.
+  voice, negative parallelisms, filler phrases, and the statistical signatures
+  AI detectors measure (burstiness, lexical density and diversity, part-of-speech
+  distribution, emotional range).
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -470,6 +472,50 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
+## STATISTICAL SIGNATURES (what AI detectors measure)
+
+AI-text detectors do not read for "meaning" - they measure quantifiable linguistic features. The hybrid methodology of Wołoszyk and Domaszk ("Detecting AI-Generated Content", MultiLingual, Sept. 2025; building on Georgiou 2024, Schaaff et al. 2024, Fraser 2024, Muñoz-Ortiz et al. 2024) identifies which parameters most reliably flag AI, weighting lexical and morphological features highest. These are exactly the levers natural prose already moves. **Brand-safety:** this is not about evading detectors - human writing has these properties anyway, so improving them improves quality.
+
+### 30. Sentence-length variance (burstiness)
+
+**Problem:** Humans mix very short sentences with long, multi-clause ones (higher burstiness and perplexity: ~0.61 vs ~0.38 for AI). AI holds a steady, predictable rhythm.
+
+**Rule:** After a long, complex sentence, drop a short, blunt one. Do not level a paragraph to one length. This is a stronger version of the rule of three (#10) - it governs the whole rhythm, not just lists.
+
+### 31. Verbs and adverbs over nouns and adjectives
+
+**Problem:** AI text is noun-heavy and descriptive; human text is verb-driven and dynamic (humans use ~13% more verbs and ~28% more adverbs; AI uses ~21% more nouns and ~21% more adjectives). This is one of the most reliable signatures (morphology, 20% detection weight).
+
+**Before:**
+> The implementation of a comprehensive verification of the documentation is a critical element of the process.
+
+**After:**
+> First we check the documents carefully. They decide everything else.
+
+**Rule:** Cut nominalizations - "the implementation of X" → "implement X", "the verification of Y" → "verify Y". Shorten chains of adjectives stacked before a noun.
+
+### 32. Lexical density and vocabulary diversity
+
+**Problem:** AI packs in content words at the expense of natural sentence scaffolding (higher content-to-function ratio: ~1.37 vs ~0.98 for humans) and circles a narrower vocabulary (lower type-token ratio: ~45 vs ~55 for humans). Lexis carries the highest detection weight (25%).
+
+**Rule:** Do not strip every function word chasing "density" - the sentence has to breathe. Do not repeat the same key noun on a loop, but also do not swap it mechanically for synonyms (that lands in #11). Write like a person who knows the topic and talks about it freely.
+
+### 33. Emotional range - not relentlessly positive
+
+**Problem:** AI drifts toward an even, upbeat tone; humans express a wider range, including skepticism, irritation, and doubt (Muñoz-Ortiz et al. 2024).
+
+**Rule:** Let critique and cool distance in. "I see a real risk here" or "this doesn't convince me" reads human; "an exciting step forward" reads AI. Related to #25 (generic positive conclusions), but this is about the tone of the whole piece.
+
+### 34. Mechanical transitions
+
+**Problem:** AI joins paragraphs with formulaic connectors instead of letting content carry the logic. "It is worth noting that" appears ~4.6x more often in AI text than in human writing; "embrace" and "leverage" ~4.1x more often.
+
+**Phrases to watch:** It is worth noting that, Moreover, Furthermore, Additionally, In addition, In conclusion, embrace, leverage (as a verb), delve into.
+
+**Rule:** Delete filler transitions; let the next idea follow from the last by substance, not by a label. A single "it is worth noting" also trips #7 - this rule targets the habit of bracketing every paragraph.
+
+---
+
 ## Process
 
 1. Read the input text carefully
@@ -564,3 +610,9 @@ Provide:
 This skill is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
+
+The "Statistical signatures" section (#30-#34) is based on W. Wołoszyk and M. Domaszk, ["Detecting AI-Generated Content: A hybrid linguistic approach"](https://multilingual.com/magazine/september-2025/detecting-ai-generated-content/), MultiLingual, September 2025, which itself draws on Georgiou (2024), Schaaff et al. (2024), Fraser (2024), and Muñoz-Ortiz et al. (2024).
+
+## Changelog
+
+- v2.6.0 (2026-06-29) - added "Statistical signatures" section (#30-#34): burstiness, verb/noun morphology, lexical density and diversity, emotional range, mechanical transitions. Based on the Wołoszyk & Domaszk detection methodology (MultiLingual 2025).

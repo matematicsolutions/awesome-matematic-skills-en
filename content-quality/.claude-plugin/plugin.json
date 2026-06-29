@@ -1,7 +1,7 @@
 {
   "name": "content-quality",
   "description": "English-writing quality tools: humanizer (strips AI-writing patterns) and reviewer (grumpy senior editor, verdict + charges). Changes wording, never facts. No connectors.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
   "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
   "license": "MIT",
