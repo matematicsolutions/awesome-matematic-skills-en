@@ -21,6 +21,22 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 ## Installation
 
+Two ways to install. **A** (`npx skills`) works in **any agent** that supports the Agent Skills format (Cursor, OpenAI Codex, Windsurf, Gemini CLI, Claude Code) and installs individual skills. **B** is the native Claude Code marketplace, which installs whole bundles and keeps each plugin's inline `CLAUDE.md`.
+
+### A. Any agent - `npx skills` (cross-agent)
+
+```bash
+# Whole hub - every skill across the bundles, discovered recursively by SKILL.md
+npx skills add matematicsolutions/awesome-matematic-skills-en
+
+# Only the skills you want - cherry-pick by frontmatter name
+npx skills add matematicsolutions/awesome-matematic-skills-en --skill citation-extraction-en humanizer-en
+```
+
+`npx skills` ([vercel-labs/skills](https://github.com/vercel-labs/skills)) fetches `SKILL.md` files and installs them into the agent's config directory (`.claude/skills/` or `.agents/skills/`). It runs anywhere the Agent Skills format runs - not only Claude Code. This route installs the skills only. The MCP connector in `eu-law-sources` needs the plugin config, so install it with method B.
+
+### B. Claude Code - plugin marketplace (native, installs by bundle)
+
 ```bash
 # 1. Add the marketplace (once)
 /plugin marketplace add matematicsolutions/awesome-matematic-skills-en
