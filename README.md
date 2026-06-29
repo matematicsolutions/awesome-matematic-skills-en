@@ -23,6 +23,8 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 Two ways to install. **A** (`npx skills`) works in **any agent** that supports the Agent Skills format (Cursor, OpenAI Codex, Windsurf, Gemini CLI, Claude Code) and installs individual skills. **B** is the native Claude Code marketplace, which installs whole bundles and keeps each plugin's inline `CLAUDE.md`.
 
+**What to install.** Start with `verification-foundation` (the jurisdiction-neutral core) and add `content-quality` and `eu-law-sources` as needed. Installing the whole hub with `npx skills add ...` (no `--skill`) pulls every skill at once; for most users it is cleaner to cherry-pick with `--skill` or install one bundle at a time with `/plugin`.
+
 ### A. Any agent - `npx skills` (cross-agent)
 
 ```bash
