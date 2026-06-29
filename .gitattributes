@@ -1,0 +1,14 @@
+# Normalize line endings: text files are committed as LF.
+# Protects strict parsers (e.g. `npx skills` YAML frontmatter) from CRLF.
+* text=auto eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.mjs  text eol=lf
+*.js   text eol=lf
+*.cff  text eol=lf
+*.txt  text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+# Windows scripts stay CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf
