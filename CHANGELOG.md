@@ -4,6 +4,12 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.06.30-2] - 2026-06-30
+
+### Added
+
+- `gdpr-breach-72h-en` 1.0.0 -> 1.1.0 and `gdpr-dsar-en` 1.0.0 -> 1.1.0: deterministic deadline calculator `scripts/gdpr_deadlines.py` (offline, zero dependencies, GDPR-safe). Computes the 72h limit from awareness (Art. 33) and the one-month limit with correct month arithmetic per Regulation (EEC) No 1182/71 (receipt 31 Jan -> ends 28/29 Feb, year rollover, +3mo clamping). Agent-native tool - the skill stops counting deadlines by hand.
+
 ## [2026.06.30] - 2026-06-30
 
 New bundle `data-protection` - operational GDPR tooling for law firms and DPOs. Four skills grounded in the regulation's articles and EDPB guidelines, each ending in a draft for decision (governance boundary: the outward act stays human). Niche confirmed by discovery (legaltech-scout): existing DPIA/DSAR/breach skills are generic-English and lightly installed - this is the article-grounded version.

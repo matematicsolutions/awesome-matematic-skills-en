@@ -11,7 +11,7 @@ description: >
   "GDPR breach", "72-hour notification", "do we notify individuals", "Art. 33", "breach response".
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: gdpr-dpia-en, legal-ai-audit-bundle
   parity: rodo-naruszenie-72h-pl
 ---
@@ -59,6 +59,16 @@ risk, or disproportionate effort => public communication instead.
 
 Record EVERY breach (even unreported ones) in the internal register: facts, effects, remedial action.
 This is the accountability evidence for the SA.
+
+## Tool - deadline calculator (deterministic, offline)
+
+Do not count the 72h in your head. Use the script (zero dependencies, GDPR-safe, local):
+
+```bash
+python scripts/gdpr_deadlines.py breach --from "2026-06-30T14:30"
+```
+
+Returns `deadline_72h` (ISO 8601) counted from awareness. Paste the result into the draft and register.
 
 ## Governance boundary
 

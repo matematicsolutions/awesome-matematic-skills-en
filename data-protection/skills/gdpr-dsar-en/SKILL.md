@@ -11,7 +11,7 @@ description: >
   "objection", "DSAR deadline", "data portability".
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: gdpr-ropa-dpa-en, legal-ai-audit-bundle
   parity: rodo-dsar-pl
 ---
@@ -55,6 +55,16 @@ every refusal + inform of the right to lodge a complaint with the SA and a judic
 
 The skill drafts the response (plain language, Art. 12(1)), a list of data/sources (from the RoPA -
 [[gdpr-ropa-dpa-en]]), and a register entry (receipt date, type, deadline, outcome).
+
+## Tool - deadline calculator (deterministic, offline)
+
+Do not compute the one-month deadline by hand - month arithmetic has traps (receipt 31 Jan => ends 28/29 Feb, per Regulation (EEC) No 1182/71). Use the script (zero dependencies, GDPR-safe):
+
+```bash
+python scripts/gdpr_deadlines.py dsar --from 2026-01-31 --extend
+```
+
+Returns `deadline_1_month` and (with `--extend`) `deadline_extended_3_months`. Paste the result into the response and register.
 
 ## Governance boundary
 

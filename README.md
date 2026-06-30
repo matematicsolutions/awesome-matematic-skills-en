@@ -92,8 +92,8 @@ Operational GDPR tooling grounded in the regulation's articles and EDPB guidelin
 | Skill | What it does | Licence |
 |---|---|---|
 | gdpr-dpia-en | Data Protection Impact Assessment: threshold test (EDPB 9 criteria), Art. 35(7) structure, Art. 36 prior consultation. | Apache-2.0 |
-| gdpr-breach-72h-en | 72h breach response: decision tree, risk assessment, SA notification (Art. 33) with a deadline counter, communication to data subjects (Art. 34). | Apache-2.0 |
-| gdpr-dsar-en | Data subject rights (DSAR): classify Art. 15-22 rights, Art. 12(3) deadline counter, exemption/refusal gates, draft response + register. | Apache-2.0 |
+| gdpr-breach-72h-en | 72h breach response: decision tree, risk assessment, SA notification (Art. 33) with a deadline counter, communication to data subjects (Art. 34). Deterministic 72h deadline calculator. | Apache-2.0 |
+| gdpr-dsar-en | Data subject rights (DSAR): classify Art. 15-22 rights, Art. 12(3) deadline counter, exemption/refusal gates, draft response + register. Deterministic one-month deadline calculator (Reg. 1182/71). | Apache-2.0 |
 | gdpr-ropa-dpa-en | Records of processing (RoPA, Art. 30) + processor-contract review (DPA, Art. 28(3)(a)-(h)) with a redline of missing clauses. | Apache-2.0 |
 
 ---
