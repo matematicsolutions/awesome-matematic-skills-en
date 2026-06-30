@@ -16,7 +16,7 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 ## What's here
 
-1. **Domain bundles installed with one command** - 8 skills grouped by function into three plugins. The verification foundation installs without any connector; EU law sources ship their MCP connector with the bundle.
+1. **Domain bundles installed with one command** - 12 skills grouped by function into four plugins. The verification foundation installs without any connector; EU law sources ship their MCP connector with the bundle.
 2. **Curated list** - links to strong open skills from other teams (below). We point to them, we do not republish them.
 3. **Companion Polish hub** for Polish-jurisdiction skills and live PL sources.
 
@@ -24,7 +24,7 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 Two ways to install. **A** (`npx skills`) works in **any agent** that supports the Agent Skills format (Cursor, OpenAI Codex, Windsurf, Gemini CLI, Claude Code) and installs individual skills. **B** is the native Claude Code marketplace, which installs whole bundles and keeps each plugin's inline `CLAUDE.md`.
 
-**What to install.** Start with `verification-foundation` (the jurisdiction-neutral core) and add `content-quality` and `eu-law-sources` as needed. Installing the whole hub with `npx skills add ...` (no `--skill`) pulls every skill at once; for most users it is cleaner to cherry-pick with `--skill` or install one bundle at a time with `/plugin`.
+**What to install.** Start with `verification-foundation` (the jurisdiction-neutral core) and add `content-quality`, `data-protection` and `eu-law-sources` as needed. Installing the whole hub with `npx skills add ...` (no `--skill`) pulls every skill at once; for most users it is cleaner to cherry-pick with `--skill` or install one bundle at a time with `/plugin`.
 
 ### A. Any agent - `npx skills` (cross-agent)
 
@@ -54,7 +54,7 @@ The verification foundation and content-quality bundles use no connectors and se
 
 ---
 
-## Installable skills (8)
+## Installable skills (12)
 
 ### Plugin `verification-foundation` (jurisdiction-neutral verification core)
 
@@ -84,6 +84,17 @@ Ships the `eu-sparql` MCP connector (read-only, public EUR-Lex / Cellar). Requir
 | Skill | What it does | Licence |
 |---|---|---|
 | eu-sparql-search | Search EU legislation and CJEU case law via the Publications Office SPARQL endpoint (CELEX, ELI URI, multi-language acts). | Apache-2.0 |
+
+### Plugin `data-protection` (GDPR operations for firms and DPOs)
+
+Operational GDPR tooling grounded in the regulation's articles and EDPB guidelines, no connectors. Each ends in a draft for decision; the outward act (filing, sending, erasure, signing) stays human. `/plugin install data-protection@matematic-skills-en`.
+
+| Skill | What it does | Licence |
+|---|---|---|
+| gdpr-dpia-en | Data Protection Impact Assessment: threshold test (EDPB 9 criteria), Art. 35(7) structure, Art. 36 prior consultation. | Apache-2.0 |
+| gdpr-breach-72h-en | 72h breach response: decision tree, risk assessment, SA notification (Art. 33) with a deadline counter, communication to data subjects (Art. 34). | Apache-2.0 |
+| gdpr-dsar-en | Data subject rights (DSAR): classify Art. 15-22 rights, Art. 12(3) deadline counter, exemption/refusal gates, draft response + register. | Apache-2.0 |
+| gdpr-ropa-dpa-en | Records of processing (RoPA, Art. 30) + processor-contract review (DPA, Art. 28(3)(a)-(h)) with a redline of missing clauses. | Apache-2.0 |
 
 ---
 

@@ -4,6 +4,18 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.06.30] - 2026-06-30
+
+New bundle `data-protection` - operational GDPR tooling for law firms and DPOs. Four skills grounded in the regulation's articles and EDPB guidelines, each ending in a draft for decision (governance boundary: the outward act stays human). Niche confirmed by discovery (legaltech-scout): existing DPIA/DSAR/breach skills are generic-English and lightly installed - this is the article-grounded version.
+
+### Added
+
+- Plugin `data-protection` (4 skills): gdpr-dpia-en 1.0.0 (DPIA, Art. 35-36), gdpr-breach-72h-en 1.0.0 (breach 72h, Art. 33-34), gdpr-dsar-en 1.0.0 (data subject rights, Art. 12, 15-22), gdpr-ropa-dpa-en 1.0.0 (RoPA + DPA, Art. 30, 28). `CLAUDE.md` + `.claude-plugin/plugin.json`. Apache-2.0.
+
+### Changed
+
+- Hub: 8 skills in three skill bundles -> 12 skills in four skill bundles. Parity with the Polish hub (`ochrona-danych`).
+
 ## [2026.06.29] - 2026-06-29
 
 ### Changed

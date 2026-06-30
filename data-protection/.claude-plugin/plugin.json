@@ -1,0 +1,9 @@
+{
+  "name": "data-protection",
+  "description": "GDPR operations for law firms and DPOs (4 skills): DPIA (Art. 35-36), 72h breach response (Art. 33-34), data subject rights / DSAR (Art. 12, 15-22), records of processing RoPA and processor-contract DPA review (Art. 30, 28). Grounded in the GDPR articles and EDPB guidelines. No connectors, sends nothing out.",
+  "version": "1.0.0",
+  "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
+  "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "license": "Apache-2.0",
+  "keywords": ["legal-ai", "gdpr", "dpia", "dsar", "data-breach", "ropa", "data-protection", "dpo"]
+}
