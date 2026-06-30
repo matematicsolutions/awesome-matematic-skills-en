@@ -4,6 +4,15 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.06.30-3] - 2026-06-30
+
+The whole `data-protection` bundle is now tool-grade - each of the 4 skills ships a deterministic executable helper, not just instructions.
+
+### Added
+
+- `gdpr-dpia-en` 1.0.0 -> 1.1.0: `scripts/dpia_screening.py` - Art. 35 threshold screening (EDPB 9 criteria, ">=2" rule, Art. 35(3) cases) -> verdict required/recommended/not_required. Offline, zero deps.
+- `gdpr-ropa-dpa-en` 1.0.0 -> 1.1.0: `scripts/dpa_clause_check.py` - mandatory processor-contract clause check, Art. 28(3)(a)-(h) -> list of missing clauses (the redline target). Offline, zero deps.
+
 ## [2026.06.30-2] - 2026-06-30
 
 ### Added

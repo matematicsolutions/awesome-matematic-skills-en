@@ -12,7 +12,7 @@ description: >
   Art. 30", "data processing agreement", "DPA Art. 28", "processor contract review", "GDPR register".
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: clause-checklist-en, gdpr-dpia-en
   parity: rodo-ropa-dpa-pl
 ---
@@ -57,6 +57,16 @@ The contract MUST bind the processor to:
 Plus: subject-matter, duration, nature and purpose, type of data, categories of data subjects
 (Art. 28(3) sentence 1) and Chapter V transfers (SCCs/adequacy). The skill produces a **redline** of
 missing/defective clauses (via [[clause-checklist-en]]).
+
+## Tool - Art. 28 clause check (deterministic, offline)
+
+Find the gaps in a processor contract with the script - pass the clauses present, get the missing ones (zero dependencies, GDPR-safe):
+
+```bash
+python scripts/dpa_clause_check.py --present a,b,c,g
+```
+
+Returns `missing` (e.g. d, e, f, h) = the exact redline target. `complete` when all eight (a-h) are present.
 
 ## Governance boundary
 

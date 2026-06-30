@@ -12,7 +12,7 @@ description: >
   for profiling/CCTV/AI", "Art. 35 GDPR", "prior consultation", "high-risk processing".
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: gdpr-ropa-dpa-en, clause-checklist-en, legal-ai-audit-bundle
   parity: rodo-dpia-pl
 ---
@@ -58,6 +58,17 @@ Record the DPO's advice (Art. 35(2)) and any consultation with data subjects (Ar
 If **residual risk remains HIGH despite measures**, the controller MUST consult the supervisory
 authority BEFORE processing. The skill drafts the consultation request (scope per Art. 36(3)) - but
 a human files it (governance boundary).
+
+## Tool - threshold screening (deterministic, offline)
+
+Screen whether a DPIA is required with the script instead of judging by feel (zero dependencies, GDPR-safe):
+
+```bash
+python scripts/dpia_screening.py --criteria evaluation,sensitive,largescale
+python scripts/dpia_screening.py --mandatory public_monitoring
+```
+
+Returns a `verdict` (required / recommended / not_required) per the EDPB ">=2" rule and the Art. 35(3) cases. Screening only, not a clearance - the controller documents the decision.
 
 ## Governance boundary
 
