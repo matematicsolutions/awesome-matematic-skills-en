@@ -11,6 +11,11 @@ description: >
   syllogism", "lay out the legal reasoning", "apply the rule to the facts", "IRAC this",
   "where is the gap in the argument", "major and minor premise", "structure the analysis"
   - when drafting an opinion, brief, or memo.
+license: Apache-2.0
+allowed-tools: [Read]
+data-residency: local
+requires-human-approval: false
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0

@@ -4,6 +4,47 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.07.05-2] - 2026-07-05
+
+Skill Constitution across the whole hub: all 18 skills pass the
+`skill-audit --marketplace` gate (PASS 18/18, previously 0/18).
+
+### Changed
+
+- Every SKILL.md frontmatter now declares the 5 "Skill Constitution" governance
+  fields: `license` (per the README tables), `allowed-tools` (explicit minimal
+  set; Bash only where the skill ships scripts), `data-residency: local`,
+  `requires-human-approval` (true for skills that end in a human gate: the whole
+  data-protection bundle plus eu-ai-act-triage-en, nis2-compliance-triage-en,
+  privilege-preflight-en; false for purely analytical, read-only skills),
+  `pii-egress: none`.
+- The `signature` field is intentionally omitted - the Ed25519 signature is
+  added at publication time (skill-audit gate note).
+
+### Fixed
+
+- Marketplace-blocking rot flag: `<YYYY-MM-DD>` placeholder in the
+  eu-ai-act-triage-en triage card (replaced with square brackets).
+
+## [2026.07.05] - 2026-07-05
+
+Six new curated skills from the lawve.ai hub review (139 skills, snapshot 2026-07-05),
+plus a new `ai-governance` plugin. Apache-2.0 forks carry author attribution; the rest
+is pattern-only, written from scratch.
+
+### Added
+
+- New plugin `ai-governance` (3 skills): `eu-ai-act-triage-en` 1.0.0 (Reg. 2024/1689 triage - definition, Art. 5, high-risk, GPAI, Art. 50, role mapping, FRIA signal), `nis2-compliance-triage-en` 1.0.0 (Dir. 2022/2555 - scope, ten Art. 21(2) measures, Art. 23 incident clock, national transposition check), `privilege-preflight-en` 1.0.0 (SAFE/CAUTION/STOP band before sending legal content to an external AI surface).
+- `opposing-counsel-attack-en` 1.0.0 (verification-foundation 1.0.0 -> 1.1.0): single-pass opposing-counsel attack, the cheap tier below adversarial-legal-review-en. Fork: opposing-counsel-review (L. Meredith-Flister, Apache-2.0).
+- `judicial-first-impression-en` 1.0.0 (verification-foundation): seven-part neutral cold-reader assessment. Fork: judicial-first-impression (L. Meredith-Flister, Apache-2.0).
+- `authority-triage-en` 1.0.0 (eu-law-sources 1.0.0 -> 1.1.0): route the source layer (EU primary/secondary, national chain, courts, soft law) before answering.
+- Curated list: lawvable/awesome-legal-skills hub + two MIT picks (Swiss authority triage, French judicial reasoning).
+
+### Changed
+
+- `.claude-plugin/marketplace.json` -> 2026.07.05 (new ai-governance plugin entry; verification-foundation and eu-law-sources descriptions/versions).
+- README: 18 installable skills across five plugins.
+
 ## [2026.06.30-3] - 2026-06-30
 
 The whole `data-protection` bundle is now tool-grade - each of the 4 skills ships a deterministic executable helper, not just instructions.

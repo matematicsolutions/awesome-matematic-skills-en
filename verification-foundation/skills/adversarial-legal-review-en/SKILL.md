@@ -12,6 +12,11 @@ description: >
   side say", "pre-mortem", "defend this thesis", "adversarial review", verifying a
   high-stakes deliverable before it goes out. English counterpart of adversarial-legal-review-pl
   (this version drops the Polish case-law layer and is jurisdiction-agnostic).
+license: Apache-2.0
+allowed-tools: [Read, Write]
+data-residency: local
+requires-human-approval: false
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0

@@ -9,6 +9,11 @@ description: >
   breach register entry (Art. 33(5)). Drafts the notification and communications - it does NOT send
   to the SA or to data subjects (human acts). Runs locally (GDPR-safe). Use when: "data leak",
   "GDPR breach", "72-hour notification", "do we notify individuals", "Art. 33", "breach response".
+license: Apache-2.0
+allowed-tools: [Bash, Read]
+data-residency: local
+requires-human-approval: true
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.1.0

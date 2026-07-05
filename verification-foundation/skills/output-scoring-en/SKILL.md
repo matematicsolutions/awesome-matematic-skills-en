@@ -10,6 +10,11 @@ description: >
   legal-syllogism-en. Use when: "score this output", "is this ready to send", "quality of
   this legal answer", "scorecard for the deliverable", "rubric check" - before sending an
   opinion, memo, or brief.
+license: Apache-2.0
+allowed-tools: [Read]
+data-residency: local
+requires-human-approval: false
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0

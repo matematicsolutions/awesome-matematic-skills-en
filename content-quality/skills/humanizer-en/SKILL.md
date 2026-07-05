@@ -19,6 +19,9 @@ allowed-tools:
   - Grep
   - Glob
   - AskUserQuestion
+data-residency: local
+requires-human-approval: false
+pii-egress: none
 ---
 
 # Humanizer: Remove AI Writing Patterns

@@ -10,6 +10,11 @@ description: >
   EU-aware. Pairs with output-scoring-en and eu-sparql-search. Use when: "list every
   citation in this text", "what authorities are cited", "extract the provisions", "pull the
   case references", "what is cited here" - before verification or before sending.
+license: Apache-2.0
+allowed-tools: [Read, Grep]
+data-residency: local
+requires-human-approval: false
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0

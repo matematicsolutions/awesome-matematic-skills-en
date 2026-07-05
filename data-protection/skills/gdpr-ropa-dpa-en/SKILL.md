@@ -10,6 +10,11 @@ description: >
   deletion/return, audits) + Chapter V transfers. Produces a draft register and a contract redline -
   it does NOT sign (a human act). Runs locally (GDPR-safe). Use when: "records of processing", "RoPA
   Art. 30", "data processing agreement", "DPA Art. 28", "processor contract review", "GDPR register".
+license: Apache-2.0
+allowed-tools: [Bash, Read]
+data-residency: local
+requires-human-approval: true
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.1.0

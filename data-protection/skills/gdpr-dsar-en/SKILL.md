@@ -9,6 +9,11 @@ description: >
   requester (Art. 12(6)) comes first. It does NOT send responses or erase data (human acts). Runs
   locally (GDPR-safe). Use when: "subject access request", "erasure request", "right to be forgotten",
   "objection", "DSAR deadline", "data portability".
+license: Apache-2.0
+allowed-tools: [Bash, Read]
+data-residency: local
+requires-human-approval: true
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.1.0

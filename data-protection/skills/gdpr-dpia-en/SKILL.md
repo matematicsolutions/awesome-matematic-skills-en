@@ -10,6 +10,11 @@ description: >
   make the controller's risk decision or file with the authority (those are human acts). Runs
   locally (GDPR-safe). Use when: "do I need a DPIA", "data protection impact assessment", "DPIA
   for profiling/CCTV/AI", "Art. 35 GDPR", "prior consultation", "high-risk processing".
+license: Apache-2.0
+allowed-tools: [Bash, Read]
+data-residency: local
+requires-human-approval: true
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.1.0

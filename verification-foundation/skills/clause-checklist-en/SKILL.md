@@ -10,6 +10,11 @@ description: >
   "what is missing from this agreement", "clause spotting", "contract checklist", "review a
   single contract", "which clauses are risky" - before signing, in negotiation, or in DD of
   one contract.
+license: Apache-2.0
+allowed-tools: [Read]
+data-residency: local
+requires-human-approval: false
+pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
