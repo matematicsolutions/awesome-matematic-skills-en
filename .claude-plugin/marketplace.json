@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-plugin-marketplace.json",
   "name": "matematic-skills-en",
-  "version": "2026.06.30",
-  "description": "English hub of method-neutral legal AI skills - verification core (grounding, red-team, scoring), content quality, GDPR operations (DPIA, breach, DSAR, RoPA/DPA), EU law sources, and nine EU national-law connectors in one install. Deep Polish-jurisdiction skills live in the Polish marketplace. Vendor-agnostic.",
+  "version": "2026.07.05",
+  "description": "English hub of method-neutral legal AI skills - verification core (grounding, red-team, scoring), content quality, GDPR operations (DPIA, breach, DSAR, RoPA/DPA), AI governance triage (EU AI Act, NIS2, privilege pre-flight), EU law sources, and nine EU national-law connectors in one install. Deep Polish-jurisdiction skills live in the Polish marketplace. Vendor-agnostic.",
   "owner": {
     "name": "Wieslaw Mazur / MateMatic Solutions",
     "email": "wieslaw@matematic.co",
@@ -13,9 +13,11 @@
   "plugins": [
     {
       "name": "verification-foundation",
-      "description": "Jurisdiction-neutral verification core (5 skills): legal syllogism, citation extraction, clause checklist, adversarial red-team review, output scoring. No connectors, sends no data out.",
-      "version": "1.0.0",
-      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "description": "Jurisdiction-neutral verification core (7 skills): legal syllogism, citation extraction, clause checklist, adversarial red-team review, single-pass opposing-counsel attack, judicial first impression (cold-reader test), output scoring. No connectors, sends no data out.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Wieslaw Mazur / MateMatic"
+      },
       "license": "Apache-2.0",
       "source": "./verification-foundation"
     },
@@ -23,15 +25,29 @@
       "name": "content-quality",
       "description": "English-writing quality tools (2 skills): humanizer (strips AI-writing patterns) and reviewer (senior editor, verdict + charges). Changes wording, never facts.",
       "version": "1.1.0",
-      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "author": {
+        "name": "Wieslaw Mazur / MateMatic"
+      },
       "license": "MIT",
       "source": "./content-quality"
     },
     {
-      "name": "eu-law-sources",
-      "description": "EU legislation and CJEU case law via EUR-Lex / Cellar SPARQL (1 skill). Ships the eu-sparql MCP connector (read-only, public API). Requires node/npx.",
+      "name": "ai-governance",
+      "description": "Regulatory triage for AI and cyber (3 skills): EU AI Act classification and role mapping (Reg. 2024/1689), NIS2 scope and obligations triage (Dir. 2022/2555), privilege pre-flight before sending legal content to external AI. Drafts for decision; outward acts stay human.",
       "version": "1.0.0",
-      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "author": {
+        "name": "Wieslaw Mazur / MateMatic"
+      },
+      "license": "Apache-2.0",
+      "source": "./ai-governance"
+    },
+    {
+      "name": "eu-law-sources",
+      "description": "EU legislation and CJEU case law via EUR-Lex / Cellar SPARQL (2 skills): SPARQL search and authority triage (route the source layer before answering). Ships the eu-sparql MCP connector (read-only, public API). Requires node/npx.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Wieslaw Mazur / MateMatic"
+      },
       "license": "Apache-2.0",
       "source": "./eu-law-sources"
     },
@@ -39,7 +55,9 @@
       "name": "data-protection",
       "description": "GDPR operations for law firms and DPOs (4 skills): DPIA (Art. 35-36), 72h breach response (Art. 33-34), data subject rights / DSAR (Art. 12, 15-22), records of processing RoPA and processor-contract DPA review (Art. 30, 28). Grounded in the GDPR articles and EDPB guidelines.",
       "version": "1.0.0",
-      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "author": {
+        "name": "Wieslaw Mazur / MateMatic"
+      },
       "license": "Apache-2.0",
       "source": "./data-protection"
     },
@@ -47,7 +65,9 @@
       "name": "eu-multi-jurisdiction",
       "description": "Nine EU national-law connectors in one install (DE, AT, ES, FI, IE, NL, SE, FR, LU) - legislation and case law against each official source, with ELI/ECLI identifiers. Requires uv/uvx; France needs free PISTE credentials.",
       "version": "1.0.0",
-      "author": { "name": "Wieslaw Mazur / MateMatic" },
+      "author": {
+        "name": "Wieslaw Mazur / MateMatic"
+      },
       "license": "Apache-2.0",
       "source": "./eu-multi-jurisdiction"
     }

@@ -1,7 +1,7 @@
 # awesome-matematic-skills-en
 
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-8-blue.svg)](#installable-skills-8)
+[![Skills](https://img.shields.io/badge/skills-18-blue.svg)](#installable-skills-18)
 [![Plugin](https://img.shields.io/badge/Claude%20Code-plugin%20marketplace-orange.svg)](.claude-plugin/marketplace.json)
 [![skills.sh](https://skills.sh/b/matematicsolutions/awesome-matematic-skills-en)](https://skills.sh/matematicsolutions/awesome-matematic-skills-en)
 [![EU law](https://img.shields.io/badge/jurisdiction-EU%20%2B%20neutral-blue.svg)](#why-an-english-hub)
@@ -16,7 +16,7 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 ## What's here
 
-1. **Domain bundles installed with one command** - 12 skills grouped by function into four plugins. The verification foundation installs without any connector; EU law sources ship their MCP connector with the bundle.
+1. **Domain bundles installed with one command** - 18 skills grouped by function into five plugins (plus the nine-connector multi-jurisdiction bundle). The verification foundation installs without any connector; EU law sources ship their MCP connector with the bundle.
 2. **Curated list** - links to strong open skills from other teams (below). We point to them, we do not republish them.
 3. **Companion Polish hub** for Polish-jurisdiction skills and live PL sources.
 
@@ -24,7 +24,7 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 Two ways to install. **A** (`npx skills`) works in **any agent** that supports the Agent Skills format (Cursor, OpenAI Codex, Windsurf, Gemini CLI, Claude Code) and installs individual skills. **B** is the native Claude Code marketplace, which installs whole bundles and keeps each plugin's inline `CLAUDE.md`.
 
-**What to install.** Start with `verification-foundation` (the jurisdiction-neutral core) and add `content-quality`, `data-protection` and `eu-law-sources` as needed. Installing the whole hub with `npx skills add ...` (no `--skill`) pulls every skill at once; for most users it is cleaner to cherry-pick with `--skill` or install one bundle at a time with `/plugin`.
+**What to install.** Start with `verification-foundation` (the jurisdiction-neutral core) and add `content-quality`, `data-protection`, `ai-governance` and `eu-law-sources` as needed. Installing the whole hub with `npx skills add ...` (no `--skill`) pulls every skill at once; for most users it is cleaner to cherry-pick with `--skill` or install one bundle at a time with `/plugin`.
 
 ### A. Any agent - `npx skills` (cross-agent)
 
@@ -48,13 +48,14 @@ npx skills add matematicsolutions/awesome-matematic-skills-en --skill citation-e
 /plugin install verification-foundation@matematic-skills-en   # core, no connectors
 /plugin install content-quality@matematic-skills-en           # English-writing tools
 /plugin install eu-law-sources@matematic-skills-en            # EU law + eu-sparql connector
+/plugin install ai-governance@matematic-skills-en             # AI Act / NIS2 / privilege pre-flight
 ```
 
 The verification foundation and content-quality bundles use no connectors and send nothing out. `eu-law-sources` runs its MCP connector via `npx`, so it needs `node` in the environment.
 
 ---
 
-## Installable skills (12)
+## Installable skills (18)
 
 ### Plugin `verification-foundation` (jurisdiction-neutral verification core)
 
@@ -67,6 +68,8 @@ Install-always. No connectors, sends no data out. `/plugin install verification-
 | citation-extraction-en | Extract and structure legal citations from text so they can be verified, not trusted on sight. | Apache-2.0 |
 | clause-checklist-en | Check a contract against a clause checklist; flag missing or risky clauses. | Apache-2.0 |
 | output-scoring-en | Score an AI legal output against a rubric before it ships. | Apache-2.0 |
+| opposing-counsel-attack-en | Single-pass opposing-counsel attack: core theory of attack, steel-manned-then-X-rayed reconstruction, point-by-point vulnerabilities. The cheap tier below the full adversarial review. | Apache-2.0 |
+| judicial-first-impression-en | How a submission lands on a sceptical judge reading it cold under time pressure - a seven-part neutral assessment, no rewriting, no attacking. | Apache-2.0 |
 
 ### Plugin `content-quality` (English-writing tools)
 
@@ -84,6 +87,7 @@ Ships the `eu-sparql` MCP connector (read-only, public EUR-Lex / Cellar). Requir
 | Skill | What it does | Licence |
 |---|---|---|
 | eu-sparql-search | Search EU legislation and CJEU case law via the Publications Office SPARQL endpoint (CELEX, ELI URI, multi-language acts). | Apache-2.0 |
+| authority-triage-en | Route the source layer before answering: EU primary/secondary law, national chain, courts, soft law - which layer governs, in what order to verify, through which connector. | Apache-2.0 |
 
 ### Plugin `data-protection` (GDPR operations for firms and DPOs)
 
@@ -96,6 +100,16 @@ Operational GDPR tooling grounded in the regulation's articles and EDPB guidelin
 | gdpr-dsar-en | Data subject rights (DSAR): classify Art. 15-22 rights, Art. 12(3) deadline counter, exemption/refusal gates, draft response + register. Deterministic one-month deadline calculator (Reg. 1182/71). | Apache-2.0 |
 | gdpr-ropa-dpa-en | Records of processing (RoPA, Art. 30) + processor-contract review (DPA, Art. 28(3)(a)-(h)) with a redline of missing clauses. Deterministic Art. 28 clause check. | Apache-2.0 |
 
+### Plugin `ai-governance` (AI Act, NIS2, privilege pre-flight)
+
+Regulatory triage for organisations deploying or building AI. Drafts for decision; the outward act (registering, notifying, filing, sending) stays human. `/plugin install ai-governance@matematic-skills-en`.
+
+| Skill | What it does | Licence |
+|---|---|---|
+| eu-ai-act-triage-en | EU AI Act triage (Reg. 2024/1689): AI-system definition, Art. 5 prohibitions, high-risk (Annex I/III + Art. 6(3) filter), GPAI, Art. 50 transparency, role mapping (provider/deployer/importer/distributor, Art. 25), FRIA signal (Art. 27). Ends in a classification card. | Apache-2.0 |
+| nis2-compliance-triage-en | NIS2 triage (Dir. 2022/2555): essential/important entity scope with the size-cap rule, the ten Art. 21(2) measures, Art. 23 incident clock (24h/72h/1 month), Art. 20 management duties, national transposition check. | Apache-2.0 |
+| privilege-preflight-en | Pre-flight before sending legal content to an external AI surface: SAFE/CAUTION/STOP band on privilege, professional secrecy, GDPR and trade-secret factors, plus a redacted-safe draft for human approval. | Apache-2.0 |
+
 ---
 
 ## Curated - strong skills from other teams
@@ -104,6 +118,9 @@ We point to these, we do not republish them - check each repo's own licence befo
 
 | Skill | Source |
 |---|---|
+| Legal skills hub, 139 skills (licences per-skill in frontmatter) | [lawvable/awesome-legal-skills](https://github.com/lawvable/awesome-legal-skills) |
+| Swiss legal source & authority triage (MIT) | [lawvable/awesome-legal-skills](https://github.com/lawvable/awesome-legal-skills/tree/main/skills/swiss-legal-source-authority-triage-enrique-g-zbinden) |
+| French judicial reasoning, ENM methodology (MIT) | [lawvable/awesome-legal-skills](https://github.com/lawvable/awesome-legal-skills/tree/main/skills/raisonnement-juridique-amaury-fouret) |
 | AI Act for engineers | [morellid/ai-act-skill](https://github.com/morellid/ai-act-skill) |
 | Anthropic legal suite | [anthropics/claude-for-legal](https://github.com/anthropics/claude-for-legal) |
 | AI Act resources | [GenAI-Gurus/awesome-eu-ai-act](https://github.com/GenAI-Gurus/awesome-eu-ai-act) |
