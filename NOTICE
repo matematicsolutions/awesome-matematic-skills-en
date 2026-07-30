@@ -1,0 +1,48 @@
+NOTICE
+======
+
+awesome-matematic-skills-en - English curation hub of Agent Skills for law
+
+Copyright (c) 2026 Wieslaw Mazur / MateMatic Solutions
+https://matematicsolutions.com
+
+Curation license for this repository (README, taxonomy, marketplace.json,
+CHANGELOG.md, scripts/, references/, this NOTICE): MIT - see LICENSE.
+
+----------------------------------------------------------------------
+
+Per-skill licenses
+==================
+
+Each bundled skill keeps its own license, declared in its SKILL.md
+frontmatter and in .claude-plugin/marketplace.json. MateMatic skills are
+Apache-2.0 unless stated otherwise. Third-party inspirations are credited
+in each skill (see the "inspiration" / "attribution" frontmatter).
+
+Apache-2.0:
+- adversarial-legal-review-en
+- legal-syllogism-en
+- citation-extraction-en
+- clause-checklist-en
+- output-scoring-en
+- opposing-counsel-attack-en
+- judicial-first-impression-en
+- eu-sparql-search
+- eu-ai-act-triage-en
+- nis2-compliance-triage-en
+- authority-triage-en
+- privilege-preflight-en
+- gdpr-dpia-en
+- gdpr-breach-72h-en
+- gdpr-dsar-en
+- gdpr-ropa-dpa-en
+
+MIT:
+- humanizer-en
+- reviewer-en
+
+----------------------------------------------------------------------
+
+The per-skill list above states the licenses as of 2026-07-30, verified
+against the frontmatter of all 18 SKILL.md files. The binding source is
+always that frontmatter, not this list.
