@@ -5,7 +5,7 @@
 [![Plugin](https://img.shields.io/badge/Claude%20Code-plugin%20marketplace-orange.svg)](.claude-plugin/marketplace.json)
 [![skills.sh](https://skills.sh/b/matematicsolutions/awesome-matematic-skills-en)](https://skills.sh/matematicsolutions/awesome-matematic-skills-en)
 [![EU law](https://img.shields.io/badge/jurisdiction-EU%20%2B%20neutral-blue.svg)](#why-an-english-hub)
-[![GDPR-safe](https://img.shields.io/badge/GDPR--safe-by%20default-green.svg)](#why-an-english-hub)
+[![GDPR-safe](https://img.shields.io/badge/GDPR--safe-skill%20layer-green.svg)](TRUST.md)
 
 English hub of method-neutral legal AI skills for Claude Code / Cowork. The verification core, content-quality tools and EU-level law sources port across jurisdictions; deep national law stays where it belongs.
 
@@ -59,7 +59,7 @@ The verification foundation and content-quality bundles use no connectors and se
 
 ### Plugin `verification-foundation` (jurisdiction-neutral verification core)
 
-Install-always. No connectors, sends no data out. `/plugin install verification-foundation@matematic-skills-en`.
+Install-always. No connectors, no outbound calls of its own. `/plugin install verification-foundation@matematic-skills-en`.
 
 | Skill | What it does | Licence |
 |---|---|---|
@@ -136,7 +136,7 @@ EU law ships with `eu-law-sources` above. For national law, see the [eu-legal-mc
 ## Why an English hub
 
 1. **You install only what applies.** Grounding, red-team review and scoring travel to any jurisdiction; country-specific case law does not, so this hub never ships you Polish or German rules you cannot use.
-2. **GDPR-safe by default.** The verification and content skills run locally and send no data out. Connectors are read-only over public APIs.
+2. **GDPR-safe at the skill layer.** The verification and content skills add no connectors and make no outbound calls of their own; connectors in the source bundles are read-only over public APIs. What reaches your model is decided by your configuration - the exact boundary of this claim is written out in [TRUST.md](TRUST.md).
 3. **AI Act Art. 12 + Art. 50.** Record-keeping and the transparency duty are built into how these skills present output - every output is a draft, marked as AI-generated.
 4. **Vendor-agnostic.** The skills follow the open [Agent Skills](https://github.com/anthropics/skills) format and run wherever it is implemented.
 

@@ -65,7 +65,7 @@ The skill drafts the response (plain language, Art. 12(1)), a list of data/sourc
 
 ## Tool - deadline calculator (deterministic, offline)
 
-Do not compute the one-month deadline by hand - month arithmetic has traps (receipt 31 Jan => ends 28/29 Feb, per Regulation (EEC) No 1182/71). Use the script (zero dependencies, GDPR-safe):
+Do not compute the one-month deadline by hand - month arithmetic has traps (receipt 31 Jan => ends 28/29 Feb, per Regulation (EEC) No 1182/71). Use the script (zero dependencies, offline):
 
 ```bash
 python scripts/gdpr_deadlines.py dsar --from 2026-01-31 --extend

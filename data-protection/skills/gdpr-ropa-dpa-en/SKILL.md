@@ -8,7 +8,8 @@ description: >
   contract against the mandatory Art. 28(3)(a)-(h) clauses (controller's instructions, confidentiality,
   security, sub-processing, assistance with data-subject rights, assistance with Art. 32-36,
   deletion/return, audits) + Chapter V transfers. Produces a draft register and a contract redline -
-  it does NOT sign (a human act). Runs locally (GDPR-safe). Use when: "records of processing", "RoPA
+  it does NOT sign (a human act). Adds no connectors and makes no outbound calls of its own; the
+  contract text you paste still goes to the model you have configured. Use when: "records of processing", "RoPA
   Art. 30", "data processing agreement", "DPA Art. 28", "processor contract review", "GDPR register".
 license: Apache-2.0
 allowed-tools: [Bash, Read]
@@ -65,7 +66,7 @@ missing/defective clauses (via [[clause-checklist-en]]).
 
 ## Tool - Art. 28 clause check (deterministic, offline)
 
-Find the gaps in a processor contract with the script - pass the clauses present, get the missing ones (zero dependencies, GDPR-safe):
+Find the gaps in a processor contract with the script - pass the clauses present, get the missing ones (zero dependencies, offline):
 
 ```bash
 python scripts/dpa_clause_check.py --present a,b,c,g

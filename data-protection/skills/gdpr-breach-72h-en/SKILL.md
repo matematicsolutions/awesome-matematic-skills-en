@@ -7,7 +7,8 @@ description: >
   rights and freedoms, (3) notify the SA within 72h (Art. 33) - with a deadline counter from
   awareness, (4) communicate to data subjects (Art. 34, "high risk") + exemptions, (5) internal
   breach register entry (Art. 33(5)). Drafts the notification and communications - it does NOT send
-  to the SA or to data subjects (human acts). Runs locally (GDPR-safe). Use when: "data leak",
+  to the SA or to data subjects (human acts). Adds no connectors and makes no outbound calls of its
+  own; the incident details you paste still go to the model you have configured. Use when: "data leak",
   "GDPR breach", "72-hour notification", "do we notify individuals", "Art. 33", "breach response".
 license: Apache-2.0
 allowed-tools: [Bash, Read]
@@ -67,7 +68,7 @@ This is the accountability evidence for the SA.
 
 ## Tool - deadline calculator (deterministic, offline)
 
-Do not count the 72h in your head. Use the script (zero dependencies, GDPR-safe, local):
+Do not count the 72h in your head. Use the script (zero dependencies, offline):
 
 ```bash
 python scripts/gdpr_deadlines.py breach --from "2026-06-30T14:30"

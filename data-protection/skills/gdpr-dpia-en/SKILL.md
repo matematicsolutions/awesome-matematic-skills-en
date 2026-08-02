@@ -7,8 +7,9 @@ description: >
   mandatory cases, the SA's mandatory list), (2) the DPIA structure mandated by Art. 35(7)
   (systematic description, necessity & proportionality, risk assessment, mitigating measures),
   (3) the Art. 36 prior-consultation decision. Drafts the DPIA and a decision log - it does NOT
-  make the controller's risk decision or file with the authority (those are human acts). Runs
-  locally (GDPR-safe). Use when: "do I need a DPIA", "data protection impact assessment", "DPIA
+  make the controller's risk decision or file with the authority (those are human acts). Adds no
+  connectors and makes no outbound calls of its own; the system description you paste still goes
+  to the model you have configured. Use when: "do I need a DPIA", "data protection impact assessment", "DPIA
   for profiling/CCTV/AI", "Art. 35 GDPR", "prior consultation", "high-risk processing".
 license: Apache-2.0
 allowed-tools: [Bash, Read]
@@ -66,7 +67,7 @@ a human files it (governance boundary).
 
 ## Tool - threshold screening (deterministic, offline)
 
-Screen whether a DPIA is required with the script instead of judging by feel (zero dependencies, GDPR-safe):
+Screen whether a DPIA is required with the script instead of judging by feel (zero dependencies, offline):
 
 ```bash
 python scripts/dpia_screening.py --criteria evaluation,sensitive,largescale

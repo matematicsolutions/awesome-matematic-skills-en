@@ -11,7 +11,7 @@ These skills run regulatory triage for organisations deploying or building AI: E
 - **Regulation from the source, not from memory.** Article references carry confidence tags; anything uncertain is marked for verification against EUR-Lex (eu-sparql-search / mcp-eu-compliance connectors) or the national transposition before it is relied on. National transposition status changes - always check it at time of use.
 - **Triage is not a conformity assessment.** These skills classify, map and flag. A high-risk or GPAI finding routes to a human and a full assessment; it is never the end of the analysis.
 - **Not legal advice.** The skills organise obligations and map them to provisions; they do not replace legal analysis of a specific matter.
-- **Confidentiality.** System descriptions, incident details and prompt content are confidential - do not move them outside the agreed flow. Processing is local (GDPR-safe).
+- **Confidentiality.** System descriptions, incident details and prompt content are confidential - do not move them outside the agreed flow. These skills add no outbound channel of their own; what reaches your model is decided by your configuration (see TRUST.md at the hub root).
 
 ## Plugin scope
 
