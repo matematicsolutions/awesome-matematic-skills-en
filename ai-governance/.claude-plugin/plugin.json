@@ -1,0 +1,9 @@
+{
+  "name": "ai-governance",
+  "description": "Regulatory triage for AI and cyber (3 skills): EU AI Act classification and role mapping (Reg. 2024/1689), NIS2 scope and obligations triage (Dir. 2022/2555), privilege pre-flight before sending legal content to external AI. Drafts for decision; outward acts stay human.",
+  "version": "1.0.0",
+  "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
+  "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "license": "Apache-2.0",
+  "keywords": ["legal-ai", "ai-act", "nis2", "ai-governance", "privilege", "compliance", "eu-regulation"]
+}

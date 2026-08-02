@@ -1,9 +1,17 @@
 {
   "name": "verification-foundation",
-  "description": "Jurisdiction-neutral verification core: legal syllogism, citation extraction, clause checklist, adversarial red-team review, and output scoring. No connectors, sends no data out.",
-  "version": "1.0.0",
-  "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
+  "description": "Seven jurisdiction-neutral skills for checking legal AI output before it goes out. Fluency tells you nothing about whether the authority a model cites exists. Each skill either makes one step checkable or attacks the result.\n\ncitation-extraction-en pulls every citation out of an English text: ECLI (CJEU and national), CELEX and Official Journal references, Regulation and Directive numbers, case names, Article and section references. It then normalises them, drops duplicates, and traces short forms (ibid., id., supra, op. cit.) back to what they point at.\n\nlegal-syllogism-en forces an argument into major premise, minor premise, application and conclusion, then names the weak links: unstated assumptions, contested facts, debatable interpretation.\n\nclause-checklist-en walks one contract against the 41 clause categories of CUAD, the Contract Understanding Atticus Dataset (The Atticus Project, CC BY 4.0). Each category comes back present, absent or risky, so a missing clause gets noticed. It quotes the contract instead of paraphrasing it.\n\nadversarial-legal-review-en puts a finished high-stakes document through a four-role debate: builder, attacker, synthesizer, verifier. The weakness is worth finding before opposing counsel, the court or the client finds it.\n\nopposing-counsel-attack-en does the same job in one pass. One experienced lawyer for the other side, handed your submission and told to find every way to beat it, including the procedural ones.\n\njudicial-first-impression-en reads a submission the way a judge reads it cold and under time pressure. It reports what confused it, what you assumed but never proved, and what would have persuaded it.\n\noutput-scoring-en scores a finished output twice. First mechanically: do the cited authorities resolve to something real. Then against a 1-5 rubric. It returns send, revise, or full verification.\n\nThe bundle adds no connectors and opens no network connections of its own. It does not change where your text goes: that is still whatever model you have configured in Claude Code. Apache-2.0.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Wieslaw Mazur / MateMatic Solutions"
+  },
   "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
   "license": "Apache-2.0",
-  "keywords": ["legal-ai", "grounding", "anti-hallucination", "ai-act-art-12", "vendor-agnostic"]
+  "keywords": [
+    "legal-ai",
+    "grounding",
+    "anti-hallucination",
+    "ai-act-art-12",
+    "vendor-agnostic"
+  ]
 }
