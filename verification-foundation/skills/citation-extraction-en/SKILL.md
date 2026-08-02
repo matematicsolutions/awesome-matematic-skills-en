@@ -1,15 +1,17 @@
 ---
 name: citation-extraction-en
 description: >
-  Deterministically extracts every legal citation from an English-language text - ECLI
-  (CJEU and national), EU act identifiers (CELEX, Official Journal references, Regulation/
-  Directive numbers), case names, and cited provisions (Article/section) - then normalises,
-  deduplicates and resolves short references (ibid., id., supra, op. cit., the above-cited
-  judgment) to their antecedent. The front-end to verification: find every citation first,
-  then check it. Mechanical (patterns + rules, no LLM at extraction). Jurisdiction-neutral,
-  EU-aware. Pairs with output-scoring-en and eu-sparql-search. Use when: "list every
-  citation in this text", "what authorities are cited", "extract the provisions", "pull the
-  case references", "what is cited here" - before verification or before sending.
+  Extracts the legal citations from an English-language text by pattern and rule, with no
+  LLM in the extraction step, so the same text yields the same list every run - ECLI (CJEU
+  and national), EU act identifiers (CELEX, Official Journal references, Regulation and
+  Directive numbers), case names, and cited provisions (Article/section). It then
+  normalises, deduplicates and resolves short references (ibid., id., supra, op. cit., the
+  above-cited judgment) to their antecedent. The front end to verification: collect what is
+  cited, then check it. Unusual or malformed citation formats can still be missed, so treat
+  the output as a working list rather than a guarantee. Jurisdiction-neutral, EU-aware. Use
+  when: "list every citation in this text", "what authorities are cited", "extract the
+  provisions", "pull the case references", "what is cited here" - before verification or
+  before sending.
 license: Apache-2.0
 allowed-tools: [Read, Grep]
 data-residency: local
