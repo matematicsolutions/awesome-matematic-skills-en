@@ -6,8 +6,9 @@ description: >-
   exceptions), essential vs important entity, map of the 10 risk-management measures under
   Art. 21(2), incident reporting clock under Art. 23 (24h -> 72h -> 1 month), management body
   duties under Art. 20, penalty ceilings. NIS2 is a directive: obligations bite through NATIONAL
-  transposition, and transpositions differ per member state - the skill FIRST verifies the
-  transposition status of the relevant country as of the day of use, then advises. Output: a
+  transposition, and transpositions differ per member state - so the skill puts the transposition
+  question first and marks it for checking against the national source before anything is relied
+  on. It has no connector of its own and does not confirm transposition status. Output: a
   NIS2 card for human decision. Use when: "does NIS2 apply to us", "essential or important
   entity", "the 10 measures of Art. 21", "NIS2 incident reporting", "management board
   cybersecurity duties", "NIS2 fines", "national transposition of NIS2".

@@ -6,8 +6,9 @@ description: >
   (subsuming facts under each element of the rule), and the conclusion, then flags the weak
   links: unstated assumptions, contested facts, debatable interpretation. Forces every step
   to be said out loud and checkable instead of jumping from facts to a holding. Maps to
-  civil-law subsumption and common-law IRAC/CREAC. Jurisdiction-neutral method. Pairs with
-  adversarial-legal-review-en (attack the syllogism) and reviewer-en. Use when: "build the
+  civil-law subsumption and common-law IRAC/CREAC. Jurisdiction-neutral method: it supplies
+  no rule and checks no citation, so the major premise has to come from a source you trust.
+  Use when: "build the
   syllogism", "lay out the legal reasoning", "apply the rule to the facts", "IRAC this",
   "where is the gap in the argument", "major and minor premise", "structure the analysis"
   - when drafting an opinion, brief, or memo.

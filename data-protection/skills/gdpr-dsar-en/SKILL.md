@@ -6,8 +6,10 @@ description: >
   automated decisions 22), tracks the DEADLINE (one month from receipt, Art. 12(3); +2 months if
   complex), gates exemptions and refusal grounds (e.g. Art. 17(3), manifestly unfounded/excessive
   requests - Art. 12(5)), and drafts the response + a request register. Identity verification of the
-  requester (Art. 12(6)) comes first. It does NOT send responses or erase data (human acts). Runs
-  locally (GDPR-safe). Use when: "subject access request", "erasure request", "right to be forgotten",
+  requester (Art. 12(6)) comes first. It does NOT send responses or erase data (human acts). The skill
+  itself adds no connectors and makes no outbound calls; the text you put in front of it still reaches
+  whatever model you have configured, so keep the request file out of the prompt or point the agent at
+  a local model. Use when: "subject access request", "erasure request", "right to be forgotten",
   "objection", "DSAR deadline", "data portability".
 license: Apache-2.0
 allowed-tools: [Bash, Read]
