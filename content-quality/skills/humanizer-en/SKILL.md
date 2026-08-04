@@ -1,6 +1,6 @@
 ---
 name: humanizer-en
-version: 2.6.0
+version: 2.6.1
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -11,6 +11,11 @@ description: |
   AI detectors measure (burstiness, lexical density and diversity, part-of-speech
   distribution, emotional range).
 license: MIT
+author: Wiesław Mazur / MateMatic Solutions
+canonical_source: >
+  https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/content-quality/skills/humanizer-en/SKILL.md
+  - the maintained version. Catalogue copies are snapshots and may be out of date;
+  check the canonical file before relying on this skill.
 compatibility: claude-code opencode
 allowed-tools:
   - Read
@@ -610,7 +615,9 @@ Provide:
 
 ## Reference
 
-This skill is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia.
+The pattern taxonomy and the structure of this skill follow [blader/humanizer](https://github.com/blader/humanizer) (MIT). The Polish counterpart `humanizer-pl` states the same lineage; this note brings the English skill into line with it. Sections 30-34 and the brand-safety framing are MateMatic's own.
+
+The underlying patterns come from [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup, which the upstream skill also builds on. The observations there come from thousands of instances of AI-generated text on Wikipedia.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
@@ -618,4 +625,5 @@ The "Statistical signatures" section (#30-#34) is based on W. Wołoszyk and M. D
 
 ## Changelog
 
+- v2.6.1 (2026-08-04) - attribution to blader/humanizer (MIT) added to Reference; the Polish counterpart already carried it, the English one did not. Canonical-source pointer added to the frontmatter.
 - v2.6.0 (2026-06-29) - added "Statistical signatures" section (#30-#34): burstiness, verb/noun morphology, lexical density and diversity, emotional range, mechanical transitions. Based on the Wołoszyk & Domaszk detection methodology (MultiLingual 2025).

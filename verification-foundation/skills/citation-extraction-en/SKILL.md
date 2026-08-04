@@ -18,6 +18,10 @@ data-residency: local
 requires-human-approval: false
 pii-egress: none
 metadata:
+  canonical_source: >
+    https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/verification-foundation/skills/citation-extraction-en/SKILL.md
+    - the maintained version. Catalogue copies are snapshots and may be out of date;
+    check the canonical file before relying on any legal reference in this skill.
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
   inspiration: >
