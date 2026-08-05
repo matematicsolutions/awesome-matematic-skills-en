@@ -17,15 +17,19 @@ allowed-tools: [Read]
 data-residency: local
 requires-human-approval: false
 pii-egress: none
+attribution:
+  source: Fuzi.Mingcha (irlab-sdu)
+  license: not-stated
+  relationship: pattern-only
+  note: >
+    The legal syllogism (subsumption; the IRAC and CREAC schemas in common law) is a
+    classical method of legal reasoning. The idea of an explicit syllogism scaffold for AI
+    is inspired in part by Fuzi.Mingcha (major premise, minor premise, conclusion). No use
+    of its code or models; rules and format written from scratch. English counterpart of
+    subsumpcja-pl.
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: >
-    The legal syllogism (subsumption; IRAC/CREAC in common law) is a classical method of
-    legal reasoning. The idea of an explicit syllogism scaffold for AI is inspired in part
-    by the Fuzi.Mingcha project (irlab-sdu, major/minor/conclusion approach); rules and
-    format written from scratch, no use of its code or models. English counterpart of
-    subsumpcja-pl.
   companion_skills: adversarial-legal-review-en, reviewer-en, humanizer-en
 ---
 

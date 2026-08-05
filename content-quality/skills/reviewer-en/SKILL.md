@@ -7,6 +7,15 @@ canonical_source: >
   https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/content-quality/skills/reviewer-en/SKILL.md
   - the maintained version. Catalogue copies are snapshots and may be out of date;
   check the canonical file before relying on this skill.
+attribution:
+  source: julianmemberstack/marko
+  url: https://github.com/julianmemberstack/marko
+  license: MIT
+  relationship: adaptation
+  note: >
+    Content-review adaptation of a code reviewer for Claude Code. The verdict format and
+    the "no fixes" rule are kept 1:1. Charge categories, language and scope are MateMatic's
+    own. Polish counterpart: marko-pl-content.
 allowed-tools: [Read, Grep, Glob, Bash]
 data-residency: local
 requires-human-approval: false

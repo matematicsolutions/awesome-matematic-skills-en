@@ -17,6 +17,15 @@ allowed-tools: [Read, Grep]
 data-residency: local
 requires-human-approval: false
 pii-egress: none
+attribution:
+  source: freelawproject/eyecite (Free Law Project)
+  url: https://github.com/freelawproject/eyecite
+  license: BSD-2-Clause
+  relationship: clean-room
+  note: >
+    The extraction -> aggregation -> annotation architecture follows eyecite. US reporter
+    regexes dropped; ECLI, CELEX/OJ and EU-citation patterns and antecedent rules written
+    from scratch. English counterpart of ekstraktor-cytatow-pl.
 metadata:
   canonical_source: >
     https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/verification-foundation/skills/citation-extraction-en/SKILL.md
@@ -24,11 +33,6 @@ metadata:
     check the canonical file before relying on any legal reference in this skill.
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: >
-    The extraction -> aggregation -> annotation architecture is based on eyecite (Free Law
-    Project), BSD-2-Clause (https://github.com/freelawproject/eyecite). US reporter regexes
-    dropped; ECLI, CELEX/OJ and EU-citation patterns and antecedent rules written from
-    scratch. English counterpart of ekstraktor-cytatow-pl.
   companion_skills: output-scoring-en, eu-sparql-search, legal-syllogism-en
 ---
 

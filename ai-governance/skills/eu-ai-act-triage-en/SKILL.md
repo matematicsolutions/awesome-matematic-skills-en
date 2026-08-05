@@ -18,10 +18,15 @@ allowed-tools: [Read]
 data-residency: local
 requires-human-approval: true
 pii-egress: none
+attribution:
+  relationship: original
+  note: >
+    No third-party source. The triage -> role -> obligations -> report decomposition is an
+    established pattern across the compliance ecosystem; the content itself was written
+    from scratch against the text of Regulation (EU) 2024/1689.
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: the triage -> role -> obligations -> report decomposition is an established pattern across the compliance ecosystem; the content itself was written from scratch against the text of Regulation (EU) 2024/1689
   companion_skills: matematic-konstytucja-ai, legal-ai-audit-bundle, gdpr-dpia-en, mcp-eu-compliance connector
 ---
 

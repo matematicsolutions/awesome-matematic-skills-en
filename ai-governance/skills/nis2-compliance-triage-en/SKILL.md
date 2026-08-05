@@ -17,10 +17,14 @@ allowed-tools: [Read]
 data-residency: local
 requires-human-approval: true
 pii-egress: none
+attribution:
+  relationship: original
+  note: >
+    No third-party source. The "scope navigator" pattern is common in the compliance
+    ecosystem; content written from scratch on the text of Directive (EU) 2022/2555.
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: "the 'scope navigator' pattern from the compliance ecosystem; content written from scratch on the text of Directive (EU) 2022/2555"
   companion_skills: gdpr-breach-72h-en, matematic-konstytucja-ai, sejm-eli-mcp, mcp-eu-compliance
   parity: nis2-ksc-pl
 ---

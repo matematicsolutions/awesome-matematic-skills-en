@@ -15,6 +15,15 @@ allowed-tools: [Read]
 data-residency: local
 requires-human-approval: false
 pii-egress: none
+attribution:
+  source: CUAD (Contract Understanding Atticus Dataset), The Atticus Project
+  url: https://www.atticusprojectai.org/cuad
+  license: CC-BY-4.0
+  relationship: adaptation
+  note: >
+    The 41-category clause taxonomy comes from CUAD. Category descriptions and the risk
+    framing are written from scratch. English counterpart of klauzule-kontraktowe-pl,
+    which adds Polish-law anchors.
 metadata:
   canonical_source: >
     https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/verification-foundation/skills/clause-checklist-en/SKILL.md
@@ -22,11 +31,6 @@ metadata:
     check the canonical file before relying on any legal reference in this skill.
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: >
-    The 41-category clause taxonomy is based on CUAD (Contract Understanding Atticus Dataset),
-    The Atticus Project, licensed CC BY 4.0 (https://www.atticusprojectai.org/cuad). Category
-    descriptions and the risk framing are written from scratch. English counterpart of
-    klauzule-kontraktowe-pl (which adds Polish-law anchors).
   companion_skills: adversarial-legal-review-en, reviewer-en, legal-syllogism-en
 ---
 

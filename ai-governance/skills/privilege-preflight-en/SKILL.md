@@ -17,10 +17,15 @@ allowed-tools: [Read]
 data-residency: local
 requires-human-approval: true
 pii-egress: none
+attribution:
+  relationship: original
+  note: >
+    No third-party source. The "privilege pre-flight" idea and the SAFE/CAUTION/STOP band
+    concept are common in the legal-AI ecosystem; all text and the PL/EU legal bases were
+    written from scratch.
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: "pattern 'privilege pre-flight' from the legal-AI ecosystem - the SAFE/CAUTION/STOP band concept; all text and PL/EU legal bases written from scratch"
   companion_skills: matematic-prompt-defense-pl, gdpr-dpia-en, doc-intel-contract-pl, legal-request-router-pl
 ---
 

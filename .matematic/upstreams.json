@@ -1,0 +1,135 @@
+{
+  "$comment": [
+    "Machine-readable fork layer for this marketplace. The prose version, with the",
+    "licence snapshots and the reasoning, stays in the PL hub's THIRD_PARTY_INSPIRATIONS.md",
+    "- this file is the part scripts/upstream-delta.py can measure.",
+    "relation uses the SAME vocabulary as attribution.relationship in SKILL.md (WM canon",
+    "2026-08-05): vendored | adaptation | pattern-only | clean-room | dependency | original.",
+    "Deliberately not a second private vocabulary - the gate cross-checks the two, and a",
+    "skill claiming LESS provenance than the manifest records is a blocking finding.",
+    "map entries are set to what the skill itself declares; mapping an 'original' skill is",
+    "legitimate and strict - it polices a no-source claim against the nearest upstream.",
+    "pin is written only by `python scripts/upstream-delta.py sync`, and only after the",
+    "checkout is verified complete - never by hand.",
+    "Snapshots are shared with the PL hub: same pins, one clone, so the twins are measured",
+    "against the same upstream commit or not at all."
+  ],
+  "version": 1,
+  "snapshot_root": "~/Projects/_ref/upstream-snapshots",
+  "upstreams": [
+    {
+      "id": "blader-humanizer",
+      "repo": "https://github.com/blader/humanizer",
+      "slug": "blader/humanizer",
+      "license": "MIT",
+      "relation": "adaptation",
+      "ref": "main",
+      "pin": {
+        "commit": "523374dee72d67c7b2b5f858ea0094ffda49c3ac",
+        "ref": "main",
+        "files": 9,
+        "synced": "2026-08-05"
+      },
+      "credit_tokens": [
+        "blader/humanizer"
+      ],
+      "rebrand": [
+        [
+          "humanizer",
+          "humanizer-en"
+        ]
+      ],
+      "map": [
+        {
+          "upstream": "SKILL.md",
+          "ours": "content-quality/skills/humanizer-en/SKILL.md",
+          "relation": "adaptation"
+        }
+      ],
+      "dropped": [
+        "AGENTS.md",
+        "README.md",
+        ".claude-plugin/plugin.json",
+        ".claude-plugin/marketplace.json",
+        ".github/workflows/validate.yml",
+        "agents/openai.yaml",
+        "scripts/validate-package.py"
+      ],
+      "note": "Same upstream as the PL twin, same language as the upstream - so unlike humanizer-pl, the text number here is meaningful. This is the skill whose missing MIT notice was the 2026-08-04 defect; attribution-gate polices the claim, this polices the bytes."
+    },
+    {
+      "id": "lawvable-awesome-legal-skills",
+      "repo": "https://github.com/lawvable/awesome-legal-skills",
+      "slug": "lawvable/awesome-legal-skills",
+      "license": "CC-BY-NC-ND-4.0 on the curation; per-skill licence declared in each upstream SKILL.md frontmatter",
+      "relation": "pattern-only",
+      "ref": "main",
+      "pin": {
+        "commit": "4b0a895640d44add67ab4db1a0250e5a48888ee1",
+        "ref": "main",
+        "files": 2711,
+        "synced": "2026-08-05"
+      },
+      "credit_tokens": [
+        "lawvable/awesome-legal-skills",
+        "lawve-ai/awesome-legal-skills",
+        "awesome-legal-skills"
+      ],
+      "rebrand": [],
+      "map": [
+        {
+          "relation": "adaptation",
+          "upstream": "skills/opposing-counsel-review-larissa-meredith-flister/SKILL.md",
+          "ours": "verification-foundation/skills/opposing-counsel-attack-en/SKILL.md"
+        },
+        {
+          "relation": "adaptation",
+          "upstream": "skills/judicial-first-impression-larissa-meredith-flister/SKILL.md",
+          "ours": "verification-foundation/skills/judicial-first-impression-en/SKILL.md"
+        },
+        {
+          "relation": "original",
+          "upstream": "skills/privilege-sentinel-emily-cabrera/SKILL.md",
+          "ours": "ai-governance/skills/privilege-preflight-en/SKILL.md"
+        },
+        {
+          "relation": "pattern-only",
+          "upstream": "skills/swiss-legal-source-and-authority-triage-enrique-g-zbinden/SKILL.md",
+          "ours": "eu-law-sources/skills/authority-triage-en/SKILL.md"
+        },
+        {
+          "relation": "original",
+          "upstream": "skills/eu-ai-act-quick-assessment-oliver-schmidt-prietz/SKILL.md",
+          "ours": "ai-governance/skills/eu-ai-act-triage-en/SKILL.md"
+        },
+        {
+          "relation": "original",
+          "upstream": "skills/nis2-navigator-oliver-schmidt-prietz/SKILL.md",
+          "ours": "ai-governance/skills/nis2-compliance-triage-en/SKILL.md"
+        }
+      ],
+      "note": "The English side of the same adoptions the PL hub declares. These two forks are English-to-English, so a rising text number here is a real signal rather than a translation artefact. The EU AI Act suite is eleven upstream skills policed against the closest one - a known gap, not a clean result."
+    },
+    {
+      "id": "anttihero-lavern",
+      "repo": "https://github.com/AnttiHero/lavern",
+      "slug": "AnttiHero/lavern",
+      "license": "Apache-2.0",
+      "relation": "pattern-only",
+      "ref": "main",
+      "pin": {
+        "commit": "9d32167c7bc0d6e69037ebcbe9c81698892cec09",
+        "ref": "main",
+        "files": 1856,
+        "synced": "2026-08-05"
+      },
+      "credit_tokens": [
+        "AnttiHero/lavern",
+        "lavern"
+      ],
+      "rebrand": [],
+      "map": [],
+      "note": "Verification skills take architecture patterns from lavern. Upstream is TypeScript, ours is markdown: no comparable text surface, so this claim cannot be machine-checked here. Left visible on purpose rather than dropped."
+    }
+  ]
+}

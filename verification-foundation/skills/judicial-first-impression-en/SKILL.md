@@ -17,10 +17,18 @@ allowed-tools: [Read]
 data-residency: local
 requires-human-approval: false
 pii-egress: none
+attribution:
+  source: lawvable/awesome-legal-skills
+  url: https://github.com/lawvable/awesome-legal-skills
+  license: Apache-2.0
+  relationship: adaptation
+  note: >
+    Adaptation and translation of judicial-first-impression by Larissa Meredith-Flister.
+    Licence as declared in the author's frontmatter. Polish counterpart:
+    pierwsze-wrazenie-sedziego-pl.
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: "lawvable/awesome-legal-skills - judicial-first-impression (Larissa Meredith-Flister, Apache-2.0 per the author's frontmatter) - adaptation and translation"
   companion_skills: opposing-counsel-attack-en, adversarial-legal-review-en, deliverable-fidelity-pl, humanizer-en
 ---
 

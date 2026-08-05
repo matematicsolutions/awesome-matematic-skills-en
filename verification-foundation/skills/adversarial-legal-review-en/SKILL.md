@@ -17,12 +17,21 @@ allowed-tools: [Read, Write]
 data-residency: local
 requires-human-approval: false
 pii-egress: none
+attribution:
+  - source: AnttiHero/lavern
+    license: Apache-2.0
+    relationship: pattern-only
+    note: >
+      Debate plus 3-layer verification pattern. Roles and prompts written from scratch.
+  - source: gregmos/memoforge
+    license: MIT
+    relationship: clean-room
+    note: >
+      Bounded self-revision with regression-revert, reviewer access tiers and the
+      always-deliver invariant. Concepts adapted clean-room, not prompts or code.
 metadata:
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: >
-    AnttiHero/lavern (Apache 2.0) - debate + 3-layer verification pattern; roles and prompts written from scratch.
-    gregmos/memoforge (MIT) - bounded self-revision with regression-revert, reviewer access tiers, always-deliver invariant; concepts adapted clean-room.
 ---
 
 # Adversarial Legal Review (English) - a red team for a high-stakes deliverable

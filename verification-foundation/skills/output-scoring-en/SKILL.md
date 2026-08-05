@@ -15,6 +15,15 @@ allowed-tools: [Read]
 data-residency: local
 requires-human-approval: false
 pii-egress: none
+attribution:
+  source: FudanDISC/DISC-LawLLM (Fudan DISC Lab)
+  url: https://github.com/FudanDISC/DISC-LawLLM
+  license: Apache-2.0
+  relationship: clean-room
+  note: >
+    Two-layer method (objective matching plus a subjective LLM-as-judge rubric on a 1-5
+    scale) based on DISC-Law-Eval. Exam data and judge model dropped; rubric, dimensions
+    and thresholds written from scratch. English counterpart of ocena-outputu-pl.
 metadata:
   canonical_source: >
     https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/verification-foundation/skills/output-scoring-en/SKILL.md
@@ -22,11 +31,6 @@ metadata:
     check the canonical file before relying on any legal reference in this skill.
   author: Wiesław Mazur / MateMatic
   version: 1.0.0
-  inspiration: >
-    Two-layer method (objective matching + a subjective LLM-as-judge rubric, 1-5 scale)
-    based on DISC-Law-Eval from DISC-LawLLM (Fudan DISC Lab), Apache-2.0
-    (https://github.com/FudanDISC/DISC-LawLLM). Exam data and judge model dropped; rubric,
-    dimensions and thresholds written from scratch. English counterpart of ocena-outputu-pl.
   companion_skills: reviewer-en, adversarial-legal-review-en, legal-syllogism-en
 ---
 

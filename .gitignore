@@ -2,3 +2,7 @@ node_modules/
 .DS_Store
 *.log
 .env
+
+# Python bytecode (generowane przez scripts/*.py)
+__pycache__/
+*.pyc

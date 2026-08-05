@@ -16,6 +16,14 @@ canonical_source: >
   https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/content-quality/skills/humanizer-en/SKILL.md
   - the maintained version. Catalogue copies are snapshots and may be out of date;
   check the canonical file before relying on this skill.
+attribution:
+  source: blader/humanizer
+  url: https://github.com/blader/humanizer
+  license: MIT
+  relationship: adaptation
+  note: >
+    The upstream itself builds on Wikipedia "Signs of AI writing" (WikiProject AI
+    Cleanup). Polish counterpart: humanizer-pl.
 compatibility: claude-code opencode
 allowed-tools:
   - Read
