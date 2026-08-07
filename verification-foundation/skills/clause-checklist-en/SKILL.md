@@ -2,8 +2,9 @@
 name: clause-checklist-en
 description: >
   A clause checklist for a single contract - walks the contract against 41 clause categories
-  (the CUAD taxonomy) and marks each one present / absent / risky, so the clause that should
-  be there but is missing does not slip through. Extractive (quotes the contract, does not
+  (the CUAD taxonomy), assesses which of them this deal needs, and marks each applicable one
+  present / absent / risky, so the clause that should be there but is missing does not slip
+  through. Extractive (quotes the contract, does not
   paraphrase). Common-law native, jurisdiction-neutral framing. Different from a bulk audit -
   this goes deep on one contract and asks "what is missing and what bites here". Pairs with
   adversarial-legal-review-en and reviewer-en. Use when: "check the clauses in this contract",
@@ -30,7 +31,7 @@ metadata:
     - the maintained version. Catalogue copies are snapshots and may be out of date;
     check the canonical file before relying on any legal reference in this skill.
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: adversarial-legal-review-en, reviewer-en, legal-syllogism-en
 ---
 
@@ -46,9 +47,17 @@ walks the contract against a fixed list of 41 clause categories and, for each, s
 It is **extractive** - what it shows comes from the contract, not from paraphrase. It flags presence
 and risk; the assessment and the call stay with the lawyer.
 
+One caution built into the method: **CUAD is an extraction taxonomy, not a list of safeguards every
+agreement must contain.** Several categories are deal-specific, and some are mutually exclusive pairs
+(uncapped vs cap on liability; unlimited vs limited licence grants). Treating every absence as a red
+flag buries the real gaps in false positives.
+
 ## The 41 categories (CUAD taxonomy)
 
-Groups follow CUAD (1-6) plus ungrouped categories. For each: present / absent / risky + a quote when present.
+Groups follow CUAD (1-6) plus ungrouped categories. Two steps per category: first **applicability** -
+does this deal need the clause, given the contract type, the parties and the subject matter; then, for
+applicable categories only: present / absent / risky + a quote when present. Mutually exclusive pairs
+count as one decision - record which side the contract takes, not the "absence" of the other side.
 
 ### Contract metadata
 - **Document name**, **Parties** (verify authority to sign), **Governing law**.
@@ -78,13 +87,15 @@ Groups follow CUAD (1-6) plus ungrouped categories. For each: present / absent /
 
 ```
 RED FLAGS (top):
-- ABSENT: <category> - <why it is a risk in this deal>
+- ABSENT: <category, applicable to this deal> - <why this deal needs it>
 - RISKY: <category> - <how it is one-sided>
+(a category marked not applicable never becomes a red flag)
 
 41-CATEGORY TABLE:
-| Category | Status | Note | Quote (if present) |
-| Governing law | present | New York; courts of NY | "..." |
-| Cap on liability | absent | no liability ceiling | - |
+| Category | Applicable | Status | Note | Quote (if present) |
+| Governing law | yes | present | New York; courts of NY | "..." |
+| Cap on liability | yes | absent | no liability ceiling | - |
+| Source code escrow | no - no software licensed | n/a | - | - |
 ...
 ```
 

@@ -18,7 +18,7 @@ requires-human-approval: true
 pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.1.0
+  version: 1.2.0
   companion_skills: gdpr-ropa-dpa-en, legal-ai-audit-bundle
   parity: rodo-dsar-pl
 ---
@@ -33,8 +33,11 @@ controller. Erasure/export is irreversible/outward => always a human (governance
 
 ## Step 0 - Identity and deadline
 
-- **Identity verification** (Art. 12(6)) - where reasonable doubt exists, request further information;
-  this **pauses** the clock until confirmed, but must not be used to obstruct.
+- **Identity verification** (Art. 12(6)) - where reasonable doubt exists, request further information.
+  This does NOT pause the clock unconditionally: per EDPB Guidelines 01/2022 the deadline may be
+  suspended **only** where the information is necessary to confirm identity AND the controller asked
+  for it without undue delay. Preserve the original receipt date in the register - a late or
+  disproportionate identity request does not extend the deadline, and verification must not obstruct.
 - **DEADLINE: one month from receipt** (Art. 12(3)). Extension of **up to 2 months** for complexity/
   number of requests - inform within the first month with the reason. The skill computes `deadline`
   and `deadline_extended`.
@@ -51,7 +54,7 @@ controller. Erasure/export is irreversible/outward => always a human (governance
 | 18 | Restriction | "freeze" instead of erasure |
 | 20 | Portability | consent/contract + automated processing only; structured format |
 | 21 | Objection | legitimate interest / direct marketing (marketing = absolute) |
-| 22 | Automated decisions | right to human intervention |
+| 22 | Automated decisions | primary right = **not to be subject** to a solely automated decision with legal/similarly significant effects; 22(2) exceptions (contract, law, explicit consent) => 22(3) safeguards: human intervention, own view, contest |
 
 ## Step 2 - Gates and refusal grounds
 
@@ -60,8 +63,11 @@ every refusal + inform of the right to lodge a complaint with the SA and a judic
 
 ## Step 3 - Draft response + register
 
-The skill drafts the response (plain language, Art. 12(1)), a list of data/sources (from the RoPA -
-[[gdpr-ropa-dpa-en]]), and a register entry (receipt date, type, deadline, outcome).
+The skill drafts the response (plain language, Art. 12(1)), tailored to the right invoked. For Art. 15
+that means a **copy of the personal data retrieved from the operational systems** that hold it, plus
+available source information (Art. 15(1)(g)) - the RoPA ([[gdpr-ropa-dpa-en]]) supplies only the general
+processing information (purposes, categories, recipients), not the person's data itself. Plus a register
+entry (receipt date, type, deadline, outcome).
 
 ## Tool - deadline calculator (deterministic, offline)
 

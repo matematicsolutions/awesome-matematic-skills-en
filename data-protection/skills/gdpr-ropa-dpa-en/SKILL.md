@@ -18,7 +18,7 @@ requires-human-approval: true
 pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.1.0
+  version: 1.2.0
   companion_skills: clause-checklist-en, gdpr-dpia-en
   parity: rodo-ropa-dpa-pl
 ---
@@ -42,11 +42,17 @@ are human acts.
 - envisaged erasure time limits per category,
 - general description of technical and organisational security measures (Art. 32).
 
-**Processor (Art. 30(2))** - narrower: categories of processing per controller, transfers + safeguards,
-description of measures.
+**Processor (Art. 30(2))** - mandatory fields per Art. 30(2)(a)-(d): name and contact details of the
+processor(s) **and of each controller** on whose behalf it acts (plus, where applicable, representatives
+and the DPO), categories of processing per controller, transfers + safeguards, description of measures.
+Naming controllers and sub-processors alone is NOT a complete register - contact details, representatives
+and DPO are statutory fields.
 
 The skill validates completeness (a missing field is a gap, not a guess) and flags activities needing a
-DPIA => [[gdpr-dpia-en]]. The Art. 30(5) exemption (<250 persons) is narrow - rarely applies in practice.
+DPIA => [[gdpr-dpia-en]]. The Art. 30(5) exemption (<250 persons) is narrow - and unavailable regardless
+of headcount where processing is likely to result in a risk, is not occasional, includes Art. 9(1)
+special categories **or Art. 10 criminal-convictions data** (each a separate disqualifier). Rarely
+applies in practice.
 
 ## Part 2 - Processor contract review (Art. 28(3))
 

@@ -4,6 +4,31 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.08.07] - 2026-08-07
+
+Legal-accuracy fixes prompted by external review (codex flags on the
+mike-workflows eu-gdpr-pack PR, all seven confirmed against source texts).
+
+### Fixed
+
+- `gdpr-ropa-dpa-en` 1.2.0: processor register now lists the full
+  Art. 30(2)(a) field set (processor(s), each controller, representatives,
+  DPO, contact details); Art. 10 criminal-convictions data added as a
+  separate Art. 30(5) disqualifier.
+- `gdpr-dsar-en` 1.2.0: identity verification no longer pauses the deadline
+  unconditionally (EDPB Guidelines 01/2022 conditions spelled out, original
+  receipt date preserved); Art. 15 response requires a copy of the data from
+  operational systems, not the RoPA; Art. 22 restated - primary right is not
+  to be subject to a solely automated decision, 22(2) exceptions and 22(3)
+  safeguards named.
+- `clause-checklist-en` 1.1.0: applicability gate before absence flagging -
+  CUAD is an extraction taxonomy, not a mandatory-safeguard list; mutually
+  exclusive pairs count as one decision; not-applicable never red-flags.
+- `citation-extraction-en` 1.1.0: pointer-aware short-reference resolution
+  (ibid./id./loc. cit. = immediately preceding; supra/op. cit. resolve by
+  author/title/note pointer over proximity; ambiguous = unresolved, manual
+  review).
+
 ## [2026.07.05-2] - 2026-07-05
 
 Skill Constitution across the whole hub: all 18 skills pass the

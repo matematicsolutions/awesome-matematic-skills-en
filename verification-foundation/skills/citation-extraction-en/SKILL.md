@@ -32,7 +32,7 @@ metadata:
     - the maintained version. Catalogue copies are snapshots and may be out of date;
     check the canonical file before relying on any legal reference in this skill.
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: output-scoring-en, eu-sparql-search, legal-syllogism-en
 ---
 
@@ -52,7 +52,8 @@ citations might miss one or invent one. Local, jurisdiction-neutral, EU-aware.
 
 1. **Extraction** - recognise and capture every reference by the patterns below.
 2. **Aggregation** - resolve short references (ibid. / id. / supra / op. cit. / "the above-cited
-   judgment") to their full antecedent, so they count as one citation, not several.
+   judgment") to their antecedents by the pointer-aware rules below, so they count as one citation,
+   not several.
 3. **Hand-off** - pass the structured list to verification (grounding) and, for EU sources, to
    eu-sparql-search for retrieval.
 
@@ -74,9 +75,19 @@ citations might miss one or invent one. Local, jurisdiction-neutral, EU-aware.
 
 ## Aggregation - short references (antecedents)
 
-Resolve to the full citation given earlier: `ibid.`, `id.`, `supra`, `op. cit.`, `the cited
-judgment`, `the above-cited`, `loc. cit.`. Each points to the nearest matching antecedent in the
-text - count it as the same citation, but keep where it occurs.
+Short reference forms carry **different resolution rules** - they cannot all be sent to the nearest
+antecedent:
+
+- `ibid.` / `id.` / `loc. cit.` - the immediately preceding authority.
+- `supra` / `op. cit.` - often carry a **pointer** that overrides proximity: an author, a title
+  fragment, or a note number ("Kranenborg, op. cit., p. 12"; "supra note 14"). Resolve by the pointer
+  first; fall back to proximity only when the reference is bare.
+- Descriptive forms (`the cited judgment`, `the above-cited`) - match by described attributes (court,
+  party, subject), not position alone.
+
+Where more than one antecedent matches, or none does, mark the reference **unresolved - manual
+review** instead of guessing: a wrong merge silently fuses two distinct authorities into one. Count
+each resolved reference as the same citation as its antecedent, but keep where it occurs.
 
 ## Output format
 
