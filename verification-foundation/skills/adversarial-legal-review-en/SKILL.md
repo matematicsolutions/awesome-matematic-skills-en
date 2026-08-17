@@ -31,7 +31,7 @@ attribution:
       always-deliver invariant. Concepts adapted clean-room, not prompts or code.
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Adversarial Legal Review (English) - a red team for a high-stakes deliverable
@@ -88,7 +88,7 @@ Attack each pillar like an opposing counsel / a sceptical court:
 Output: per pillar - the charge + its strength (high/medium/low) + the source of the charge.
 
 ### 3. Synthesizer - the balance
-For each pillar decide: **survived / weakened / defeated**. State what is left of the thesis after the attack, where the deliverable needs reframing, where a caveat is required ("contested risk, authority is split").
+For each pillar decide: **survived / weakened / defeated / UNCERTAIN** (UNCERTAIN carries a subcategory - see 4b). State what is left of the thesis after the attack, where the deliverable needs reframing, where a caveat is required ("contested risk, authority is split").
 Output: a table of pillar -> verdict -> recommended change.
 
 **Priority hierarchy (when charges collide):** Logic (consistency) ~ Citations (grounding) ~ Counter-arguments **>** Style **>** Clarity. The substantive layer (logic/citations/counter-arguments) NEVER trades against itself - on conflict, accumulate BOTH views and add a caveat, do not pick arbitrarily. Style and clarity NEVER override substance. The synthesizer writes only actionable change instructions; it ignores trivia (`nice_to_have`) and charges from reviewers who already accepted a pillar.
@@ -123,6 +123,59 @@ The debate is not single-pass. The synthesizer may order an edit and run the dra
 4. **Continue** - blockers remain, cap not reached, no regression/plateau -> increment, another round of targeted edits.
 5. **Forced exit at max** - cap reached with blockers -> `forced_exit_at_max` + a banner listing the unresolved blockers.
 
+### 4b. Verdict function - deterministic, with explicit weights
+
+The final verdict is NOT the verifier's overall impression. It is computed from an explicit formula:
+
+**Step A - critical conditions (any one met -> FAIL, stop counting):**
+- a citation that fails the mechanical grounding check,
+- a defeated pillar left in the thesis without a caveat,
+- a high-strength attacker charge with no answer in the synthesis.
+
+**Step B - weighted score.** Each pillar gets a weight from the synthesizer's verdict:
+
+| Pillar verdict | Weight |
+|---|---|
+| survived | 1.0 |
+| weakened | 0.5 |
+| UNCERTAIN (either subcategory) | 0.25 |
+| defeated | 0.0 |
+
+`score = sum of weights / number of pillars`. **Score < 0.6 -> FAIL.**
+
+**Step C - conditional threshold.** Two or more pillars weakened or UNCERTAIN -> at most **SEND_CONDITIONALLY** (list the conditions: which caveats to add, which evidence to supply). Otherwise **PASS**.
+
+Weights and thresholds are printed in the skill on purpose: an auditor must be able to reproduce the verdict from the numbers alone, without asking the model "why". That is the AI Act art. 12 record-keeping requirement turned into arithmetic. The same three steps (A critical -> B weighted -> C conditional) run in the fidelity check; only the weights differ, because the material differs (thesis pillars vs analysis findings).
+
+Where UNCERTAIN comes from: when the synthesizer has no basis to rule on a pillar, it does not force a verdict. It writes UNCERTAIN with a subcategory - INSUFFICIENT_EVIDENCE (the material is missing; say what and where to get it) or SOURCE_AMBIGUOUS (the material is there but does not settle the point; say where the ambiguity sits). UNCERTAIN in the verdict table caps the outcome the same way a weakened pillar does, and it is never quietly rounded to "survived".
+
+### 4c. Dissent panel - OPTIONAL module
+
+The builder/attacker debate is a staged dispute: the same model plays both roles and can be wrong in the same place at the same time. The dissent panel catches a different error - an interpretation one pass treats as obvious that is not obvious at all.
+
+**When (explicit cost gate).** Only for LOAD-BEARING clauses and theses: those the outcome of the matter turns on, at stakes already qualified as high (section 0). Every independent vote is a separate full pass, so the panel gets 0 questions by default; name at most 1-2 pillars where a split reading genuinely changes the verdict. If no pillar clears that bar, do not run the panel and say so in the report.
+
+**Protocol.**
+
+1. Phrase the interpretive question as multiple choice (2-4 options), e.g. "Does the liquidated-damages clause in s. 8 also cover termination? A) yes, B) no, C) only on termination for the contractor's fault". A closed list forces comparable verdicts - "it depends" is not an option.
+2. Collect **at least 2 INDEPENDENT votes**: a second model, a second pass with a different prompt and no access to the debate transcript, or a human. Every voter gets the identical question + the disputed passage and does NOT see the others' verdicts.
+3. Panel agrees -> one line in the report (question, option, who voted).
+4. **A split is a first-class FINDING.** The disagreement goes into the deliverable verbatim: who voted, which option, with what confidence, which passage they relied on. Do NOT hide it and do NOT average it. Quietly picking the "better" answer is a ruling without a mandate - exactly what the panel exists to prevent.
+5. **Resolution loop: pull authority.** Fetch the case law or provision from the jurisdiction's primary sources and re-vote with the evidence on the table. One re-vote round, no more.
+6. **A split that survives the evidence -> human gate.** The pillar gets UNCERTAIN (section 4b): SOURCE_AMBIGUOUS when the panel read the same material and sees different things; INSUFFICIENT_EVIDENCE when material needed to decide is missing. A lawyer decides, not a third model pass.
+
+FINDING format in the deliverable:
+
+```
+FINDING - panel split (s. 8, liquidated damages):
+  Vote A (model X): option B - "damages stipulated for non-performance" (confidence: high)
+  Vote B (independent pass): option C - "for the contractor's fault" (confidence: medium)
+  Re-vote after evidence (<authority>, <source>): split holds.
+  Pillar verdict: UNCERTAIN (SOURCE_AMBIGUOUS) - lawyer's decision.
+```
+
+**Fit with the rest of the skill (dissent plugs in, it does not duplicate).** The panel's verdict enters the synthesizer's table like any other: an unresolved split = UNCERTAIN with weight 0.25 in the verdict function (4b), so 2+ such pillars pull the outcome to SEND_CONDITIONALLY on their own. A panel re-vote does NOT count as a revision round under the bounded loop - the per-stakes cap covers edits to the deliverable after the verifier, while the panel has its own, harder cap: one vote + one repeat with evidence. Escalation to a human is the same mechanism as `forced_exit_at_max` in the exit tree.
+
 ## Terminal states and always-deliver
 
 **Every ending MUST produce an artefact for the human** (a full review block or a markdown fallback). Never a silent / empty exit. Terminal states:
@@ -139,7 +192,7 @@ The banner always shows: the terminal state, which draft version was delivered, 
 
 Stakes: HIGH (qualifies)
 Iterations: v2 (best=v2) | Terminal state: accepted_early_on_v2 | aggregate_score: 78 -> 86
-Thesis pillars: 5 | Survived: 3 | Weakened: 1 | Defeated: 1
+Thesis pillars: 5 | Survived: 2 | Weakened: 1 | Defeated: 1 | UNCERTAIN: 1
 
 | Pillar                       | Attack (strength)   | Verdict   | Action                       |
 |------------------------------|---------------------|-----------|------------------------------|
@@ -148,7 +201,8 @@ Thesis pillars: 5 | Survived: 3 | Weakened: 1 | Defeated: 1
 | ...                          | ...                 | ...       | ...                          |
 
 Verifier check: 9/10 OK. Point 1 (grounding): 1 citation failed - BLOCK.
-Confidence level after the debate: MEDIUM (authority is split on 1 pillar).
+Verdict function: Step A (critical) YES - failed citation -> FAIL. Step B for the record: (1.0+1.0+0.5+0.25+0.0)/5 = 0.55 (< 0.6).
+Confidence level after the debate: MEDIUM (1 pillar UNCERTAIN, authority is split on 1 pillar).
 
 Recommendation: do NOT send before (a) fixing the failed citation, (b) adding a caveat to the defeated pillar.
 
@@ -175,4 +229,4 @@ An expert panel = a multi-perspective analysis of a business decision by 5-7 per
 
 ## Attribution
 
-The pattern (debate + 3-layer verification) is inspired by AnttiHero/lavern (Apache 2.0). Roles, prompts and the 10-point check are written from scratch. Bounded self-revision (the exit tree with regression-revert), reviewer access tiers (isolated/augmented), mediator conflict-priority and the always-deliver invariant are adapted clean-room from gregmos/memoforge (MIT) - concepts of loop control and roles, not prompts or code. Polish counterpart: adversarial-legal-review-pl.
+The pattern (debate + 3-layer verification) is inspired by AnttiHero/lavern (Apache 2.0). Roles, prompts and the 10-point check are written from scratch. Three further lavern patterns arrived in v1.1.0, each adapted from scratch and ported from the Polish twin to close a twin divergence: UNCERTAIN as a first-class verdict (section 3/4b), the deterministic verdict function with explicit weights (4b), and the dissent panel (4c; multiple-choice question to independent votes, a split shown verbatim as a FINDING, a resolve loop authority -> re-vote -> escalation, adapted from lavern's `src/mcp/tools/dissent.ts` with jurisdiction-neutral sources and a one-round re-vote cap). Bounded self-revision (the exit tree with regression-revert), reviewer access tiers (isolated/augmented), mediator conflict-priority and the always-deliver invariant are adapted clean-room from gregmos/memoforge (MIT) - concepts of loop control and roles, not prompts or code. Polish counterpart: adversarial-legal-review-pl.

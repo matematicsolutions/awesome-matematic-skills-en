@@ -27,3 +27,9 @@ Reviewed 2026-08-07 (backport of codex flags from mike-workflows PR #16).
 - Art. 30(5) - ok - exemption test; each disqualifier independent ("occasional", "risk", art. 9(1), art. 10).
 - Art. 9(1) - ok - special categories reference as one 30(5) disqualifier.
 - Art. 10 - ok - criminal convictions and offences data; separate 30(5) disqualifier previously missing - the codex flag that triggered this ledger.
+
+## adversarial-legal-review-en
+
+Review 2026-08-17 (v1.1.0 - port from the Polish twin: deterministic verdict function, UNCERTAIN as a first-class verdict, dissent panel).
+
+- art. 12 - ok - AI Act (Regulation (EU) 2024/1689) art. 12(1): "High-risk AI systems shall technically allow for the automatic recording of events (logs) over the lifetime of the system"; art. 12(2) ties logging to traceability of the system's functioning. The skill's claim: explicit weights and thresholds let an auditor reproduce the verdict from the numbers alone - record-keeping turned into arithmetic. Consistent. Verified at source: EUR-Lex CELEX:32024R1689 (consolidated HTML), 2026-08-17.

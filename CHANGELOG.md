@@ -20,6 +20,14 @@ Twin parity with the Polish line, plus two patterns adopted the same day.
   spec-speak for shipped behaviour, catch-all words; plus the "preserve the complete
   proposition" shortening rule. Ported alongside humanizer-pl 1.2.0.
 
+- `adversarial-legal-review-en` v1.1.0 - **twin merge**: deterministic verdict function with
+  explicit weights (Step A critical / B weighted / C conditional), UNCERTAIN as a fourth
+  synthesizer verdict with INSUFFICIENT_EVIDENCE / SOURCE_AMBIGUOUS, and the optional dissent
+  panel (multiple-choice question to independent votes, split shown verbatim, one re-vote round,
+  human gate). Until today PL and EN evolved apart; each lacked the other's mechanisms. The
+  attribution gate's twin check is now silent in both repos. Legal-accuracy ledger: art. 12
+  verified at source (EUR-Lex CELEX:32024R1689).
+
 ### Changed
 
 - Attributions moved to list form; `AnttiHero/lavern` (Apache-2.0) credited on
