@@ -16,21 +16,29 @@ data-residency: local
 requires-human-approval: false
 pii-egress: none
 attribution:
-  source: FudanDISC/DISC-LawLLM (Fudan DISC Lab)
-  url: https://github.com/FudanDISC/DISC-LawLLM
-  license: Apache-2.0
-  relationship: clean-room
-  note: >
-    Two-layer method (objective matching plus a subjective LLM-as-judge rubric on a 1-5
-    scale) based on DISC-Law-Eval. Exam data and judge model dropped; rubric, dimensions
-    and thresholds written from scratch. English counterpart of ocena-outputu-pl.
+  - source: FudanDISC/DISC-LawLLM (Fudan DISC Lab)
+    url: https://github.com/FudanDISC/DISC-LawLLM
+    license: Apache-2.0
+    relationship: clean-room
+    note: >
+      Two-layer method (objective matching plus a subjective LLM-as-judge rubric on a 1-5
+      scale) based on DISC-Law-Eval. Exam data and judge model dropped; rubric, dimensions
+      and thresholds written from scratch. English counterpart of ocena-outputu-pl.
+  - source: AnttiHero/lavern
+    url: https://github.com/AnttiHero/lavern
+    license: Apache-2.0
+    relationship: pattern-only
+    note: >
+      UNCERTAIN as a first-class score (uncertainty recorded rather than averaged away, no
+      forced middle mark). Subcategories, thresholds and wording written from scratch. Same
+      upstream as the Polish twin ocena-outputu-pl, ported 2026-08-17 to close a twin drift.
 metadata:
   canonical_source: >
     https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/verification-foundation/skills/output-scoring-en/SKILL.md
     - the maintained version. Catalogue copies are snapshots and may be out of date;
     check the canonical file before relying on any legal reference in this skill.
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: reviewer-en, adversarial-legal-review-en, legal-syllogism-en
 ---
 
@@ -67,11 +75,58 @@ Score each dimension 1-5 with a one-sentence reason:
 | Jurisdiction fit | confuses systems/rules | correct for the governing law |
 | Grounding (anti-hallucination) | claims with no basis | every claim has a basis |
 
+### UNCERTAIN instead of a number - a first-class score
+
+When the judge has no basis for a number, it does not invent one. Instead of a forced 3 it
+writes **UNCERTAIN**, with a subcategory and a note on what evidence is missing:
+
+- **INSUFFICIENT_EVIDENCE** - the score cannot be given without material that is not in the
+  session (the judgment the output relies on, the contract it refers to). Write down WHAT is
+  missing and where to get it.
+- **SOURCE_AMBIGUOUS** - the material is there but does not settle the point (an ambiguous
+  clause, conflicting passages, a question that admits two readings). Write down WHERE the
+  ambiguity sits.
+
+Hard rules:
+- UNCERTAIN does not enter the average and must never be quietly turned into a 3. A forced
+  middle score is exactly the silence about uncertainty this skill exists to catch.
+- UNCERTAIN in Legal correctness or Grounding -> decision capped at **Full verification**.
+- UNCERTAIN in any other dimension -> decision capped at **Revise**.
+
+"AI that knows what it does not know" as a field on the scorecard, not a claim about it.
+
 ## Decision
 
-- **Send** - Layer 1 clean and subjective average >= 4, no dimension < 3.
-- **Revise** - Layer 1 clean but a dimension scores 2-3 (name it).
-- **Full verification** - Layer 1 has a mismatch or a dimension = 1 -> route to grounding / adversarial review.
+- **Send** - Layer 1 clean, no UNCERTAIN, subjective average >= 4, no dimension < 3.
+- **Revise** - Layer 1 clean but a dimension scores 2-3 (name it), or UNCERTAIN outside
+  the critical dimensions.
+- **Full verification** - Layer 1 has a mismatch, a dimension = 1, or UNCERTAIN in Legal
+  correctness / Grounding -> route to grounding / adversarial review.
+
+## Re-scoring - monotonicity and anchors
+
+A score card is often issued twice: once on the first pass, once after revisions. The second
+pass is where scores quietly rise, because the author now knows the charges and can argue
+around them. Two hard rules.
+
+**Monotonicity.** A re-score may lower the decision at any time, for any reason. Raising it
+requires **new evidence**, not new argument. New evidence means Layer 1 re-run with a
+different result, or material that was not in the session before (the judgment finally
+supplied, the contract finally attached). "On reflection this is good enough" is not
+evidence and does not move the score.
+
+**Anchors.** While any of the following is open, the decision cannot rise above **Full
+verification**, whatever the subjective average says:
+
+- a citation, provision or docket number that does not match the source in Layer 1,
+- a RED finding dropped from the summary,
+- UNCERTAIN in Legal correctness or Grounding.
+
+Only re-running the tool that set an anchor can clear it. A judge's opinion cannot. Same rule
+`agentic-risk-asi-pl` applies to finding severity: direct evidence is not negotiable.
+
+Record every blocked attempt to raise the score. Seeing who tried to move the verdict, and on
+what argument, is often worth more than the verdict.
 
 ## Output format
 
@@ -81,10 +136,18 @@ LAYER 2 (1-5 rubric):
   Legal correctness: 4 - <reason>
   Completeness: 3 - <...>
   Clarity: 5 - <...>
-  Jurisdiction fit: 4 - <...>
+  Jurisdiction fit: UNCERTAIN (INSUFFICIENT_EVIDENCE) - the output rests on a judgment whose
+    text is not in the session; missing: the reasoning as handed down
   Grounding: 4 - <...>
-  Average: 4.0
+  Average: 4.0 (from 4 numeric dimensions; UNCERTAIN outside the average)
+ANCHORS: none (or: citation [2019] UKSC 12 unmatched - decision capped at Full verification)
 DECISION: Revise (Completeness 3 - limitation period not addressed)
+```
+
+On a re-score, add one line:
+
+```
+RE-SCORE #2: Revise -> Revise. Raise to Send rejected: argument only, Layer 1 not re-run.
 ```
 
 ## Limits
