@@ -1,6 +1,6 @@
 ---
 name: humanizer-en
-version: 2.6.1
+version: 2.7.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -17,13 +17,22 @@ canonical_source: >
   - the maintained version. Catalogue copies are snapshots and may be out of date;
   check the canonical file before relying on this skill.
 attribution:
-  source: blader/humanizer
-  url: https://github.com/blader/humanizer
-  license: MIT
-  relationship: adaptation
-  note: >
-    The upstream itself builds on Wikipedia "Signs of AI writing" (WikiProject AI
-    Cleanup). Polish counterpart: humanizer-pl.
+  - source: blader/humanizer
+    url: https://github.com/blader/humanizer
+    license: MIT
+    relationship: adaptation
+    note: >
+      The upstream itself builds on Wikipedia "Signs of AI writing" (WikiProject AI
+      Cleanup). Polish counterpart: humanizer-pl.
+  - source: deepseek-ai/deepseek-harness
+    url: https://github.com/deepseek-ai/deepseek-harness
+    license: MIT
+    relationship: pattern-only
+    note: >
+      Documentation mode (patterns 35-42 and the "preserve the complete proposition"
+      rule): adapted from their slop checklist for technical documentation and prose
+      standard (docs/AGENTS.md, .agents/skills/dsh-prose-standard). No text copied;
+      patterns and examples written from scratch. Same upstream as the Polish twin.
 compatibility: claude-code opencode
 allowed-tools:
   - Read
@@ -532,6 +541,74 @@ AI-text detectors do not read for "meaning" - they measure quantifiable linguist
 
 ---
 
+## DOCUMENTATION MODE (READMEs, SKILL.md, ADRs, code comments, decision notes)
+
+Patterns 1-34 are about prose for a human reader. Technical documentation has its own slop, which a prose humanizer lets through: the sentences are fine, the document is wrong. Run this mode when the file is a README, SKILL.md, ADR, decision note, code comment, or agent instruction.
+
+### 35. The same rule in more than one home
+
+**Symptom:** the same rule in the README, the SKILL.md and a comment, each in a slightly different version. On the next change, one of them goes stale.
+
+**Rule:** one fact, one home. Grep a distinctive phrase; keep one place, turn the rest into links.
+
+### 36. Narrated history instead of current state
+
+**Flag words:** previously, now, no longer, used to, renamed, moved, after the refactor, in PR #.
+
+**Problem:** the document describes the journey, not the state. Six months on, the reader cannot tell what is current.
+
+**Bad:** The gate used to live in `scripts/`; after the July refactor it now lives in `tools/`.
+
+**Good:** Gate: `tools/braingraph_format.py`. Change history: git.
+
+### 37. Status annotations in prose
+
+**Flag words:** (implemented!), TODO in body text, "in future", "planned", "for now".
+
+**Problem:** status rots faster than the sentence carrying it. Code and manifests carry status; paragraphs do not.
+
+### 38. Hand-restated inventories of what the source generates
+
+**Symptom:** a list of files, tables, tests, or packages copied into prose. Stale on the first change.
+
+**Rule:** when the source or a generator is authoritative, link to it. Numbers in prose only with a measurement and a date.
+
+### 39. Reasoning transcript instead of contract
+
+**Symptom:** a comment or section walks through how the author reached the solution, proves obvious branches, or rehearses rejected local variants.
+
+**Problem:** the reader needs the obligation (what goes in, what comes out, what happens on failure, who owns it), not the path. The path belongs in a decision note; the contract stays with the code.
+
+**Bad:** I first tried a regex, but it missed diacritics, so I added NFKC, and then it turned out that...
+
+**Good:** NFKC normalisation before matching: without it "ł" and "l" differ for the regex. Alternatives: [[note]].
+
+### 40. Emphasis inflation
+
+**Symptom:** bold, CAPS, or "critically" in every other sentence. When everything is important, nothing is.
+
+**Rule:** emphasis only for the clause that changes behaviour (modality, negative guarantee, exception).
+
+### 41. Spec-speak describing what already works
+
+**Flag words:** should, will, we plan to, acceptance criteria, migration plan - in a document describing shipped behaviour.
+
+**Problem:** a note about a decision already taken speaks in the conditional, so the reader cannot tell whether this is or is to be.
+
+**Rule:** shipped = present tense, indicative. A proposal is a separate document with `proposed` status.
+
+### 42. Catch-all word instead of the thing's name
+
+**Words to check (not banned):** contract, boundary, shape, surface, layer, gate, mechanism.
+
+**Rule:** before using one, ask whether a more exact term names it better: "response fields" over "response shape", "JSON validation" over "validation boundary", "ESM exports" over "module shape". Keep the word when it names the exact subject (contract = an obligation between parties; boundary = a literal process, network or security boundary).
+
+### Preserve the complete proposition - the shortening rule
+
+Before shortening any documentation, list every proposition it carries: actor and action; condition, timing and ordering; modality (must / may / never); negative guarantee and exception; ownership, side effect, failure mode, consequence. Cut adjectives, repetition and narration only when EVERY proposition survives and the whole is clearer. **A smaller word count alone is not an improvement.** This is the safety catch on compaction that loses content.
+
+Three cases where you ADD rather than cut: a caller-visible contract (returns, throws, side effects, ownership, timing), an implicit dependency or ordering the code does not show, and a rationale without which someone will "simplify" the code the wrong way. There, one more sentence is cheaper than a regression.
+
 ## Process
 
 1. Read the input text carefully
@@ -633,5 +710,6 @@ The "Statistical signatures" section (#30-#34) is based on W. Wołoszyk and M. D
 
 ## Changelog
 
+- v2.7.0 (2026-08-17) - added DOCUMENTATION MODE (#35-#42): one home per fact, narrated history, status annotations, hand-restated inventories, reasoning transcripts, emphasis inflation, spec-speak for shipped behaviour, catch-all words; plus the "preserve the complete proposition" shortening rule. Complements prose patterns 1-34. Ported alongside humanizer-pl 1.2.0.
 - v2.6.1 (2026-08-04) - attribution to blader/humanizer (MIT) added to Reference; the Polish counterpart already carried it, the English one did not. Canonical-source pointer added to the frontmatter.
 - v2.6.0 (2026-06-29) - added "Statistical signatures" section (#30-#34): burstiness, verb/noun morphology, lexical density and diversity, emotional range, mechanical transitions. Based on the Wołoszyk & Domaszk detection methodology (MultiLingual 2025).

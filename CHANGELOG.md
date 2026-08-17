@@ -6,22 +6,24 @@ Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
 ## [2026.08.17] - 2026-08-17
 
-Twin parity with the Polish line, plus the monotonic-judge pattern.
+Twin parity with the Polish line, plus two patterns adopted the same day.
 
 ### Added
 
 - `output-scoring-en` v1.1.0 - UNCERTAIN as a first-class score (INSUFFICIENT_EVIDENCE /
-  SOURCE_AMBIGUOUS, kept out of the average, capping the decision). The Polish twin
-  `ocena-outputu-pl` has carried this since v1.1.0; the English copy never got it, and the
-  attribution gate surfaced the gap as a twin divergence.
+  SOURCE_AMBIGUOUS, kept out of the average, capping the decision). The Polish twin has
+  carried this since v1.1.0; the attribution gate surfaced the gap as a twin divergence.
 - `output-scoring-en` - re-scoring section: raising a decision requires new evidence, not
-  new argument; anchors (unmatched citation, dropped RED finding, UNCERTAIN in a critical
-  dimension) cap the decision at Full verification.
+  new argument; anchors cap the decision at Full verification.
+- `humanizer-en` v2.7.0 - DOCUMENTATION MODE (#35-#42): one home per fact, narrated history,
+  status annotations, hand-restated inventories, reasoning transcripts, emphasis inflation,
+  spec-speak for shipped behaviour, catch-all words; plus the "preserve the complete
+  proposition" shortening rule. Ported alongside humanizer-pl 1.2.0.
 
 ### Changed
 
-- `output-scoring-en` - `attribution:` moved to list form and credits `AnttiHero/lavern`
-  (Apache-2.0, pattern-only) for the UNCERTAIN mechanism, matching the Polish twin.
+- Attributions moved to list form; `AnttiHero/lavern` (Apache-2.0) credited on
+  output-scoring-en, `deepseek-ai/deepseek-harness` (MIT, pattern-only) on humanizer-en.
 - `NOTICE` - generated upstream block regenerated.
 
 ## [2026.08.07] - 2026-08-07
