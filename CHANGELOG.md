@@ -4,6 +4,14 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.09.21b] - 2026-09-21
+
+### Fixed
+
+- `searchable-case-files-en` 0.1.1 - shared code with the Polish twin: Polish report strings now
+  carry diacritics; resuming a 0.1.0 output still recognises its unreadable-page marker.
+  No change for English or Portuguese output.
+
 ## [2026.09.21] - 2026-09-21
 
 ### Added

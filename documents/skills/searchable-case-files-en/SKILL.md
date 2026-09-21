@@ -20,7 +20,7 @@ attribution:
       library's silent failure modes.
 metadata:
   author: Wieslaw Mazur / MateMatic
-  version: 0.1.0
+  version: 0.1.1
   license: MIT
   cost: no LLM, no cloud (local OCR)
   twin: akta-przeszukiwalne-pl
