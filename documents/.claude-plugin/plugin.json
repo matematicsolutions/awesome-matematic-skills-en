@@ -1,0 +1,9 @@
+{
+  "name": "documents",
+  "description": "Document operations for law firms: a folder of case files, including scans, turned into searchable text with page numbers and a report of unreadable pages and files with identical text under different names (searchable-case-files-en). Local OCR on the CPU, no connectors, nothing leaves the computer.",
+  "version": "1.0.0",
+  "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
+  "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "license": "MIT",
+  "keywords": ["legal-ai", "ocr", "pdf", "case-files", "local-first", "no-cloud"]
+}

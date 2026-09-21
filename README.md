@@ -16,7 +16,7 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 ## What's here
 
-1. **Domain bundles installed with one command** - 18 skills grouped by function into five plugins (plus the nine-connector multi-jurisdiction bundle). The verification foundation installs without any connector; EU law sources ship their MCP connector with the bundle.
+1. **Domain bundles installed with one command** - 19 skills grouped by function into six plugins (plus the nine-connector multi-jurisdiction bundle). The verification foundation installs without any connector; EU law sources ship their MCP connector with the bundle.
 2. **Curated list** - links to strong open skills from other teams (below). We point to them, we do not republish them.
 3. **Companion Polish hub** for Polish-jurisdiction skills and live PL sources.
 
@@ -55,7 +55,7 @@ The verification foundation and content-quality bundles use no connectors and se
 
 ---
 
-## Installable skills (18)
+## Installable skills (19)
 
 ### Plugin `verification-foundation` (jurisdiction-neutral verification core)
 
@@ -109,6 +109,14 @@ Regulatory triage for organisations deploying or building AI. Drafts for decisio
 | eu-ai-act-triage-en | EU AI Act triage (Reg. 2024/1689): AI-system definition, Art. 5 prohibitions, high-risk (Annex I/III + Art. 6(3) filter), GPAI, Art. 50 transparency, role mapping (provider/deployer/importer/distributor, Art. 25), FRIA signal (Art. 27). Ends in a classification card. | Apache-2.0 |
 | nis2-compliance-triage-en | NIS2 triage (Dir. 2022/2555): essential/important entity scope with the size-cap rule, the ten Art. 21(2) measures, Art. 23 incident clock (24h/72h/1 month), Art. 20 management duties, national transposition check. | Apache-2.0 |
 | privilege-preflight-en | Pre-flight before sending legal content to an external AI surface: SAFE/CAUTION/STOP band on privilege, professional secrecy, GDPR and trade-secret factors, plus a redacted-safe draft for human approval. | Apache-2.0 |
+
+### Plugin `documents` (searchable case files)
+
+Case files that exist only as scans cannot be searched. This plugin reads them locally and hands back text with page numbers. `/plugin install documents@matematic-skills-en`.
+
+| Skill | What it does | Licence |
+|---|---|---|
+| searchable-case-files-en | A folder of case files (PDFs, including scans) becomes text with page numbers, a local search tool (file, page, snippet) and a report: unreadable pages, duplicate files, and files with identical text under different names. OCR on the CPU; nothing leaves the computer. Twin of `akta-przeszukiwalne-pl`. | MIT |
 
 ---
 

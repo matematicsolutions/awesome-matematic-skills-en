@@ -42,6 +42,16 @@
       "source": "./ai-governance"
     },
     {
+      "name": "documents",
+      "description": "Document operations (1 skill): a folder of case files, including scans with no text layer, becomes text with page numbers, a local search tool and a report - unreadable pages, duplicate files and files with identical text under different names (searchable-case-files-en). Local OCR on the CPU (LiteParse); the case text never leaves the computer.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Wieslaw Mazur / MateMatic"
+      },
+      "license": "MIT",
+      "source": "./documents"
+    },
+    {
       "name": "eu-law-sources",
       "description": "EU legislation and CJEU case law via EUR-Lex / Cellar SPARQL (2 skills): SPARQL search and authority triage (route the source layer before answering). Ships the eu-sparql MCP connector (read-only, public API). Requires node/npx.",
       "version": "1.1.0",

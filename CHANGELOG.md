@@ -4,6 +4,16 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.09.21] - 2026-09-21
+
+### Added
+
+- Plugin `documents` 1.0.0 with `searchable-case-files-en` 0.1.0 - a folder of case files,
+  including scans, becomes text with page numbers, a local search tool and a report of
+  unreadable pages and files with identical text under different names. Local OCR on the
+  CPU (LiteParse, Apache-2.0). Twin of `akta-przeszukiwalne-pl`; the code is shared.
+- README: 19 skills in six plugins.
+
 ## [2026.08.17] - 2026-08-17
 
 Twin parity with the Polish line, plus two patterns adopted the same day.
