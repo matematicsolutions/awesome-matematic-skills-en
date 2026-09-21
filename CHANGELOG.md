@@ -4,6 +4,14 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.09.21c] - 2026-09-21
+
+### Added
+
+- `searchable-case-files-en` 0.1.2 - `--check`: environment check before work (Python, OCR library
+  with a smoke test, Smart App Control read-only, language model, disk space), exit 0/10/20.
+  Pattern from `doctor --smoke` in jerryjliu/docjev.
+
 ## [2026.09.21b] - 2026-09-21
 
 ### Fixed

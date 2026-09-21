@@ -20,7 +20,7 @@ attribution:
       library's silent failure modes.
 metadata:
   author: Wieslaw Mazur / MateMatic
-  version: 0.1.1
+  version: 0.1.2
   license: MIT
   cost: no LLM, no cloud (local OCR)
   twin: akta-przeszukiwalne-pl
@@ -35,10 +35,15 @@ the page, so you can check it against the original right away.
 
 ```bash
 python -m pip install liteparse==2.14.6
+python scripts/akta.py --check
 python scripts/akta.py "C:/Cases/2024-CV-123/bundle"
 cd "C:/Cases/2024-CV-123/bundle-text"
 python szukaj.py "expert report"
 ```
+
+`--check` takes a few seconds to assess the machine: Python, the OCR library (whether Windows lets
+it load), Smart App Control (read-only), the language model and disk space. Result: OK, NOTES or
+BLOCKED (exit 0/10/20). Run it before starting on a large bundle.
 
 The script names are Polish (the code is shared with the Polish twin): `akta.py` means
 "case files", `szukaj.py` means "search".
