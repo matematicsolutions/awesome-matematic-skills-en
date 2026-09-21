@@ -43,9 +43,14 @@ python szukaj.py "expert report"
 The script names are Polish (the code is shared with the Polish twin): `akta.py` means
 "case files", `szukaj.py` means "search".
 
-The first run downloads the English OCR model (Tesseract language data, about 15 MB,
-Apache-2.0). To work offline, download it once and pass its folder with `--tessdata`.
-The only other language wired in is Polish (`--lang pol`).
+**Pick the language of the documents, not of the user.** English is the default;
+Portuguese case files (Brazil, Portugal) need `--lang por`, Polish ones `--lang pol`. The
+report and messages follow the same language. Reading Portuguese scans with the English
+model loses most accents and about one word in six (measured, see Limits).
+
+The first run downloads the OCR model for the chosen language (Tesseract language data,
+12-15 MB, Apache-2.0). To work offline, download it once and pass its folder with
+`--tessdata`.
 
 ## What you get (next to the case folder; originals are untouched)
 
@@ -69,8 +74,8 @@ Search ignores letter case and accents. It matches whole words: `contract` does 
 ## What the skill enforces
 
 - OCR text is for SEARCHING. Always check a quote against the original before relying on it.
-- Dollar amounts are left as read. (The Polish twin repairs `$` misread for `§`; this
-  version does not, because `$ 5,000` in English documents is an amount.)
+- Currency is left as read. The `$` -> `§` repair runs only for Polish (`--lang pol`);
+  in English and Portuguese documents `$ 5,000` and `R$ 5.000` are amounts.
 - The page count of every file is compared with the pages actually read; a mismatch is a
   block, not a silent success.
 - Only numbers are printed to the screen. The case text stays in the output folder.
@@ -82,6 +87,9 @@ Search ignores letter case and accents. It matches whole words: `contract` does 
   as a scan: 98.7% of its words are findable at 300 dpi, 93.2% on a deliberately degraded
   scan (rotated, blurred, noisy). Character error rate is higher (1.5% and 22%) mostly
   because lines come out in a different order - that hurts reading, not searching.
+  Portuguese (public Brazilian judgment rendered as a scan, `--lang por`): 99.3% of words
+  findable at 300 dpi, 92.6% degraded; the English model on the same scan found 83.9% and
+  kept 39 of 272 accented letters.
 - Speed: about 2 s per page (measured on one Windows 11 laptop); a thousand pages take
   about half an hour. Slower on weaker hardware.
 - Windows with Smart App Control may block the OCR library's unsigned files
