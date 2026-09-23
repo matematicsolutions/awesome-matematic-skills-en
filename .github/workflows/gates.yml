@@ -1,0 +1,65 @@
+name: Gates
+
+# The repo already shipped four working gates and nothing called them, so they ran
+# only when someone remembered. This workflow calls them on every push and PR.
+#
+# Two details matter and are easy to get wrong:
+#  - legal-accuracy-gate picks its base from merge-base with origin/main, so it needs
+#    the full history (fetch-depth: 0). With a shallow clone it finds no base and
+#    reports zero changed files, which passes for the wrong reason.
+#  - attribution-gate cross-checks this hub against its Polish twin. Without the twin
+#    checked out it still exits 0, having compared against nothing. That is a gate
+#    that looks green because it had no subject, so the twin is checked out here.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    name: Attribution, legal accuracy, preflight, marketplace
+
+    steps:
+      - name: Checkout this hub
+        uses: actions/checkout@v4
+        with:
+          path: en
+          fetch-depth: 0
+
+      - name: Checkout the Polish twin (for the attribution cross-check)
+        uses: actions/checkout@v4
+        with:
+          repository: matematicsolutions/awesome-matematic-skills-pl
+          path: pl
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Each gate is its own step on purpose: a combined command would report one
+      # red light and hide which gate produced it.
+
+      - name: Attribution gate (with twin cross-check)
+        working-directory: en
+        run: python scripts/attribution-gate.py --twin ../pl
+
+      - name: Legal accuracy gate
+        working-directory: en
+        run: python scripts/legal-accuracy-gate.py
+
+      - name: Preflight
+        working-directory: en
+        run: python scripts/preflight.py
+
+      - name: Marketplace consistency
+        working-directory: en
+        run: node scripts/check-marketplace.mjs
