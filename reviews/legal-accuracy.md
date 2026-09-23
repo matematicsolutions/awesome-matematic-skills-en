@@ -33,3 +33,20 @@ Reviewed 2026-08-07 (backport of codex flags from mike-workflows PR #16).
 Review 2026-08-17 (v1.1.0 - port from the Polish twin: deterministic verdict function, UNCERTAIN as a first-class verdict, dissent panel).
 
 - art. 12 - ok - AI Act (Regulation (EU) 2024/1689) art. 12(1): "High-risk AI systems shall technically allow for the automatic recording of events (logs) over the lifetime of the system"; art. 12(2) ties logging to traceability of the system's functioning. The skill's claim: explicit weights and thresholds let an auditor reproduce the verdict from the numbers alone - record-keeping turned into arithmetic. Consistent. Verified at source: EUR-Lex CELEX:32024R1689 (consolidated HTML), 2026-08-17.
+
+## legal-request-router-en
+
+Reviewed 2026-09-23 (new skill).
+
+- Article 14 - ok with a scope caveat - AI Act art. 14 is headed "Human oversight"; verified 2026-09-23 against the consolidated text fetched from CELLAR (CELEX 32024R1689, `Accept: application/xhtml+xml`), not from memory. Paragraph 1 binds the duty to **high-risk** AI systems ("High-risk AI systems shall be designed and developed in such a way ... that they can be effectively overseen by natural persons"). The skill originally implied its routing trace satisfies art. 14; rewritten to state that the article covers high-risk systems, that classification is a separate question (`eu-ai-act-triage-en`), and that running the router discharges no obligation.
+- Regulation (EU) 2024/1689 - ok - full title and number confirmed in the same CELLAR fetch (2026-09-23): Regulation (EU) 2024/1689 of the European Parliament and of the Council, the AI Act. Cited only to identify the instrument the scope caveat refers to; no substantive claim rests on it.
+
+## intake-sufficiency-en
+
+Reviewed 2026-09-23 (new skill).
+
+- Article 14 - ok with a scope caveat - same source and same check as above (CELEX 32024R1689 via CELLAR, 2026-09-23). Wording changed from "is part of human oversight under Article 14" to a plain statement that naming gaps keeps the decision with a person, plus an explicit note that art. 14 applies to high-risk systems and that this skill neither answers nor presumes that classification.
+- Regulation (EU) 2024/1689 - ok - full title and number confirmed in the same CELLAR fetch (2026-09-23): Regulation (EU) 2024/1689 of the European Parliament and of the Council, the AI Act. Cited only to identify the instrument the scope caveat refers to; no substantive claim rests on it.
+
+Note on method: EUR-Lex HTML document URLs returned an empty shell for this CELEX id, so the text was retrieved through the CELLAR content-negotiation endpoint instead. Recorded here because the same trap will recur on the next AI Act check.
+

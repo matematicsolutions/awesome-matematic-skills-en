@@ -16,7 +16,7 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 ## What's here
 
-1. **Domain bundles installed with one command** - 19 skills grouped by function into six plugins (plus the nine-connector multi-jurisdiction bundle). The verification foundation installs without any connector; EU law sources ship their MCP connector with the bundle.
+1. **Domain bundles installed with one command** - 22 skills grouped by function into six plugins (plus the nine-connector multi-jurisdiction bundle). The verification foundation installs without any connector; EU law sources ship their MCP connector with the bundle.
 2. **Curated list** - links to strong open skills from other teams (below). We point to them, we do not republish them.
 3. **Companion Polish hub** for Polish-jurisdiction skills and live PL sources.
 
@@ -55,7 +55,7 @@ The verification foundation and content-quality bundles use no connectors and se
 
 ---
 
-## Installable skills (19)
+## Installable skills (22)
 
 ### Plugin `verification-foundation` (jurisdiction-neutral verification core)
 
@@ -70,6 +70,9 @@ Install-always. No connectors, no outbound calls of its own. `/plugin install ve
 | output-scoring-en | Score an AI legal output against a rubric before it ships. | Apache-2.0 |
 | opposing-counsel-attack-en | Single-pass opposing-counsel attack: core theory of attack, steel-manned-then-X-rayed reconstruction, point-by-point vulnerabilities. The cheap tier below the full adversarial review. | Apache-2.0 |
 | judicial-first-impression-en | How a submission lands on a sceptical judge reading it cold under time pressure - a seven-part neutral assessment, no rewriting, no attacking. | Apache-2.0 |
+| legal-request-router-en | Triage a legal request into a proportionate verification path, so routine work is not over-checked and high-stakes work is not under-checked. | Apache-2.0 |
+| intake-sufficiency-en | Score whether an instruction is complete enough to start on; turn gaps into client questions and separate the client's legal premises from facts. | Apache-2.0 |
+| deliverable-fidelity-en | Check that the final document still carries what the analysis found; an omitted RED finding blocks. Bundled zero-dependency script plus a deterministic verdict. | Apache-2.0 |
 
 ### Plugin `content-quality` (English-writing tools)
 

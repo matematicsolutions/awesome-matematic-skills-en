@@ -4,6 +4,35 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.09.23] - 2026-09-23
+
+### Added
+
+- `legal-request-router-en` 1.0.0 - triage for a legal request: classifies complexity, risk and
+  audience, then returns an ordered verification path. Routes only to skills this hub actually
+  ships, and states plainly what `privilege-preflight-en` does not do (it never performs the
+  final redaction, and this hub ships no pseudonymisation engine).
+- `intake-sufficiency-en` 1.0.0 - scores whether an instruction is complete enough to start on
+  (six dimensions, 0-100), turns gaps into client-ready questions, and separates the client's
+  legal premises from facts so an unverified premise cannot silently carry an analysis.
+- `deliverable-fidelity-en` 1.0.0 - checks that the final document still carries what the
+  analysis found. Bundled zero-dependency script for mechanical coverage, LLM spot-check for
+  RED findings downgraded in tone, deterministic verdict from published weights. An omitted
+  RED finding exits 1.
+
+### Changed
+
+- `verification-foundation` 1.1.0 to 1.2.0: seven skills to ten. README and marketplace counts
+  updated (19 to 22 skills in the hub).
+
+### Notes
+
+The three skills are counterparts of Polish originals, rebuilt rather than translated. The
+fidelity engine is the clearest case: the Polish script truncates word endings to absorb
+inflection, which in English manufactures false matches ("clause" truncated to "clau" matches
+"claustrophobia"). The English engine expands terms into surface forms instead. A false match
+is the dangerous direction, because it silently passes an omitted RED finding.
+
 ## [2026.09.21c] - 2026-09-21
 
 ### Added
