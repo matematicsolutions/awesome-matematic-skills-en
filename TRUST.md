@@ -50,6 +50,32 @@ itself is local too depends on its vendor, not on us. With a cloud model,
 keep identifying details out of prompts or
 anonymise first; the Polish hub ships `let-it-be` for exactly that.
 
+## The licence will not be taken back
+
+The skills in this hub are open and stay open. Apache-2.0 for the ones we wrote,
+MIT for adaptations, each declared in its own `SKILL.md` frontmatter. That is a
+settled decision, not a trial period, and it is worth stating plainly because the
+alternative is common: a source-available licence that reserves the right to
+revoke permission later. A firm cannot build a process on a permission that can
+be withdrawn.
+
+Two things follow, and both are checkable rather than promised. What you have
+already installed stays yours under the licence you received it under; no later
+change here reaches back. And you can fork the hub and run it yourself, which is
+the only guarantee that actually survives us losing interest.
+
+We do not claim this is charity. Our work that is genuinely hard to copy is not
+in these files: it is in the corpora, the source connectors and the measurements
+behind them. Closing the licence here would buy us little in practice, because
+most of what a skill carries is method: a rubric, a threshold, an order of steps.
+Anyone can read that and rewrite it in their own words, and no licence term stops
+them from doing so.
+
+If a skill here ever stops being a method and starts carrying a corpus, data, or
+a measurement that cannot be reproduced without our work, that specific component
+gets its own licence and we say so in the open. Nothing currently in this hub is
+in that position.
+
 ## Human gate
 
 Nothing produced here is legal advice. Treat every output as a draft that
