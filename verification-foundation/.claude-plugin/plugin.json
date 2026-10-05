@@ -6,6 +6,11 @@
     "name": "Wieslaw Mazur / MateMatic Solutions"
   },
   "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "repository": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "documentationUrl": "https://github.com/matematicsolutions/awesome-matematic-skills-en/tree/main/verification-foundation#readme",
+  "supportUrl": "https://github.com/matematicsolutions/awesome-matematic-skills-en/issues",
+  "privacyPolicyUrl": "https://github.com/matematicsolutions/awesome-matematic-skills-en/tree/main/verification-foundation#data",
+  "termsOfServiceUrl": "https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/verification-foundation/LICENSE",
   "license": "Apache-2.0",
   "keywords": [
     "legal-ai",
