@@ -1,6 +1,6 @@
 ---
 name: humanizer-en
-version: 2.7.0
+version: 2.7.1
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -36,8 +36,6 @@ attribution:
 compatibility: claude-code opencode
 allowed-tools:
   - Read
-  - Write
-  - Edit
   - Grep
   - Glob
   - AskUserQuestion
