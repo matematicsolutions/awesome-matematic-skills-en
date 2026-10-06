@@ -4,6 +4,25 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.06] - 2026-10-06
+
+### Fixed
+
+- Shared rules now reach users. Claude Code does not load a `CLAUDE.md` placed at a plugin's
+  root (stated by `claude plugin validate` and the Claude directory checks), so each bundle's
+  safety rules never reached anyone - neither after `/plugin install` nor in a single-skill
+  install. Each bundle's rules now live in `SHARED-RULES.md` and are copied into the end of
+  every skill by `scripts/shared-rules-sync.py`, which also fails on any drift. 21 skills in
+  5 bundles carry the block; `eu-multi-jurisdiction` ships connectors only and is pending.
+- README and TRUST.md no longer claim that a plugin's `CLAUDE.md` carries its rules.
+- `deliverable-fidelity-en`: `Bash` removed from `allowed-tools`; each command now asks the
+  user first.
+
+### Added
+
+- `verification-foundation`: icon, Apache-2.0 `LICENSE`, `README.md` with a Data section,
+  directory links in `plugin.json`.
+
 ## [2026.09.23] - 2026-09-23
 
 ### Added

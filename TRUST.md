@@ -33,7 +33,7 @@ Each claim below is checkable by reading the skill's own files.
   receive dates or clause lists, not case files.
 - **Drafts, not acts.** Notifying a supervisory authority, sending a DSAR
   response, filing, signing: the skill prepares the document, a person
-  performs the act. This boundary is stated per bundle in its `CLAUDE.md`.
+  performs the act. This boundary is stated in every skill, in its bundle's shared rules at the end of `SKILL.md`.
 
 ## What the frontmatter fields mean
 

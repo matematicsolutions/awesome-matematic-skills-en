@@ -22,7 +22,7 @@ Curatorial licence: **MIT** (skills keep their own licences declared in SKILL.md
 
 ## Installation
 
-Two ways to install. **A** (`npx skills`) works in **any agent** that supports the Agent Skills format (Cursor, OpenAI Codex, Windsurf, Gemini CLI, Claude Code) and installs individual skills. **B** is the native Claude Code marketplace, which installs whole bundles and keeps each plugin's inline `CLAUDE.md`.
+Two ways to install. **A** (`npx skills`) works in **any agent** that supports the Agent Skills format (Cursor, OpenAI Codex, Windsurf, Gemini CLI, Claude Code) and installs individual skills. **B** is the native Claude Code marketplace, which installs whole bundles. Either way every skill carries its bundle's shared rules at the end of its `SKILL.md`.
 
 **What to install.** Start with `verification-foundation` (the jurisdiction-neutral core) and add `content-quality`, `data-protection`, `ai-governance` and `eu-law-sources` as needed. Installing the whole hub with `npx skills add ...` (no `--skill`) pulls every skill at once; for most users it is cleaner to cherry-pick with `--skill` or install one bundle at a time with `/plugin`.
 
@@ -153,7 +153,7 @@ EU law ships with `eu-law-sources` above. For national law, see the [eu-legal-mc
 
 ## Shared standards
 
-All skills inherit three shared standards in [`references/`](./references): citation style and confidence tags, responsibility and data protection, firm deployment. Each plugin's `CLAUDE.md` carries the core inline so it works after installing the plugin alone.
+All skills inherit three shared standards in [`references/`](./references): citation style and confidence tags, responsibility and data protection, firm deployment. Each bundle keeps its core rules in `SHARED-RULES.md`, and `scripts/shared-rules-sync.py` copies them into the end of every skill in that bundle, so they hold after installing a whole plugin or a single skill. (Claude Code does not load a `CLAUDE.md` placed at a plugin's root, so we do not rely on one.) Exception: `eu-multi-jurisdiction` ships connectors only, with no skill to carry the block.
 
 ## Licence
 

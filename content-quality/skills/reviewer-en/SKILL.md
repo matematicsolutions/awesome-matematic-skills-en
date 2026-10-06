@@ -128,3 +128,21 @@ Always exactly this structure. Nothing more. No preamble. No sign-off.
 ## Attribution
 
 English content-review adaptation of [Marko by julianmemberstack](https://github.com/julianmemberstack/marko) (a code reviewer for Claude Code). The verdict format and the "no fixes" rule are kept 1:1. Charge categories, language, and scope are MateMatic's own. Polish counterpart: marko-pl-content.
+
+<!-- shared-rules:begin (generated from ../../SHARED-RULES.md by scripts/shared-rules-sync.py - do not edit here) -->
+## Shared rules of the content-quality plugin (Content quality)
+
+These rules apply to every skill in this plugin, including where the skill itself is silent. They are copied into each skill, so they hold whether you install the whole plugin or a single skill.
+
+These skills edit English text - they strip AI-writing patterns (humanizer) and review copy for substance and tone (reviewer). They are writing tools, not legal advice, and not a source of facts.
+
+### Rules
+
+- **No fabrication.** The skills change wording and structure, never the facts, numbers, citations or sources. If a claim has no source, the fix is to source it, not to phrase it more confidently.
+- **Brand-safety.** The humanizer improves prose; it is not a tool to evade AI detectors. MateMatic teaches AI transparency - the goal is better writing, not hiding that AI was used.
+- **Human gate.** Output is a draft. A person reviews it before it goes out.
+
+### Plugin scope
+
+Jurisdiction- and topic-neutral. No external connectors, no data sent out. For legal verification (grounding, red-team, scoring) use the `verification-foundation` plugin.
+<!-- shared-rules:end -->

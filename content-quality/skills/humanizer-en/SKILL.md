@@ -711,3 +711,21 @@ The "Statistical signatures" section (#30-#34) is based on W. Wołoszyk and M. D
 - v2.7.0 (2026-08-17) - added DOCUMENTATION MODE (#35-#42): one home per fact, narrated history, status annotations, hand-restated inventories, reasoning transcripts, emphasis inflation, spec-speak for shipped behaviour, catch-all words; plus the "preserve the complete proposition" shortening rule. Complements prose patterns 1-34. Ported alongside humanizer-pl 1.2.0.
 - v2.6.1 (2026-08-04) - attribution to blader/humanizer (MIT) added to Reference; the Polish counterpart already carried it, the English one did not. Canonical-source pointer added to the frontmatter.
 - v2.6.0 (2026-06-29) - added "Statistical signatures" section (#30-#34): burstiness, verb/noun morphology, lexical density and diversity, emotional range, mechanical transitions. Based on the Wołoszyk & Domaszk detection methodology (MultiLingual 2025).
+
+<!-- shared-rules:begin (generated from ../../SHARED-RULES.md by scripts/shared-rules-sync.py - do not edit here) -->
+## Shared rules of the content-quality plugin (Content quality)
+
+These rules apply to every skill in this plugin, including where the skill itself is silent. They are copied into each skill, so they hold whether you install the whole plugin or a single skill.
+
+These skills edit English text - they strip AI-writing patterns (humanizer) and review copy for substance and tone (reviewer). They are writing tools, not legal advice, and not a source of facts.
+
+### Rules
+
+- **No fabrication.** The skills change wording and structure, never the facts, numbers, citations or sources. If a claim has no source, the fix is to source it, not to phrase it more confidently.
+- **Brand-safety.** The humanizer improves prose; it is not a tool to evade AI detectors. MateMatic teaches AI transparency - the goal is better writing, not hiding that AI was used.
+- **Human gate.** Output is a draft. A person reviews it before it goes out.
+
+### Plugin scope
+
+Jurisdiction- and topic-neutral. No external connectors, no data sent out. For legal verification (grounding, red-team, scoring) use the `verification-foundation` plugin.
+<!-- shared-rules:end -->

@@ -1,8 +1,8 @@
-# Verification foundation - shared rules
+## Shared rules of the verification-foundation plugin
 
-This file is the plugin's safety net. It applies even when a given skill is silent. The core is written out here so it works after installing the plugin alone. The fuller standard lives in `references/` in the marketplace repo.
+These rules apply to every skill in this plugin, including where the skill itself is silent. They are copied into each skill, so they hold whether you install the whole plugin or a single skill.
 
-## Five layers of protection (before any disclaimer)
+### Five layers of protection (before any disclaimer)
 
 1. **Source verification** - provisions and case law from databases, not the model's memory.
 2. **Confidence class** - every legal claim marked: verified / check / do not use.
@@ -12,7 +12,7 @@ This file is the plugin's safety net. It applies even when a given skill is sile
 
 If an error would pass without being stopped by layers 1-5, the fault is in the skill. Fix the tool, do not add a note. "This is not legal advice" stops no error and transfers no responsibility.
 
-## Confidence tags
+### Confidence tags
 
 - **Verified** - source checked in this session, with a full identifier: `(GDPR Art. 6)`, `(Case C-311/18, CJEU)`.
 - **Check** - plausible, unverified: `[check on EUR-Lex]`.
@@ -20,10 +20,10 @@ If an error would pass without being stopped by layers 1-5, the fault is in the 
 
 The tag sits next to the line it concerns. A case number that exists is not enough - check the content.
 
-## Human gate
+### Human gate
 
 Nothing is sent, filed, signed or published before a qualified person checks and approves it. A skill output is a draft, not a finished document.
 
-## Plugin scope
+### Scope
 
-The verification foundation is jurisdiction-neutral - the method, not the substance of any one legal system. It connects to no external source (no MCP connectors) and makes no outbound calls of its own; what you type still goes to your configured model (see TRUST.md at the hub root). Substance comes from separate plugins (eu-law-sources). Deep national law (e.g. Polish case law) lives in the Polish marketplace, by design.
+The verification foundation is jurisdiction-neutral - the method, not the substance of any one legal system. It connects to no external source (no MCP connectors) and makes no outbound calls of its own; what you type still goes to your configured model (see https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/TRUST.md). Substance comes from separate plugins (eu-law-sources). Deep national law (e.g. Polish case law) lives in the Polish marketplace, by design.
