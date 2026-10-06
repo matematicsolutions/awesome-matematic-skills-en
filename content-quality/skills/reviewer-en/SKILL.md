@@ -16,7 +16,7 @@ attribution:
     Content-review adaptation of a code reviewer for Claude Code. The verdict format and
     the "no fixes" rule are kept 1:1. Charge categories, language and scope are MateMatic's
     own. Polish counterpart: marko-pl-content.
-allowed-tools: [Read, Grep, Glob, Bash]
+allowed-tools: [Read, Grep, Glob, "Bash(git diff:*)", "Bash(git status:*)"]
 data-residency: local
 requires-human-approval: false
 pii-egress: none

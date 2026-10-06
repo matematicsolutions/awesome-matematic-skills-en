@@ -23,6 +23,11 @@ Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 - `verification-foundation`: icon, Apache-2.0 `LICENSE`, `README.md` with a Data section,
   directory links in `plugin.json`.
 
+### Changed
+
+- `reviewer-en`: `allowed-tools` pre-approves only `git diff` and `git status` instead of any shell
+  command. Reading files and pasted text works as before.
+
 ## [2026.09.23] - 2026-09-23
 
 ### Added
