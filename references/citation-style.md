@@ -1,6 +1,6 @@
 # Citation and confidence standard
 
-Shared standard for every skill in this repo. Each plugin points to it from its `CLAUDE.md`. Goal: the reader sees source confidence at a glance, and the model does not invent citations.
+Shared standard for every skill in this repo. Its core (the confidence tags) is written into the shared rules of the plugins that cite sources, copied into each of their skills. Goal: the reader sees source confidence at a glance, and the model does not invent citations.
 
 ## Three confidence classes
 
