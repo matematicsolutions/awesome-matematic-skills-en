@@ -3,8 +3,8 @@ name: gdpr-dsar-en
 description: >
   Data subject rights request (DSAR) assistant grounded in GDPR Art. 12 and 15-22. Identifies the
   request type (access 15, rectification 16, erasure 17, restriction 18, portability 20, objection 21,
-  automated decisions 22), tracks the DEADLINE (one month from receipt, Art. 12(3); +2 months if
-  complex), gates exemptions and refusal grounds (e.g. Art. 17(3), manifestly unfounded/excessive
+  automated decisions 22), tracks the DEADLINE (one month from receipt at the latest, Art. 12(3); +2 months where
+  complexity or number of requests require it), gates exemptions and refusal grounds (e.g. Art. 17(3), manifestly unfounded/excessive
   requests - Art. 12(5)), and drafts the response + a request register. Identity verification of the
   requester (Art. 12(6)) comes first. It does NOT send responses or erase data (human acts). The skill
   itself adds no connectors and makes no outbound calls; the text you put in front of it still reaches
@@ -12,13 +12,13 @@ description: >
   a local model. Use when: "subject access request", "erasure request", "right to be forgotten",
   "objection", "DSAR deadline", "data portability".
 license: Apache-2.0
-allowed-tools: [Bash, Read]
+allowed-tools: [Read]
 data-residency: local
 requires-human-approval: true
 pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.2.0
+  version: 1.3.0
   companion_skills: gdpr-ropa-dpa-en, legal-ai-audit-bundle
   parity: rodo-dsar-pl
 ---
@@ -38,11 +38,14 @@ controller. Erasure/export is irreversible/outward => always a human (governance
   suspended **only** where the information is necessary to confirm identity AND the controller asked
   for it without undue delay. Preserve the original receipt date in the register - a late or
   disproportionate identity request does not extend the deadline, and verification must not obstruct.
-- **DEADLINE: one month from receipt** (Art. 12(3)). Extension of **up to 2 months** for complexity/
-  number of requests - inform within the first month with the reason. The skill computes `deadline`
-  and `deadline_extended`.
-- **Free of charge by default** (Art. 12(5)). A fee or refusal is allowed only where the request is
-  **manifestly unfounded or excessive** - the burden of proof is on the controller.
+- **DEADLINE: without undue delay and in any event within one month of receipt** (Art. 12(3)) - the
+  month is the outer limit. Extension of **up to 2 further months** where necessary, taking into
+  account the complexity and number of the requests - inform the person within the first month,
+  with the reasons for the delay. The skill computes `deadline_1_month` and
+  `deadline_extended_3_months`.
+- **Free of charge by default** (Art. 12(5)). A reasonable fee or a refusal is allowed only where the
+  request is **manifestly unfounded or excessive** (in particular repetitive) - the burden of proof
+  is on the controller.
 
 ## Step 1 - Classify the right
 
@@ -50,7 +53,7 @@ controller. Erasure/export is irreversible/outward => always a human (governance
 |---|---|---|
 | 15 | Access + copy | scope of information, copy of data, third-party rights |
 | 16 | Rectification | inaccurate/incomplete data |
-| 17 | Erasure ("forgotten") | grounds in (1) vs **exemptions in (3)** (legal obligation, claims, freedom of expression) |
+| 17 | Erasure ("forgotten") | grounds in (1) vs **exemptions in (3)**: freedom of expression and information, legal obligation or public task, public health, archiving/research/statistics, legal claims |
 | 18 | Restriction | "freeze" instead of erasure |
 | 20 | Portability | consent/contract + automated processing only; structured format |
 | 21 | Objection | legitimate interest / direct marketing (marketing = absolute) |
@@ -58,8 +61,10 @@ controller. Erasure/export is irreversible/outward => always a human (governance
 
 ## Step 2 - Gates and refusal grounds
 
-Check right-specific exemptions (especially Art. 17(3) and national restrictions). **Legally justify**
-every refusal + inform of the right to lodge a complaint with the SA and a judicial remedy (Art. 12(4)).
+Check right-specific exemptions (especially Art. 17(3) and national restrictions). If the controller
+does not act, it informs the person without delay and at the latest within one month of receipt of
+the reasons, and of the right to lodge a complaint with the SA and to seek a judicial remedy
+(Art. 12(4)).
 
 ## Step 3 - Draft response + register
 
@@ -77,7 +82,9 @@ Do not compute the one-month deadline by hand - month arithmetic has traps (rece
 python scripts/gdpr_deadlines.py dsar --from 2026-01-31 --extend
 ```
 
-Returns `deadline_1_month` and (with `--extend`) `deadline_extended_3_months`. Paste the result into the response and register.
+Returns `deadline_1_month` and (with `--extend`) `deadline_extended_3_months`. The script does not
+move a date that falls on a Saturday, Sunday or public holiday (Regulation (EEC) No 1182/71 art. 3(4)),
+so its result can be earlier than the legal limit, never later. Paste it into the response and register.
 
 ## Governance boundary
 

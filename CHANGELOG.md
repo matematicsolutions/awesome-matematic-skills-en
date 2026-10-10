@@ -4,6 +4,36 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.10] - 2026-10-10
+
+### Fixed
+
+- `data-protection`: every statutory reference in the four skills and their scripts (52 units)
+  checked against the GDPR text on EUR-Lex, Regulation 1182/71, EDPB Guidelines 9/2022 and
+  WP248 rev.01, and logged in `reviews/legal-accuracy.md`. Conditions that had been dropped are
+  back: breach notification is "without undue delay and, where feasible, not later than 72 hours"
+  (72h is the outer limit, not the target); a DSAR answer is due without undue delay and within one
+  month at the latest; Art. 35(3)(a) requires decisions with legal or similarly significant effects,
+  not profiling alone; the Art. 30(1) record items (e)-(g) carry their "where applicable / where
+  possible" conditions. Lists that read as complete but were not are now complete: all five
+  Art. 17(3) exemptions, the DPO "or other contact point", the controller's representative, the
+  controller's obligations and rights in Art. 28(3), the legal-requirement exception in 28(3)(a),
+  the copy-deletion and infringing-instruction duties, and the EDPB's controller risk factor.
+- `gdpr-dpia-en`: WP248 is attributed to the Article 29 Working Party, not the EDPB; criterion 8
+  uses WP248's own examples.
+- The deadline calculator says what it computes: the outer limit, erring early, with Regulation
+  1182/71 art. 3(1) and 3(4) named as not applied.
+
+### Changed
+
+- `data-protection` 1.1.0: `Bash` removed from `allowed-tools` in all four skills; Claude Code asks
+  before running each calculator.
+
+### Added
+
+- `data-protection`: icon, Apache-2.0 `LICENSE`, `README.md` with a Data section, directory links
+  in `plugin.json`.
+
 ## [2026.10.06] - 2026-10-06
 
 ### Fixed

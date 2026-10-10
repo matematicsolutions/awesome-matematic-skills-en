@@ -1,9 +1,9 @@
 ---
 name: gdpr-dpia-en
 description: >
-  Data Protection Impact Assessment (DPIA) assistant grounded in GDPR Art. 35-36, the EDPB WP248
-  rev.01 guidelines, and national supervisory-authority blacklists. Walks through: (1) the
-  threshold test - is a DPIA REQUIRED (EDPB's 9 criteria, the ">=2" rule of thumb, Art. 35(3)
+  Data Protection Impact Assessment (DPIA) assistant grounded in GDPR Art. 35-36, the Article 29
+  Working Party guidelines WP248 rev.01, and national supervisory-authority lists. Walks through: (1) the
+  threshold test - is a DPIA REQUIRED (WP248's 9 criteria, the ">=2" rule of thumb, Art. 35(3)
   mandatory cases, the SA's mandatory list), (2) the DPIA structure mandated by Art. 35(7)
   (systematic description, necessity & proportionality, risk assessment, mitigating measures),
   (3) the Art. 36 prior-consultation decision. Drafts the DPIA and a decision log - it does NOT
@@ -12,13 +12,13 @@ description: >
   to the model you have configured. Use when: "do I need a DPIA", "data protection impact assessment", "DPIA
   for profiling/CCTV/AI", "Art. 35 GDPR", "prior consultation", "high-risk processing".
 license: Apache-2.0
-allowed-tools: [Bash, Read]
+allowed-tools: [Read]
 data-residency: local
 requires-human-approval: true
 pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.1.0
+  version: 1.2.0
   companion_skills: gdpr-ropa-dpa-en, clause-checklist-en, legal-ai-audit-bundle
   parity: rodo-dpia-pl
 ---
@@ -33,17 +33,22 @@ go/no-go decision belong to the controller.
 
 ## Step 1 - Is a DPIA REQUIRED (Art. 35(1) threshold)
 
-Mandatory where processing is **likely to result in a high risk**. Three routes:
+Mandatory, **prior to the processing**, where processing is **likely to result in a high risk**.
+Three routes:
 
 1. **Supervisory authority's mandatory list** (Art. 35(4)) - each EU SA publishes a list of
    operations always requiring a DPIA. Check the relevant national list.
-2. **EDPB's 9 criteria (WP248)** - rule of thumb: **>=2 criteria met => DPIA**. Criteria:
-   evaluation/scoring, automated decisions with significant effect (Art. 22), systematic monitoring,
+2. **WP248's 9 criteria** (Article 29 Working Party, WP248 rev.01) - rule of thumb: **>=2 criteria
+   met => DPIA in most cases**; in some cases one criterion is enough. Criteria: evaluation/scoring,
+   automated decisions with legal or similar significant effect (Art. 22), systematic monitoring,
    sensitive/highly personal data, large-scale data, matching/combining datasets, vulnerable data
-   subjects (children, employees), innovative technology (AI, IoT), preventing exercise of a right
-   or use of a service.
-3. **Art. 35(3)** - explicit cases: systematic and extensive evaluation (profiling), large-scale
-   special-category/criminal data, large-scale systematic monitoring of public areas.
+   subjects (children, employees), innovative use of new technological or organisational solutions
+   (WP248's examples: combined fingerprint and face recognition, Internet of Things), processing that
+   prevents exercising a right or using a service or contract.
+3. **Art. 35(3)** - explicit cases: (a) systematic and extensive evaluation of personal aspects based
+   on automated processing, including profiling, **on which decisions with legal or similarly
+   significant effects are based**; (b) large-scale special-category (Art. 9(1)) or criminal (Art. 10)
+   data; (c) large-scale systematic monitoring of a publicly accessible area.
 
 Output: `dpia_required: yes/no/recommended` + per-criterion justification.
 
@@ -57,12 +62,14 @@ Four pillars:
   availability scenarios; likelihood x severity).
 - **(d) Measures** to address the risks and demonstrate compliance + residual risk.
 
-Record the DPO's advice (Art. 35(2)) and any consultation with data subjects (Art. 35(9)).
+Record the DPO's advice, where a DPO is designated (Art. 35(2)), and, where appropriate, the views
+of data subjects or their representatives (Art. 35(9)).
 
 ## Step 3 - Prior consultation (Art. 36)
 
 If **residual risk remains HIGH despite measures**, the controller MUST consult the supervisory
-authority BEFORE processing. The skill drafts the consultation request (scope per Art. 36(3)) - but
+authority BEFORE processing (Art. 36(1), as WP248 reads it: consultation is required whenever the
+controller cannot find sufficient measures to reduce the risks to an acceptable level). The skill drafts the consultation request (scope per Art. 36(3)) - but
 a human files it (governance boundary).
 
 ## Tool - threshold screening (deterministic, offline)

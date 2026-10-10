@@ -1,9 +1,14 @@
 {
   "name": "data-protection",
-  "description": "GDPR operations for law firms and DPOs (4 skills): DPIA (Art. 35-36), 72h breach response (Art. 33-34), data subject rights / DSAR (Art. 12, 15-22), records of processing RoPA and processor-contract DPA review (Art. 30, 28). Grounded in the GDPR articles and EDPB guidelines. No connectors, no outbound calls of its own.",
-  "version": "1.0.0",
+  "description": "GDPR operations for controllers, law firms and DPOs, in four skills. gdpr-breach-72h-en runs a personal data breach through Art. 33-34: is it a breach, the risk factors from EDPB Guidelines 9/2022, notification to the supervisory authority without undue delay with the 72-hour outer limit counted from awareness, communication to individuals and its exemptions, and the internal breach register. gdpr-dpia-en decides whether a DPIA is required (Art. 35(3) cases, the national lists, the nine WP248 criteria) and drafts it to the Art. 35(7) minimum, up to the Art. 36 prior-consultation call. gdpr-dsar-en handles data subject requests under Art. 12 and 15-22: identity, the one-month limit and its extension, exemptions such as Art. 17(3), and a draft response. gdpr-ropa-dpa-en builds the Art. 30 records of processing and checks a processor contract against every Art. 28(3) stipulation. Every statutory reference is checked against the GDPR text and logged. Each skill ends in a draft for a person to approve; filing, sending, erasing and signing stay human. Small offline Python calculators compute deadlines and checklists; there are no connectors and no network calls of their own.",
+  "version": "1.1.0",
   "author": { "name": "Wieslaw Mazur / MateMatic Solutions" },
   "homepage": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "repository": "https://github.com/matematicsolutions/awesome-matematic-skills-en",
+  "documentationUrl": "https://github.com/matematicsolutions/awesome-matematic-skills-en/tree/main/data-protection#readme",
+  "supportUrl": "https://github.com/matematicsolutions/awesome-matematic-skills-en/issues",
+  "privacyPolicyUrl": "https://github.com/matematicsolutions/awesome-matematic-skills-en/tree/main/data-protection#data",
+  "termsOfServiceUrl": "https://github.com/matematicsolutions/awesome-matematic-skills-en/blob/main/data-protection/LICENSE",
   "license": "Apache-2.0",
   "keywords": ["legal-ai", "gdpr", "dpia", "dsar", "data-breach", "ropa", "data-protection", "dpo"]
 }

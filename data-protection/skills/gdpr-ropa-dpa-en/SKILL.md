@@ -12,13 +12,13 @@ description: >
   contract text you paste still goes to the model you have configured. Use when: "records of processing", "RoPA
   Art. 30", "data processing agreement", "DPA Art. 28", "processor contract review", "GDPR register".
 license: Apache-2.0
-allowed-tools: [Bash, Read]
+allowed-tools: [Read]
 data-residency: local
 requires-human-approval: true
 pii-egress: none
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.2.0
+  version: 1.3.0
   companion_skills: clause-checklist-en, gdpr-dpia-en
   parity: rodo-ropa-dpa-pl
 ---
@@ -33,14 +33,17 @@ are human acts.
 
 ## Part 1 - Records of processing (Art. 30)
 
-**Controller (Art. 30(1))** - mandatory fields per activity:
-- name and contact details of controller / joint controller / DPO,
+**Controller (Art. 30(1)(a)-(g))** - content of the record per activity:
+- name and contact details of the controller and, where applicable, the joint controller, the
+  controller's representative and the DPO,
 - purposes of the processing,
 - categories of data subjects and categories of personal data,
-- categories of recipients (incl. in third countries),
-- transfers to third countries + safeguards (Chapter V),
-- envisaged erasure time limits per category,
-- general description of technical and organisational security measures (Art. 32).
+- categories of recipients (incl. in third countries or international organisations),
+- where applicable, transfers to a third country or international organisation, identifying it,
+  and for Art. 49(1) second-subparagraph transfers the documentation of suitable safeguards,
+- where possible, the envisaged time limits for erasure per category of data,
+- where possible, a general description of the technical and organisational security measures
+  (Art. 32(1)).
 
 **Processor (Art. 30(2))** - mandatory fields per Art. 30(2)(a)-(d): name and contact details of the
 processor(s) **and of each controller** on whose behalf it acts (plus, where applicable, representatives
@@ -57,17 +60,23 @@ applies in practice.
 ## Part 2 - Processor contract review (Art. 28(3))
 
 The contract MUST bind the processor to:
-- **(a)** process **only on the controller's documented instructions** (incl. transfers),
+- **(a)** process **only on the controller's documented instructions** (incl. transfers), unless
+  Union or Member State law requires otherwise - then inform the controller before processing,
+  unless that law forbids it on important grounds of public interest,
 - **(b)** ensure **confidentiality** of authorised persons,
 - **(c)** apply **security** measures (Art. 32),
 - **(d)** respect the conditions for engaging **sub-processors** (authorisation + flow-down),
 - **(e)** **assist** the controller in fulfilling data-subject rights (Chapter III),
 - **(f)** **assist** with Art. 32-36 compliance (security, breaches, DPIA),
-- **(g)** **delete or return** the data at the end,
-- **(h)** make available information and allow **audits/inspections**.
+- **(g)** at the controller's choice, **delete or return** all the data after the end of the services,
+  and delete existing copies unless Union or Member State law requires storage,
+- **(h)** make available all information needed to demonstrate compliance and allow **audits/
+  inspections** - and immediately inform the controller if an instruction, in its opinion,
+  infringes data protection law (Art. 28(3) second subparagraph).
 
-Plus: subject-matter, duration, nature and purpose, type of data, categories of data subjects
-(Art. 28(3) sentence 1) and Chapter V transfers (SCCs/adequacy). The skill produces a **redline** of
+Plus: subject-matter and duration, nature and purpose, type of personal data, categories of data
+subjects, and the obligations and rights of the controller (Art. 28(3) sentence 1), and Chapter V
+transfers (SCCs/adequacy). The skill produces a **redline** of
 missing/defective clauses (via [[clause-checklist-en]]).
 
 ## Tool - Art. 28 clause check (deterministic, offline)

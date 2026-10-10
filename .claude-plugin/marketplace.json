@@ -63,8 +63,8 @@
     },
     {
       "name": "data-protection",
-      "description": "GDPR operations for law firms and DPOs (4 skills): DPIA (Art. 35-36), 72h breach response (Art. 33-34), data subject rights / DSAR (Art. 12, 15-22), records of processing RoPA and processor-contract DPA review (Art. 30, 28). Grounded in the GDPR articles and EDPB guidelines.",
-      "version": "1.0.0",
+      "description": "GDPR operations for law firms and DPOs (4 skills): DPIA (Art. 35-36), 72h breach response (Art. 33-34), data subject rights / DSAR (Art. 12, 15-22), records of processing RoPA and processor-contract DPA review (Art. 30, 28). Every statutory reference checked against the GDPR text; drafts only, the outward act stays human.",
+      "version": "1.1.0",
       "author": {
         "name": "Wieslaw Mazur / MateMatic"
       },
