@@ -5,7 +5,7 @@ A processor contract (DPA) MUST bind the processor to the eight obligations in G
 Art. 28(3)(a)-(h). This tool takes the clauses you found present and reports which mandatory
 ones are MISSING - so the redline targets exactly the gaps.
 
-The eight mandatory clauses (pass present ones via --present, keys a..h):
+The eight mandatory clauses (list the present ones with --present, keys a..h):
   a - process only on the controller's documented instructions (incl. transfers)
   b - confidentiality of authorised persons
   c - security measures (Art. 32)

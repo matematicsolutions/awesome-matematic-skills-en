@@ -81,7 +81,7 @@ missing/defective clauses (via [[clause-checklist-en]]).
 
 ## Tool - Art. 28 clause check (deterministic, offline)
 
-Find the gaps in a processor contract with the script - pass the clauses present, get the missing ones (zero dependencies, offline):
+Find the gaps in a processor contract with the script - list the clauses present, get the missing ones (zero dependencies, offline):
 
 ```bash
 python scripts/dpa_clause_check.py --present a,b,c,g

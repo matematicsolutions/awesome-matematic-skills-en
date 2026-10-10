@@ -10,7 +10,7 @@ This is a clerical screening aid. A "not required" result is NOT a clearance - t
 still documents the reasoning, and a single strong criterion can warrant a DPIA. The legal call
 stays with the controller / DPO.
 
-The nine WP248 criteria (pass the keys that apply via --criteria):
+The nine WP248 criteria (give the keys that apply with --criteria):
   evaluation        - evaluation or scoring (incl. profiling and predicting)
   automated         - automated decision-making with legal/significant effect (Art. 22)
   monitoring        - systematic monitoring
@@ -21,7 +21,7 @@ The nine WP248 criteria (pass the keys that apply via --criteria):
   innovation        - innovative use / new technology (AI, IoT, biometrics)
   blocking          - processing that prevents a right or use of a service/contract
 
-Art. 35(3) mandatory cases (pass via --mandatory):
+Art. 35(3) mandatory cases (give them with --mandatory):
   systematic_eval   - systematic and extensive automated evaluation incl. profiling, with decisions
                       producing legal or similarly significant effects (35(3)(a))
   special_largescale- large-scale special-category or criminal data (35(3)(b))
@@ -94,7 +94,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--mandatory", help="comma-separated Art. 35(3) case keys")
     args = p.parse_args(argv)
     if not args.criteria and not args.mandatory:
-        p.error("pass --criteria and/or --mandatory (see --help for keys)")
+        p.error("give --criteria and/or --mandatory (see --help for keys)")
     print(json.dumps(screen(_split(args.criteria), _split(args.mandatory)), ensure_ascii=False, indent=2))
     return 0
 
