@@ -36,8 +36,10 @@ go/no-go decision belong to the controller.
 Mandatory, **prior to the processing**, where processing is **likely to result in a high risk**.
 Three routes:
 
-1. **Supervisory authority's mandatory list** (Art. 35(4)) - each EU SA publishes a list of
-   operations always requiring a DPIA. Check the relevant national list.
+1. **Supervisory authority's list** (Art. 35(4)) - each EU SA publishes a list of the kinds of
+   processing operations that require a DPIA. Read the relevant national list on its own terms:
+   some are criteria lists rather than lists of operations that always trigger one (the Polish
+   list, M.P. 2019 poz. 666, requires a DPIA as a rule where at least two of its criteria are met).
 2. **WP248's 9 criteria** (Article 29 Working Party, WP248 rev.01) - rule of thumb: **>=2 criteria
    met => DPIA in most cases**; in some cases one criterion is enough. Criteria: evaluation/scoring,
    automated decisions with legal or similar significant effect (Art. 22), systematic monitoring,
@@ -81,7 +83,7 @@ python scripts/dpia_screening.py --criteria evaluation,sensitive,largescale
 python scripts/dpia_screening.py --mandatory public_monitoring
 ```
 
-Returns a `verdict` (required / recommended / not_required) per the EDPB ">=2" rule and the Art. 35(3) cases. Screening only, not a clearance - the controller documents the decision.
+Returns a `verdict` (required / recommended / not_required) per the WP248 ">=2" rule and the Art. 35(3) cases. Screening only, not a clearance - the controller documents the decision.
 
 ## Governance boundary
 
