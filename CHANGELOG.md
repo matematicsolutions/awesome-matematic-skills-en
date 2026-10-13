@@ -4,6 +4,26 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.13] - 2026-10-13
+
+### Changed
+
+- `humanizer-en` 2.8.0 (`content-quality` 1.2.0) - minimal edits: it changes only what really
+  grates and checks that the content survives the rewrite:
+  - **inventory before rewriting** and a "What must not change" section: values, force of norms,
+    certainty, reasons and conditions, who does what, legal and defined terms; "no change is a
+    valid result";
+  - **legal-register mode**: in contracts and pleadings defined terms, the passive voice in a
+    statement of the legal position and numbered sub-clauses stay; the rest is pointed out, not
+    rewritten;
+  - **post-edit check `scripts/post_edit_audit.py`** (stdlib, no network): sensitive values,
+    deontic profile, certainty, chat traces, protected and defined terms, shortening limit;
+    OK/WARN/BLOCK with the full denominator; tests in `tests/`, each seen failing first;
+  - "Personality and soul" no longer asks for opinions the author did not express, and the full
+    example no longer invents a study, people or a percentage; its post-edit result is measured;
+  - #7, #13 and #14 react to clusters, not single signals; #30-#34 as editing rules, without
+    figures or promises about detectors.
+
 ## [2026.10.10] - 2026-10-10
 
 ### Fixed

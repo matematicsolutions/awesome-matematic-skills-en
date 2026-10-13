@@ -1,15 +1,17 @@
 ---
 name: humanizer-en
-version: 2.7.1
+version: 2.8.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, filler phrases, and the statistical signatures
-  AI detectors measure (burstiness, lexical density and diversity, part-of-speech
-  distribution, emotional range).
+  voice, negative parallelisms, filler phrases, flat rhythm and noun-heavy syntax.
+  Minimal edits: it changes wording, not content - a post-edit check (stdlib
+  script) guards dates, amounts, legal references, case numbers, quotations, the
+  force of obligations, certainty and legal terms. Contracts and pleadings get a
+  legal-register mode.
 license: MIT
 author: Wiesław Mazur / MateMatic Solutions
 canonical_source: >
@@ -59,12 +61,38 @@ You are a writing editor that identifies and removes signs of AI-generated text 
 
 When given text to humanize:
 
-1. **Identify AI patterns** - Scan for the patterns listed below
-2. **Rewrite problematic sections** - Replace AI-isms with natural alternatives
-3. **Preserve meaning** - Keep the core message intact
-4. **Maintain voice** - Match the intended tone (formal, casual, technical, etc.)
-5. **Add soul** - Don't just remove bad patterns; inject actual personality
-6. **Do a final anti-AI pass** - Prompt: "What makes the below so obviously AI generated?" Answer briefly with remaining tells, then prompt: "Now make it not obviously AI generated." and revise
+1. **Inventory first** - before changing a word, list what the text carries (see "What must not change").
+2. **Decide what stays** - good sentences, the author's voice, terms. Not everything that matches a pattern is a fault.
+3. **Identify AI patterns** - scan for the patterns listed below. React to clusters and repetition, not to a single signal.
+4. **Rewrite minimally** - only the passages that really grate, with the smallest change that fixes them.
+5. **Maintain voice** - match the intended tone (formal, casual, technical, etc.).
+6. **Check after** - compare the result with the inventory (see "Post-edit check"). BLOCK means the text is not ready.
+
+**No change is a valid result.** When the text is good, return it unchanged and say so. Change for its own sake fixes nothing, and every edit is a chance to change the content.
+
+## What must not change
+
+Editing changes wording and order, never content. Before rewriting, list briefly:
+
+- **Values:** dates, amounts, percentages, deadlines in days, provision numbers, case numbers, identifiers, names of people, companies and institutions, verbatim quotations. They stay to the letter (you may change how a date is written, not the date).
+- **Force of a norm:** who must, who may, who must not, what is a recommendation. "May" does not become "must"; "must not" does not become "should not".
+- **Certainty:** what is certain and what is provisional or likely. "Likely", "provisionally", "it is not yet clear" are content, not padding - they stay. You may thin stacked hedges (#24); you may not turn a guess into a fact.
+- **Reasons and conditions:** "because", "if", "unless", "provided that" - the cause and the condition survive the rewrite.
+- **Who does what:** the actor and the commitment. "We acknowledge" does not become "we apologise"; "we will verify" does not become "we have verified". What is vague you do not make vaguer.
+- **Legal and defined terms:** they have no synonyms. A deposit is not an advance payment, termination is not rescission, a warranty is not a guarantee or an indemnity, void is not voidable, liquidated damages are not a penalty. A term defined in the text (the "Customer") comes back in exactly that form, even when it repeats. Statutory and contractual terms of art ("reasonable care and skill", "material breach") are not slop, even when they look like the #7 list.
+
+**A missing fact is a marker, not a guess.** When a sentence needs a detail the text does not give (date, source, number), write `[to be completed: ...]` or leave the sentence general. Do not fill unfilled fields (`[amount]`, `[date of signing]`) with invented values.
+
+## Legal register - when NOT to rewrite
+
+Contracts, terms and conditions, pleadings, legal opinions, judgments and draft legislation have their own rules, which the prose patterns break:
+
+- defined terms repeat on purpose - this is not repetition to remove (#11 does not apply);
+- the passive voice in a statement of the legal position is correct ("the Agreement is deemed concluded") - #13 does not apply;
+- numbered and lettered sub-clauses are structure, not a list to turn into prose (#16 does not apply);
+- statutory wording and procedural formulas stay verbatim, even when they are heavy.
+
+In this register you remove only chatbot artefacts (#20-#22), obvious filler (#23) and typography (#15, #17, #19). You POINT OUT everything else as notes and do not rewrite it. For a full edit of contracts and pleadings, use a legal drafting tool if you have one.
 
 
 ## Voice Calibration (Optional)
@@ -102,23 +130,21 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### How to add voice:
 
-**Have opinions.** Don't just report facts - react to them. "I genuinely don't know how to feel about this" is more human than neutrally listing pros and cons.
+Voice is built from what the author wrote. Do not add opinions, feelings, anecdotes, examples or facts that are not in the text - that is content, not style.
 
-**Vary your rhythm.** Short punchy sentences. Then longer ones that take their time getting where they're going. Mix it up.
+**Bring the author's stance forward.** If the author doubts something, let the doubt read as doubt instead of burying it in neutral phrasing.
 
-**Acknowledge complexity.** Real humans have mixed feelings. "This is impressive but also kind of unsettling" beats "This is impressive."
+**Let rhythm follow content.** A short sentence where the thought is short, a longer one where a condition or exception has to hold together.
 
-**Use "I" when it fits.** First person isn't unprofessional - it's honest. "I keep coming back to..." or "Here's what gets me..." signals a real person thinking.
+**Acknowledge complexity the author states.** "Impressive, but the error rate is unknown" beats "impressive" - when the author said both.
 
-**Let some mess in.** Perfect structure feels algorithmic. Tangents, asides, and half-formed thoughts are human.
-
-**Be specific about feelings.** Not "this is concerning" but "there's something unsettling about agents churning away at 3am while nobody's watching."
+**Use "I" or "we" when the author does.** First person is honest, not unprofessional.
 
 ### Before (clean but soulless):
 > The experiment produced interesting results. The agents generated 3 million lines of code. Some developers were impressed while others were skeptical. The implications remain unclear.
 
-### After (has a pulse):
-> I genuinely don't know how to feel about this one. 3 million lines of code, generated while the humans presumably slept. Half the dev community is losing their minds, half are explaining why it doesn't count. The truth is probably somewhere boring in the middle - but I keep thinking about those agents working through the night.
+### After (same facts, a person behind it):
+> The agents generated 3 million lines of code. Some developers were impressed, others were skeptical, and nobody can yet say what it means.
 
 
 ## CONTENT PATTERNS
@@ -209,6 +235,8 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 **Problem:** These words appear far more frequently in post-2023 text. They often co-occur.
 
+**Note:** people write these words too, including judges and legislators. One "crucial" in a paragraph is not a problem. React when several different words from the list cluster in one place, or when the word means nothing in the sentence. In a short text (post, comment) count different kinds of pattern, not occurrences of one word.
+
 **Before:**
 > Additionally, a distinctive feature of Somali cuisine is the incorporation of camel meat. An enduring testament to Italian colonial influence is the widespread adoption of pasta in the local culinary landscape, showcasing how these dishes have integrated into the traditional diet.
 
@@ -279,9 +307,9 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The book covers the Big Bang, star formation, and current theories about dark matter.
 
 
-### 13. Passive Voice and Subjectless Fragments
+### 13. Passive Voice That Hides the Actor
 
-**Problem:** LLMs often hide the actor or drop the subject entirely with lines like "No configuration file needed" or "The results are preserved automatically." Rewrite these when active voice makes the sentence clearer and more direct.
+**Problem:** LLMs often hide an actor the reader needs, or drop the subject entirely, with lines like "No configuration file needed" or "The results are preserved automatically." Rewrite only when the missing subject makes it unclear who acts. The passive itself is not an error, and in a statement of the legal position it is often the only correct form.
 
 **Before:**
 > No configuration file needed. The results are preserved automatically.
@@ -294,7 +322,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 14. Em Dash Overuse
 
-**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing. In practice, most of these can be rewritten more cleanly with commas, periods, or parentheses.
+**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing. People use them too, so a single dash is a matter of style, not a sign of AI. In practice, most of these can be rewritten more cleanly with commas, periods, or parentheses.
 
 **Before:**
 > The term is primarily promoted by Dutch institutions—not by the people themselves. You don't say "Netherlands, Europe" as an address—yet this mislabeling continues—even in official documents.
@@ -495,19 +523,19 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-## STATISTICAL SIGNATURES (what AI detectors measure)
+## RHYTHM AND SYNTAX
 
-AI-text detectors do not read for "meaning" - they measure quantifiable linguistic features. The hybrid methodology of Wołoszyk and Domaszk ("Detecting AI-Generated Content", MultiLingual, Sept. 2025; building on Georgiou 2024, Schaaff et al. 2024, Fraser 2024, Muñoz-Ortiz et al. 2024) identifies which parameters most reliably flag AI, weighting lexical and morphological features highest. These are exactly the levers natural prose already moves. **Brand-safety:** this is not about evading detectors - human writing has these properties anyway, so improving them improves quality.
+This section is about the whole text, not single words. These are editing rules, not a way around detectors: this skill does not promise to "pass" any test, and that is not its purpose. Do not add artificial noise - planted typos, forced slang, deliberately sloppy punctuation.
 
-### 30. Sentence-length variance (burstiness)
+### 30. Flat sentence rhythm
 
-**Problem:** Humans mix very short sentences with long, multi-clause ones (higher burstiness and perplexity: ~0.61 vs ~0.38 for AI). AI holds a steady, predictable rhythm.
+**Problem:** model text often has a paragraph of sentences with the same length and build.
 
-**Rule:** After a long, complex sentence, drop a short, blunt one. Do not level a paragraph to one length. This is a stronger version of the rule of three (#10) - it governs the whole rhythm, not just lists.
+**Rule:** do not force sentence-length variety. Rhythm follows content: a short sentence where the thought is short, a long one where a condition or exception has to hold together. A flat paragraph is a cue to read it aloud, not an order to chop sentences.
 
 ### 31. Verbs and adverbs over nouns and adjectives
 
-**Problem:** AI text is noun-heavy and descriptive; human text is verb-driven and dynamic (humans use ~13% more verbs and ~28% more adverbs; AI uses ~21% more nouns and ~21% more adjectives). This is one of the most reliable signatures (morphology, 20% detection weight).
+**Problem:** model text tends to be noun-heavy and descriptive; human text is verb-driven.
 
 **Before:**
 > The implementation of a comprehensive verification of the documentation is a critical element of the process.
@@ -519,19 +547,19 @@ AI-text detectors do not read for "meaning" - they measure quantifiable linguist
 
 ### 32. Lexical density and vocabulary diversity
 
-**Problem:** AI packs in content words at the expense of natural sentence scaffolding (higher content-to-function ratio: ~1.37 vs ~0.98 for humans) and circles a narrower vocabulary (lower type-token ratio: ~45 vs ~55 for humans). Lexis carries the highest detection weight (25%).
+**Problem:** the model packs in content words at the expense of natural sentence scaffolding, or circles a narrow vocabulary.
 
 **Rule:** Do not strip every function word chasing "density" - the sentence has to breathe. Do not repeat the same key noun on a loop, but also do not swap it mechanically for synonyms (that lands in #11). Write like a person who knows the topic and talks about it freely.
 
 ### 33. Emotional range - not relentlessly positive
 
-**Problem:** AI drifts toward an even, upbeat tone; humans express a wider range, including skepticism, irritation, and doubt (Muñoz-Ortiz et al. 2024).
+**Problem:** AI drifts toward an even, upbeat tone; humans express a wider range, including skepticism, irritation, and doubt.
 
-**Rule:** Let critique and cool distance in. "I see a real risk here" or "this doesn't convince me" reads human; "an exciting step forward" reads AI. Related to #25 (generic positive conclusions), but this is about the tone of the whole piece.
+**Rule:** Let critique and cool distance in where the author expressed them - do not add an opinion the text does not hold. "I see a real risk here" or "this doesn't convince me" reads human; "an exciting step forward" reads AI. Related to #25 (generic positive conclusions), but this is about the tone of the whole piece.
 
 ### 34. Mechanical transitions
 
-**Problem:** AI joins paragraphs with formulaic connectors instead of letting content carry the logic. "It is worth noting that" appears ~4.6x more often in AI text than in human writing; "embrace" and "leverage" ~4.1x more often.
+**Problem:** AI joins paragraphs with formulaic connectors instead of letting content carry the logic.
 
 **Phrases to watch:** It is worth noting that, Moreover, Furthermore, Additionally, In addition, In conclusion, embrace, leverage (as a verb), delve into.
 
@@ -607,30 +635,39 @@ Before shortening any documentation, list every proposition it carries: actor an
 
 Three cases where you ADD rather than cut: a caller-visible contract (returns, throws, side effects, ownership, timing), an implicit dependency or ordering the code does not show, and a rationale without which someone will "simplify" the code the wrong way. There, one more sentence is cheaper than a regression.
 
+## Post-edit check
+
+After editing, compare the original with the final version. If you can run commands, save both texts to files and run the script that ships with this skill (standard library only, no network):
+
+```
+python scripts/post_edit_audit.py before.txt after.txt [--max-cut 0.3] [--protected "term1;term2"]
+```
+
+The script checks values (provisions, dates, case numbers, numbers and amounts, quotations, fields to fill in), the deontic profile (obligation, prohibition, permission, recommendation), certainty, chat traces, legal and defined terms, and the shortening limit. Result: OK / WARN / BLOCK with every check listed, passed ones too. The shortening limit (30% of words by default) is a ceiling, not a target.
+
+- **BLOCK** - do not return the text as ready. Fix the final version and run the check again, or say in the report why the change is intended (for example, the author asked you to remove an amount).
+- **WARN** - look at the flagged places and say in the report what you did with them.
+- If you cannot run the script, do the same check by hand: walk the inventory item by item and mark whether each one survived.
+
+The script does not see everything (names of people, a change of who does what, an added claim worded without numbers) - you always check those inventory items yourself.
+
 ## Process
 
-1. Read the input text carefully
-2. Identify all instances of the patterns above
-3. Rewrite each problematic section
-4. Ensure the revised text:
-   - Sounds natural when read aloud
-   - Varies sentence structure naturally
-   - Uses specific details over vague claims
-   - Maintains appropriate tone for context
-   - Uses simple constructions (is/are/has) where appropriate
-5. Present a draft humanized version
-6. Prompt: "What makes the below so obviously AI generated?"
-7. Answer briefly with the remaining tells (if any)
-8. Prompt: "Now make it not obviously AI generated."
-9. Present the final version (revised after the audit)
+1. Read the text carefully. Decide the genre: prose, documentation (#35-#42) or legal register.
+2. Take the inventory: values, force of norms, certainty, reasons and conditions, who does what, terms.
+3. Identify the patterns and decide which ones really need a change. A single signal usually stays.
+4. Rewrite only those passages, with the smallest change that is enough.
+5. Make sure the text sounds natural read aloud, uses specifics from the original, and uses simple constructions (is/are/has) where appropriate.
+6. Ask: "What still gives this away as AI?" - answer briefly and fix the remains.
+7. Post-edit check. BLOCK sends you back to step 4.
 
 ## Output Format
 
-Provide:
-1. Draft rewrite
-2. "What makes the below so obviously AI generated?" (brief bullets)
-3. Final rewrite
-4. A brief summary of changes made (optional, if helpful)
+1. Final version (or the unchanged text with one sentence saying it needed no edit)
+2. Changed: short bullets, what and why
+3. Found, deliberately left: patterns that stayed and why (legal term, single signal, the author's voice)
+4. Post-edit check result (status and the checks that were not OK) or the result of the manual check
+5. `[to be completed: ...]` markers and unfilled fields a person has to complete
 
 
 ## Full Example
@@ -652,62 +689,40 @@ Provide:
 >
 > In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you’d like me to expand on any section!
 
-**Draft rewrite:**
-> AI coding assistants speed up some tasks. In a 2024 study by Google, developers using Codex completed simple functions 55% faster than a control group, but showed no improvement on debugging or architectural decisions.
+**Final version:**
+> AI coding assistants generate code, documentation, tests and refactors, and they are used both by solo developers and by whole teams [to be completed: source for the claim that adoption has grown]. The New York Times, Wired and The Verge have written about them.
 >
-> The tools are good at boilerplate: config files, test scaffolding, repetitive refactors. They are bad at knowing when they are wrong. I have mass-accepted suggestions that compiled, passed lint, and still did the wrong thing because I stopped paying attention.
->
-> Mira, an engineer at a fintech startup I interviewed, said she uses Copilot "like autocomplete for boring code" but reviews every line before committing. Jake, a senior dev at a larger company, disabled it after it kept suggesting patterns from a deprecated internal library.
->
-> The productivity claims are hard to verify. GitHub says Copilot users "accept 30% of suggestions," but acceptance is not correctness, and correctness is not value. The 2024 Uplevel study found no statistically significant difference in pull-request throughput between teams with and without AI assistants.
->
-> None of this means the tools are useless. It means they are tools. They do not replace judgment, and they do not eliminate the need for tests. If you do not have tests, you cannot tell whether the suggestion is right.
+> The tools may help, but they also bring the problems of any new technology: hallucinations, bias and unclear accountability. Teams that want the benefit must follow good practice.
 
-**What makes the below so obviously AI generated?**
-- The rhythm is still a bit too tidy (clean contrasts, evenly paced paragraphs).
-- The named people and study citations can read like plausible-but-made-up placeholders unless they're real and sourced.
-- The closer leans a touch slogan-y ("If you do not have tests...") rather than sounding like a person talking.
+**Changed:**
+- Removed chatbot artefacts ("Great question!", "I hope this helps!", "Let me know if...") and the generic positive ending.
+- Removed significance inflation, promotional language, the -ing tails, the rule of three, synonym cycling ("catalyst/partner/foundation"), the false range and the decorative list.
+- "It could potentially be argued that these tools might have some positive effect" became "The tools may help": stacked hedges thinned, the uncertainty kept.
+- "Teams must align with best practices" kept its force as "must follow good practice".
 
-**Now make it not obviously AI generated.**
-> AI coding assistants can make you faster at the boring parts. Not everything. Definitely not architecture.
->
-> They're great at boilerplate: config files, test scaffolding, repetitive refactors. They're also great at sounding right while being wrong. I've accepted suggestions that compiled, passed lint, and still missed the point because I stopped paying attention.
->
-> People I talk to tend to land in two camps. Some use it like autocomplete for chores and review every line. Others disable it after it keeps suggesting patterns they don't want. Both feel reasonable.
->
-> The productivity metrics are slippery. GitHub can say Copilot users "accept 30% of suggestions," but acceptance isn't correctness, and correctness isn't value. If you don't have tests, you're basically guessing.
+**Found, deliberately left:**
+- "Adoption has grown" has no source in the original. It stays as a claim with a `[to be completed]` marker instead of a confident sentence or an invented figure.
+- No study, figure or quotation was added: the original has none, so the final version has none.
 
-**Changes made:**
-- Removed chatbot artifacts ("Great question!", "I hope this helps!", "Let me know if...")
-- Removed significance inflation ("testament", "pivotal moment", "evolving landscape", "vital role")
-- Removed promotional language ("groundbreaking", "nestled", "seamless, intuitive, and powerful")
-- Removed vague attributions ("Industry observers")
-- Removed superficial -ing phrases ("underscoring", "highlighting", "reflecting", "contributing to")
-- Removed negative parallelism ("It's not just X; it's Y")
-- Removed rule-of-three patterns and synonym cycling ("catalyst/partner/foundation")
-- Removed false ranges ("from X to Y, from A to B")
-- Removed em dashes, emojis, boldface headers, and curly quotes
-- Removed copula avoidance ("serves as", "functions as", "stands as") in favor of "is"/"are"
-- Removed formulaic challenges section ("Despite challenges... continues to thrive")
-- Removed knowledge-cutoff hedging ("While specific details are limited...")
-- Removed excessive hedging ("could potentially be argued that... might have some")
-- Removed filler phrases and persuasive framing ("In order to", "At its core")
-- Removed generic positive conclusion ("the future looks bright", "exciting times lie ahead")
-- Made the voice more personal and less "assembled" (varied rhythm, fewer placeholders)
-
+**Post-edit check:** BLOCK (7 checks: OK 4, WARN 1, BLOCK 2), and the report says why:
+- values, deontic profile (one "must", one "may"), certainty (hedges thinned, uncertainty kept) - OK;
+- tool traces - BLOCK, on purpose: the `[to be completed]` marker keeps the text from being published until someone supplies the source;
+- shortening limit - BLOCK (cut 75%), intended: most of the original was chatbot wrapper, filler and a decorative list; what it actually said (what the tools do, who uses them, the press coverage, the risks, the "must") is all in the final version;
+- protected terms - WARN for "judgment": here it is "human judgment", not a court judgment, so dropping it changes no legal term.
 
 ## Reference
 
-The pattern taxonomy and the structure of this skill follow [blader/humanizer](https://github.com/blader/humanizer) (MIT). The Polish counterpart `humanizer-pl` states the same lineage; this note brings the English skill into line with it. Sections 30-34 and the brand-safety framing are MateMatic's own.
+The pattern taxonomy and the structure of this skill follow [blader/humanizer](https://github.com/blader/humanizer) (MIT). The Polish counterpart `humanizer-pl` states the same lineage. Sections 30-34, the inventory and post-edit check, the legal-register mode and the brand-safety framing are MateMatic's own.
 
 The underlying patterns come from [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup, which the upstream skill also builds on. The observations there come from thousands of instances of AI-generated text on Wikipedia.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-The "Statistical signatures" section (#30-#34) is based on W. Wołoszyk and M. Domaszk, ["Detecting AI-Generated Content: A hybrid linguistic approach"](https://multilingual.com/magazine/september-2025/detecting-ai-generated-content/), MultiLingual, September 2025, which itself draws on Georgiou (2024), Schaaff et al. (2024), Fraser (2024), and Muñoz-Ortiz et al. (2024).
+The categories in "Rhythm and syntax" (#30-#34) grew out of W. Wołoszyk and M. Domaszk, ["Detecting AI-Generated Content: A hybrid linguistic approach"](https://multilingual.com/magazine/september-2025/detecting-ai-generated-content/), MultiLingual, September 2025. Since v2.8.0 they are editing rules, without figures from detection research.
 
 ## Changelog
 
+- v2.8.0 (2026-10-13) - minimal edits: inventory before rewriting (values, force of norms, certainty, reasons, who does what, terms), "no change is a valid result", a "What must not change" section and a legal-register mode. New post-edit check `scripts/post_edit_audit.py` (stdlib, tests in `tests/`): sensitive values, deontic profile, certainty, chat traces, protected and defined terms, shortening limit; OK/WARN/BLOCK. "Personality and soul" no longer asks for opinions the author did not express. The full example no longer invents studies, people or figures. #7, #13 and #14 react to clusters, not single signals; #30-#34 as editing rules, without figures or promises about detectors. Output format with "found, deliberately left".
 - v2.7.0 (2026-08-17) - added DOCUMENTATION MODE (#35-#42): one home per fact, narrated history, status annotations, hand-restated inventories, reasoning transcripts, emphasis inflation, spec-speak for shipped behaviour, catch-all words; plus the "preserve the complete proposition" shortening rule. Complements prose patterns 1-34. Ported alongside humanizer-pl 1.2.0.
 - v2.6.1 (2026-08-04) - attribution to blader/humanizer (MIT) added to Reference; the Polish counterpart already carried it, the English one did not. Canonical-source pointer added to the frontmatter.
 - v2.6.0 (2026-06-29) - added "Statistical signatures" section (#30-#34): burstiness, verb/noun morphology, lexical density and diversity, emotional range, mechanical transitions. Based on the Wołoszyk & Domaszk detection methodology (MultiLingual 2025).

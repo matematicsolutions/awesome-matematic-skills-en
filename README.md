@@ -80,7 +80,7 @@ Install-always. No connectors, no outbound calls of its own. `/plugin install ve
 
 | Skill | What it does | Licence |
 |---|---|---|
-| humanizer-en | Strip AI-writing patterns (inflated symbolism, rule of three, em-dash overuse, AI vocabulary); make text read naturally. | MIT |
+| humanizer-en | Strip AI-writing patterns (inflated symbolism, rule of three, em-dash overuse, AI vocabulary) with minimal edits; a post-edit check guards dates, amounts, legal references, the force of obligations and legal terms; legal-register mode for contracts. | MIT |
 | reviewer-en | Grumpy senior editor: a verdict (disaster/weak/mediocre/ok) and charges anchored to `file:line`. Points out what is wrong, does not rewrite. | MIT |
 
 ### Plugin `eu-law-sources` (EU law + connector)
