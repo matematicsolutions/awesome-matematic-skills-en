@@ -176,3 +176,10 @@ Reviewed 2026-10-19 (Regulation (EU) 2026/1744 "Digital Omnibus on AI" amending 
 - Art. 27(4) - ok - FRIA may cross-reference or include parts of the DPIA under Art. 35 GDPR or Art. 27 of Directive (EU) 2016/680 (A point (13)(a)).
 - Art. 35 - ok - GDPR Art. 35 (DPIA), as named in the new Art. 27(4) (A point (13)(a)).
 - Art. 60a - ok - named in Art. 2(2) as applying to Section B acts (C Art. 2(2)); the skill only names it, no claim on content.
+
+## nis2-compliance-triage-en
+
+Reviewed 2026-10-19 (Step 0 transposition facts only; the rest of the skill unchanged in this pass).
+
+- art. 49 - ok - Polish amending act of 23 January 2026 (Dz.U. 2026 poz. 252), art. 49: "Ustawa wchodzi w życie po upływie miesiąca od dnia ogłoszenia"; act status in force. Read in Repertorium `eli:DU/2026/252` (Sejm ELI source), text offset 320000-321500, 2026-10-19. The exact entry-into-force day is deliberately not stated.
+- Directive (EU) 2022/2555 - ok - no amending act in Cellar (SPARQL cdm:resource_legal_amends_resource_legal on CELEX 32022L2555 returned nothing; only corrigenda R(01)-R(09) and consolidated 02022L2555-20221227), 2026-10-19. Commission proposal 52026PC0013 of 2026-01-20 ("amending Directive (EU) 2022/2555 as regards simplification measures") found as a proposal (COM document, no adopted act).

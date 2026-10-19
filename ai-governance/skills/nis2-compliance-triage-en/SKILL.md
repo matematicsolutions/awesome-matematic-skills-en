@@ -24,7 +24,7 @@ attribution:
     ecosystem; content written from scratch on the text of Directive (EU) 2022/2555.
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.0.1
   companion_skills: gdpr-breach-72h-en, matematic-konstytucja-ai, sejm-eli-mcp, mcp-eu-compliance
   parity: nis2-ksc-pl
 ---
@@ -79,9 +79,15 @@ structure and penalties. Therefore:
    digital infrastructure and digital providers - verify against Art. 26 [TO VERIFY]).
 2. Verify the transposition status of that state as of the day of use. Examples of national
    acts: Germany - NIS2UmsuCG (NIS-2-Umsetzungs- und Cybersicherheitsstärkungsgesetz), status [TO VERIFY]; Poland -
-   amendment of the Act on the National Cybersecurity System (KSC), status [TO VERIFY in ISAP
-   via the sejm-eli-mcp connector]. For other states, check the national gazette or the
-   mcp-eu-compliance connector; do not assume any act is in force without checking.
+   Act of 23 January 2026 amending the Act on the National Cybersecurity System (KSC) and
+   certain other acts, Journal of Laws (Dz.U.) 2026 item 252; it enters into force one month
+   after publication (its art. 49) and ISAP lists it as in force (checked 2026-10-19 - re-check
+   the current KSC text and any later amendment in ISAP via the sejm-eli-mcp connector). For
+   other states, check the national gazette or the mcp-eu-compliance connector; do not assume
+   any act is in force without checking.
+   EU level: no act amending Directive (EU) 2022/2555 had been adopted as of 2026-10-19 (Cellar);
+   the Commission proposal COM(2026) 13 of 20 January 2026 to amend it ("simplification
+   measures") was still a proposal - check its status before relying on the current text.
 3. Record the result on the card (field "Transposition status") with the date checked.
 4. Pick the analysis regime: (a) national act in force -> analyse on the act; (b) not in
    force -> analyse on the directive as a map of INCOMING obligations, and flag that the old

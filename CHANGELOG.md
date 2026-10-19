@@ -4,6 +4,17 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.19d] - 2026-10-19
+
+### Changed
+
+- `nis2-compliance-triage-en` 1.0.1 (`ai-governance`): Step 0 now states the verified Polish
+  transposition - the Act of 23 January 2026 amending the KSC Act (Dz.U. 2026 item 252), in force
+  per ISAP, entering into force one month after publication (its art. 49) - instead of
+  "[TO VERIFY]", and notes that no act amending Directive (EU) 2022/2555 had been adopted as of
+  2026-10-19 (Commission proposal COM(2026) 13 pending). The rule to re-check at the time of use
+  stays.
+
 ## [2026.10.19c] - 2026-10-19
 
 ### Fixed
