@@ -4,6 +4,35 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.19b] - 2026-10-19
+
+### Fixed
+
+- `eu-sparql-search` 1.1.0 (`eu-law-sources`): 10 of the 24 resource-type codes in
+  `references/resource-types.md` did not exist in the Publications Office authority table, among
+  them `ORDER_CJEU` and `CASELAW`, which SKILL.md listed as "most common". A query with a
+  non-existent code returns an empty result, not an error, so the model could report that no such
+  documents exist. Every code is now checked against the live SPARQL endpoint (2026-10-19), the
+  wrong ones are replaced (`ORDER`, `OPIN_AG`, `DEC_FRAMW`, `PROP_REG` ...) or removed, and the
+  reference shows the lookup query for any code not listed.
+- `eu-sparql-search`: the advice to disable TLS verification on a certificate error is gone. It
+  now says to retry, update the CA bundle, or stop and report the source as unreachable - without
+  verification any network on the path can serve forged legislation text. The Polish hub had this
+  fix; this hub did not.
+
+### Added
+
+- A `LICENSE` file in every skill directory (Apache-2.0 or MIT, as declared in the skill's
+  `license:` field). Installers that check the licence of the fetched skill folder, such as the
+  `legal-builder-hub` skill installer in restrictive mode, refuse a skill without one.
+- `eu-sparql-search`: freshness fields (`last_verified`, `freshness_window`, `freshness_category`,
+  `verified_against`) and a version.
+
+### Changed
+
+- `eu-sparql-search` and `authority-triage-en` 1.0.1: the description opens with when to use the
+  skill and says what it is not for.
+
 ## [2026.10.19] - 2026-10-19
 
 ### Changed

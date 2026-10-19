@@ -10,6 +10,8 @@ description: >-
   layer. Use when: "where do I check this", "what is the source hierarchy",
   "which source prevails", "where do I start the research", "map the sources
   for this question", before any legal research without one obvious source.
+  Not for answering the question or checking whether a quote and citation are real:
+  it says where to look and in what order, then hands over.
 license: Apache-2.0
 allowed-tools: [Read]
 data-residency: local
@@ -24,7 +26,7 @@ attribution:
     substance is written from scratch.
 metadata:
   author: "Wiesław Mazur / MateMatic"
-  version: "1.0.0"
+  version: "1.0.1"
   companion_skills: "citation-grounding-pl, legal-request-router-pl, saos-orzecznictwo, eu-sparql-search, legal-data-hunter-pl"
 ---
 
