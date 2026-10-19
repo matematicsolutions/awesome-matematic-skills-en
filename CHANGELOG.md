@@ -4,6 +4,17 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.19] - 2026-10-19
+
+### Changed
+
+- `reviewer-en` (`content-quality`): the description now opens with when to use it (typical
+  requests such as "review my post" or "is this ready to publish"), says what it returns and what
+  it is not for (code review, grammar-only proofreading, translation). The previous description
+  relied on trigger words only we used ("reviewer?"), and the directory listing showed installs
+  with no uses. Text sources reordered: pasted text first, then a named file, then `git diff HEAD`;
+  before, a pasted text could lose to unrelated uncommitted changes in the repository.
+
 ## [2026.10.13] - 2026-10-13
 
 ### Changed
