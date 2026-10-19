@@ -24,7 +24,7 @@ attribution:
     ecosystem; content written from scratch on the text of Directive (EU) 2022/2555.
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.1
+  version: 1.0.2
   companion_skills: gdpr-breach-72h-en, matematic-konstytucja-ai, sejm-eli-mcp, mcp-eu-compliance
   parity: nis2-ksc-pl
 ---
@@ -80,8 +80,8 @@ structure and penalties. Therefore:
 2. Verify the transposition status of that state as of the day of use. Examples of national
    acts: Germany - NIS2UmsuCG (NIS-2-Umsetzungs- und Cybersicherheitsstärkungsgesetz), status [TO VERIFY]; Poland -
    Act of 23 January 2026 amending the Act on the National Cybersecurity System (KSC) and
-   certain other acts, Journal of Laws (Dz.U.) 2026 item 252; it enters into force one month
-   after publication (its art. 49) and ISAP lists it as in force (checked 2026-10-19 - re-check
+   certain other acts, Journal of Laws (Dz.U.) 2026 item 252; it entered into force one month
+   after publication (its art. 49), on 3 April 2026 per ISAP, and ISAP lists it as in force (checked 2026-10-19 - re-check
    the current KSC text and any later amendment in ISAP via the sejm-eli-mcp connector). For
    other states, check the national gazette or the mcp-eu-compliance connector; do not assume
    any act is in force without checking.

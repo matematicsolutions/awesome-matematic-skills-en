@@ -1,0 +1,51 @@
+{
+  "opis": "Registry of the source acts behind this hub's skills, read by scripts/wachta-zmian-aktow.mjs (same script as in awesome-matematic-skills-pl). EU act (celex): alarm when Cellar lists an amending act not in 'znane_zmiany'. Polish act (eli): alarm when ISAP lists an amending act dated after 'baseline' and not in 'znane_zmiany'. 'wzorce' link the act to skills (SKILL.md + references/*.md, case-insensitive). After reviewing the skills against a new amendment: add it to znane_zmiany or raise baseline, with a dated note in 'przeglady'. Initial state 2026-10-19: znane_zmiany and baseline match what Cellar/ISAP showed that day; the watch does not assess changes before baseline.",
+  "akty": [
+    {
+      "celex": "32024R1689",
+      "nazwa": "AI Act (Regulation (EU) 2024/1689)",
+      "wzorce": ["2024/1689", "ai-act-triage"],
+      "znane_zmiany": ["32026R1744"],
+      "przeglady": ["2026-10-19: 32026R1744 (Digital Omnibus on AI) - eu-ai-act-triage-en 1.1.0, legal-accuracy ledger"]
+    },
+    {
+      "celex": "32022L2555",
+      "nazwa": "NIS2 (Directive (EU) 2022/2555)",
+      "wzorce": ["2022/2555", "nis2"],
+      "znane_zmiany": [],
+      "przeglady": ["2026-10-19: no amending act in Cellar; Commission proposal COM(2026) 13 pending"]
+    },
+    {
+      "celex": "32016R0679",
+      "nazwa": "GDPR (Regulation (EU) 2016/679)",
+      "wzorce": ["2016/679", "gdpr"],
+      "znane_zmiany": [],
+      "przeglady": ["2026-10-19: no amending act in Cellar; the GDPR part of the Digital Omnibus (52025PC0837) is a proposal"]
+    },
+    {
+      "celex": "32022R2554",
+      "nazwa": "DORA (Regulation (EU) 2022/2554)",
+      "wzorce": ["2022/2554", "dora "],
+      "znane_zmiany": [],
+      "przeglady": ["2026-10-19: added to the watch; first run found no amending act in Cellar"]
+    },
+    {
+      "celex": "32022L2557",
+      "nazwa": "CER (Directive (EU) 2022/2557)",
+      "wzorce": ["2022/2557", "cer directive"],
+      "znane_zmiany": [],
+      "przeglady": ["2026-10-19: added to the watch; first run found no amending act in Cellar"]
+    },
+    {
+      "eli": "DU/2018/1560",
+      "nazwa": "Polish Act on the National Cybersecurity System (KSC)",
+      "wzorce": ["national cybersecurity system", "(ksc)"],
+      "baseline": "2026-10-19",
+      "znane_zmiany": ["DU/2026/1003", "DU/2026/1206"],
+      "przeglady": [
+        "2026-10-19: amending act Dz.U. 2026 item 252 (in force since 2026-04-03) reviewed - nis2-compliance-triage-en 1.0.1",
+        "2026-10-19: DU/2026/815, DU/2026/1003 art. 124, DU/2026/1206 art. 35 reviewed - no effect on the skill (art. 15(7), 26, 46(1b), Annex 1 wording)"
+      ]
+    }
+  ]
+}

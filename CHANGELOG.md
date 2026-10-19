@@ -4,6 +4,23 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.19e] - 2026-10-19
+
+### Added
+
+- `scripts/wachta-zmian-aktow.mjs` + `seuranta/akty-zrodlowe.json` + monthly workflow
+  `wachta-zmian-aktow.yml`: a watch for NEW amending acts of the source acts behind the skills -
+  EU acts in Cellar (Publications Office SPARQL), Polish acts in ISAP. A new amendment fails the
+  run and lists the skills that cite the act. Origin: Regulation (EU) 2026/1744 moved the AI Act
+  deadlines in July 2026 and the AI Act skill kept the old dates for three months; nothing in the
+  hub watched EU acts. Six acts at start (AI Act, NIS2, GDPR, DORA, CER, Polish KSC Act); red
+  control: with the pre-July state the watch flags 32026R1744; an empty registry fails.
+
+### Changed
+
+- `nis2-compliance-triage-en` 1.0.2: the Polish KSC amendment entered into force on 3 April 2026
+  (ISAP).
+
 ## [2026.10.19d] - 2026-10-19
 
 ### Changed

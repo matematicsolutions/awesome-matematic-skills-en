@@ -1,0 +1,30 @@
+name: Source-act amendment watch
+
+# Once a month, checks whether the source acts behind this hub's skills
+# (seuranta/akty-zrodlowe.json) got a NEW amending act: EU acts in Cellar
+# (Publications Office SPARQL), Polish acts in ISAP (api.sejm.gov.pl/eli).
+# A new amendment = fail -> the listed skills need a content review.
+# Origin: Regulation (EU) 2026/1744 moved the AI Act deadlines in July 2026
+# and our AI Act skills kept the old dates for three months.
+
+on:
+  schedule:
+    - cron: "0 6 2 * *"   # 2nd day of the month, 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  wachta:
+    runs-on: ubuntu-latest
+    name: Source acts vs Cellar and ISAP
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check source acts for new amendments
+        run: node scripts/wachta-zmian-aktow.mjs

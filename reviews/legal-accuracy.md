@@ -181,5 +181,5 @@ Reviewed 2026-10-19 (Regulation (EU) 2026/1744 "Digital Omnibus on AI" amending 
 
 Reviewed 2026-10-19 (Step 0 transposition facts only; the rest of the skill unchanged in this pass).
 
-- art. 49 - ok - Polish amending act of 23 January 2026 (Dz.U. 2026 poz. 252), art. 49: "Ustawa wchodzi w życie po upływie miesiąca od dnia ogłoszenia"; act status in force. Read in Repertorium `eli:DU/2026/252` (Sejm ELI source), text offset 320000-321500, 2026-10-19. The exact entry-into-force day is deliberately not stated.
+- art. 49 - ok - Polish amending act of 23 January 2026 (Dz.U. 2026 poz. 252), art. 49: "Ustawa wchodzi w życie po upływie miesiąca od dnia ogłoszenia"; act status in force. Read in Repertorium `eli:DU/2026/252` (Sejm ELI source), text offset 320000-321500, 2026-10-19. Entry into force 2026-04-03 per ISAP (api.sejm.gov.pl/eli/acts/DU/2026/252, field entryIntoForce; promulgation 2026-03-02), checked 2026-10-19 - added to the skill in a second pass.
 - Directive (EU) 2022/2555 - ok - no amending act in Cellar (SPARQL cdm:resource_legal_amends_resource_legal on CELEX 32022L2555 returned nothing; only corrigenda R(01)-R(09) and consolidated 02022L2555-20221227), 2026-10-19. Commission proposal 52026PC0013 of 2026-01-20 ("amending Directive (EU) 2022/2555 as regards simplification measures") found as a proposal (COM document, no adopted act).
