@@ -18,6 +18,12 @@ allowed-tools: [Read]
 data-residency: local
 requires-human-approval: true
 pii-egress: none
+last_verified: 2026-10-19
+freshness_window: 6 months
+freshness_category: regulatory
+verified_against:
+  - https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+  - https://eur-lex.europa.eu/eli/reg/2026/1744/oj
 attribution:
   relationship: original
   note: >
@@ -26,7 +32,7 @@ attribution:
     from scratch against the text of Regulation (EU) 2024/1689.
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: matematic-konstytucja-ai, legal-ai-audit-bundle, gdpr-dpia-en, mcp-eu-compliance connector
 ---
 
@@ -77,7 +83,11 @@ full analysis.
 No article number or provision text enters the card from model memory. Before
 recording a legal basis, fetch the current text of Regulation (EU) 2024/1689
 from EUR-Lex (CELEX 32024R1689) or via the `mcp-eu-compliance` connector and
-compare the wording. Note the retrieval date and source on the card. A provision
+compare the wording. Use the CONSOLIDATED text, not the 2024 original: Regulation
+(EU) 2026/1744 of 8 July 2026 (CELEX 32026R1744, the "Digital Omnibus on AI")
+amended it, among others Articles 3, 4, 5, 6, 25, 27, 50, 111 and 113 and
+Annex I; consolidated version 02024R1689-20260727. Check EUR-Lex for later
+amendments. Note the retrieval date and source on the card. A provision
 that could not be verified in-session gets the tag `[check in EUR-Lex]` and can
 never support a "does NOT apply" determination.
 
@@ -117,19 +127,42 @@ Tick every point, not a "general impression":
       opinions, trade union membership, religion, sex life, orientation)
 - [ ] real-time remote biometric identification in publicly accessible spaces
       for law enforcement (narrow exceptions)
+- [ ] generating or manipulating realistic intimate images, video or audio of an
+      identifiable person without that person's explicit consent (Art. 5(1)(ba))
+- [ ] generating or manipulating child sexual abuse material within the meaning of
+      Directive 2011/93/EU (Art. 5(1)(bb))
+
+Points (ba) and (bb) were added by Regulation (EU) 2026/1744 and apply from
+2 December 2026. For placing on the market they bite only where that output is
+the intended purpose, or a foreseeable and reproducible outcome the system has no
+adequate safeguards against; for use, only where the deployer uses the system for
+that purpose (Art. 5(1a) and (1b)).
 
 Supporting material: Commission guidelines on prohibited practices (document
-number [TO VERIFY]). The prohibitions apply since 2 February 2025 - that is the
-current state of the law, not a forecast. A SUSPICION on even one point = STOP,
-human gate immediately.
+number [TO VERIFY]). The other prohibitions apply since 2 February 2025 - that is
+the current state of the law, not a forecast. A SUSPICION on even one point =
+STOP, human gate immediately.
 
 ### Step 3 - high-risk (Art. 6 + Annex I + Annex III)
 
 Two qualification paths:
 - **Path A (Art. 6(1), Annex I):** the system is a product, or a safety
   component of a product, covered by the Union harmonisation legislation listed
-  in Annex I and subject to third-party conformity assessment (machinery,
-  medical devices, toys, lifts, aviation, vehicles and so on).
+  in Annex I and subject to third-party conformity assessment (medical devices,
+  toys, lifts, aviation, vehicles and so on). Since Regulation (EU) 2026/1744:
+  - "safety component" is narrower (Art. 3(14)): a component that fulfils a
+    safety function or whose failure endangers health and safety of persons or
+    property; systems used solely for user assistance, performance optimisation,
+    efficiency, automation, convenience or quality control are not safety
+    components, unless their failure would endanger health and safety
+    (Art. 6(1a) and (1b));
+  - third-party assessment required only for non-safety reasons (e.g. radio
+    spectrum) does not meet the Art. 6(1)(b) condition (Art. 6(1c));
+  - machinery: Directive 2006/42/EC was removed from Annex I Section A and
+    Regulation (EU) 2023/1230 added to Section B. For high-risk systems under
+    Section B acts only Art. 6(1), Art. 60a and Articles 102 to 112 apply, and
+    Articles 57 to 59 only in so far as the high-risk requirements have been
+    integrated into that sectoral legislation (Art. 2(2)).
 - **Path B (Art. 6(2), Annex III):** a use case in one of the areas:
   biometrics; critical infrastructure; education and vocational training;
   employment and worker management; access to essential services (including
@@ -174,8 +207,11 @@ a model provider. But see step 6 - requalification.
 - Text published to inform the public on matters of public interest: disclose
   AI involvement, unless the content underwent human editorial control.
 
-These obligations enter with the main body of the Regulation (deadline set in
-Art. 113 - step 7). Assign exact Art. 50 paragraph numbers to the card
+These obligations apply from 2 August 2026, the general date of application
+(Art. 113 - step 7). Transitional rule: providers of systems generating synthetic
+audio, image, video or text that were placed on the market before 2 August 2026
+have until 2 December 2026 to comply with Art. 50(2) (Art. 111(4), added by
+Regulation (EU) 2026/1744). Assign exact Art. 50 paragraph numbers to the card
 rows only after the step 0 verification.
 
 ### Step 6 - operator role (+ requalification under Art. 25)
@@ -195,15 +231,23 @@ map, so settle this step before saying anything about obligations.
 
 ### Step 7 - obligation map, timeline, FRIA signal
 
-State of the law relative to the triage date (deadlines in Art. 113 - verify
-in step 0):
+State of the law relative to the triage date (deadlines in Art. 113 as amended
+by Regulation (EU) 2026/1744 - verify in step 0, and compare the triage date
+with each date below rather than copying "applying" from this list):
 - since 2 February 2025: prohibitions (Art. 5) and AI literacy (Art. 4) -
-  IN FORCE AND APPLYING,
+  APPLYING. Art. 4 as replaced in 2026: providers and deployers take measures to
+  support the AI literacy of their staff; no specific level has to be guaranteed,
 - since 2 August 2025: GPAI, governance, penalties - APPLYING,
-- from 2 August 2026: the main body, including Annex III high-risk and
-  Art. 50 - a deadline set by the Regulation itself,
-- until 2 August 2027: Path A high-risk systems (Annex I products) - the longer
-  statutory period.
+- from 27 July 2026: Articles 102 to 110,
+- from 2 August 2026: the general date of application, including Art. 50,
+- from 2 December 2026: the new prohibitions in Art. 5(1)(ba) and (bb); Art. 50(2)
+  for synthetic-content systems already on the market before 2 August 2026,
+- from 2 December 2027: Chapter III Sections 1-3 for Annex III high-risk systems
+  (Art. 6(2)) - moved from 2 August 2026,
+- from 2 August 2028: Chapter III Sections 1-3 for Annex I high-risk systems
+  (Art. 6(1)) - moved from 2 August 2027,
+- by 2 August 2030: high-risk systems intended for use by public authorities that
+  were on the market before the Chapter III date (Art. 111(2)).
 
 Build the map: role x classification -> applicable chapters and articles ->
 from when.
@@ -212,8 +256,10 @@ from when.
 deployment is required from deployers that are bodies governed by public law or
 private entities providing public services, and from deployers of credit
 scoring and life/health insurance pricing systems (Annex III point 5, letters
-[TO VERIFY]). The skill signals the requirement and refers to `gdpr-dpia-en`
-for the DPIA overlap - it does not perform the FRIA.
+[TO VERIFY]). Where the DPIA under Art. 35 GDPR already covers part of the FRIA,
+the deployer may cross-reference or reuse those sections (Art. 27(4) as replaced
+by Regulation (EU) 2026/1744). The skill signals the requirement and refers to
+`gdpr-dpia-en` for the DPIA overlap - it does not perform the FRIA.
 
 ### Step 8 - report: the triage card
 

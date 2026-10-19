@@ -4,6 +4,26 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.19c] - 2026-10-19
+
+### Fixed
+
+- `eu-ai-act-triage-en` 1.1.0 (`ai-governance`): updated to Regulation (EU) 2026/1744 of 8 July 2026
+  (the "Digital Omnibus on AI"), which amended the AI Act. The skill still said that Annex III
+  high-risk obligations apply from 2 August 2026 and Annex I obligations by 2 August 2027; the
+  amended Art. 113 moves them to 2 December 2027 and 2 August 2028. Also carried into the skill: the
+  new prohibitions in Art. 5(1)(ba) and (bb) from 2 December 2026, the replaced Art. 4 (AI literacy),
+  the narrower "safety component" (Art. 3(14), Art. 6(1a)-(1c)), the machinery move from Annex I
+  Section A to Section B with the Art. 2(2) regime, the Art. 50(2) and public-authority transitional
+  rules (Art. 111(2) and (4)), and DPIA reuse in the FRIA (Art. 27(4)). Step 0 now points to the
+  consolidated text. Every unit read in the amending act and the consolidated text
+  (`reviews/legal-accuracy.md`).
+
+### Added
+
+- `eu-ai-act-triage-en`: freshness fields (`last_verified`, `freshness_window: 6 months`,
+  `freshness_category: regulatory`, `verified_against`).
+
 ## [2026.10.19b] - 2026-10-19
 
 ### Fixed

@@ -151,3 +151,28 @@ Reviewed 2026-10-10 (directory-readiness pass: all statutory units in the skill 
 - Art. 36(3) - ok - content of the consultation request (a)-(f), cited only as "scope per Art. 36(3)". EUR-Lex CELEX:32016R0679 (EN HTML, fetched 2026-10-10, all 99 articles present).
 - WP248 - FIXED then ok - nine criteria confirmed (evaluation or scoring; automated decision-making with legal or similar significant effect; systematic monitoring; sensitive or highly personal data; large scale; matching or combining datasets; vulnerable data subjects incl. children and employees; innovative use or new technological or organisational solutions; processing that prevents exercising a right or using a service or contract). Rule: "In most cases ... meeting two criteria would require a DPIA", and "in some cases ... only one". Fixed: the skill and script attributed WP248 to the EDPB (it is an Article 29 Working Party document); the ">=2" rule now says "in most cases"; criterion 8's examples are now WP248's own (combined fingerprint and face recognition, Internet of Things) instead of an added "AI". The script's verdict logic (one criterion = recommended, two or more = required) matches. WP29 WP248 rev.01 (adopted 4 April 2017, revised 4 October 2017), PDF from ec.europa.eu, full text read 2026-10-10.
 - Article 29 - ok - not a statutory unit: "Article 29 Working Party", the author of WP248 (title page of WP248 rev.01). WP29 WP248 rev.01 (adopted 4 April 2017, revised 4 October 2017), PDF from ec.europa.eu, full text read 2026-10-10.
+
+## eu-ai-act-triage-en
+
+Reviewed 2026-10-19 (Regulation (EU) 2026/1744 "Digital Omnibus on AI" amending Regulation (EU) 2024/1689; every unit in the changed lines read in the amending act and in the consolidated text). Sources: A = CELEX 32026R1744, EN XHTML from Cellar, fetched 2026-10-19 (Article 1 points (1)-(43) present); C = consolidated CELEX 02024R1689-20260727, EN XHTML from Cellar, fetched 2026-10-19. Cellar lists 32026R1744 as the only act amending 32024R1689 (SPARQL, cdm:resource_legal_amends_resource_legal, 2026-10-19).
+
+- Regulation (EU) 2026/1744 - ok - title "of 8 July 2026 amending Regulations (EU) 2024/1689, (EU) 2018/1139 ..."; entry into force on the third day after publication (A, final article). The skill now tells step 0 to use the consolidated text.
+- Art. 113 - FIXED then ok - general date "It shall apply from 2 August 2026"; (a) Chapters I and II from 2 February 2025 except Art. 5(1)(ba),(bb) and 5(1a),(1b) from 2 December 2026; (c) Chapter III Sections 1-3 (except 6(5)) from 2 December 2027 for Art. 6(2)/Annex III and 2 August 2028 for Art. 6(1)/Annex I; (d) Articles 102-110 from 27 July 2026 (A point (40); C Art. 113). The skill had Annex III from 2 August 2026 and Annex I until 2 August 2027.
+- Art. 4 - FIXED then ok - replaced: providers and deployers "shall take measures to support the development of AI literacy"; "does not require ... to guarantee any specific level" (A point (5)). Still applies from 2 February 2025 (Chapter I).
+- Art. 5(1) - ok - new points (ba) intimate images of an identifiable person without explicit consent and (bb) material within Art. 2(c) and (e) of Directive 2011/93/EU, except a "without right" defence (A point (7)(a)).
+- Art. 5(1a) - ok - placing on the market prohibited only where the generation is the intended purpose or a foreseeable and reproducible outcome without adequate safeguards; use only where the deployer uses it for that purpose; 5(1b) excludes manipulation that does not increase exposure (A point (7)(b)).
+- Art. 3(14) - FIXED then ok - "safety component" redefined: fulfils a safety function or its failure endangers health and safety of persons or property (A point (4)(a)).
+- Art. 6(1) - ok - Path A reference; unchanged paragraph, read in C.
+- Art. 6(1)(b) - ok - the third-party conformity assessment condition, referenced by the new 6(1c) (A point (8)).
+- Art. 6(1a) - ok - user assistance, performance optimisation, efficiency, automation, convenience or quality control are not safety components; 6(1b) unless failure endangers health and safety (A point (8)).
+- Art. 6(1c) - ok - third-party assessment required solely for risks other than health and safety (e.g. radio spectrum, electromagnetic interference) does not meet 6(1)(b) (A point (8)).
+- Art. 6(2) - ok - Path B / Annex III reference in the timeline; matches Art. 113(c)(i) (C).
+- Art. 2(2) - FIXED then ok - Section B of Annex I: "only Article 6(1), Article 60a and Articles 102 to 112 shall apply"; Articles 57-59 only in so far as the requirements are integrated (C Art. 2(2), marker M1). Was [TO VERIFY].
+- Regulation (EU) 2023/1230 - ok - added to Annex I Section B as point 21; Section A point 1 (Directive 2006/42/EC) deleted (A point (41); C Annex I Section A shows point 1 removed).
+- Art. 50 - ok - Chapter IV, not among the Art. 113 exceptions, so it applies from the general date 2 August 2026 (C Art. 113).
+- Art. 50(2) - ok - transitional rule for synthetic-content systems placed on the market before 2 August 2026: comply by 2 December 2026 (A point (39)(b), new Art. 111(4)).
+- Art. 111(2) - ok - public-authority high-risk systems on the market before the Chapter III date: comply by 2 August 2030 (A point (39)(a)).
+- Art. 111(4) - ok - see Art. 50(2) (A point (39)(b)).
+- Art. 27(4) - ok - FRIA may cross-reference or include parts of the DPIA under Art. 35 GDPR or Art. 27 of Directive (EU) 2016/680 (A point (13)(a)).
+- Art. 35 - ok - GDPR Art. 35 (DPIA), as named in the new Art. 27(4) (A point (13)(a)).
+- Art. 60a - ok - named in Art. 2(2) as applying to Section B acts (C Art. 2(2)); the skill only names it, no claim on content.
