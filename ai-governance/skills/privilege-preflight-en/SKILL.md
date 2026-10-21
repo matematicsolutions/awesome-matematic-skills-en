@@ -25,7 +25,7 @@ attribution:
     written from scratch.
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.0
+  version: 1.1.0
   companion_skills: matematic-prompt-defense-pl, gdpr-dpia-en, doc-intel-contract-pl, legal-request-router-pl
 ---
 
@@ -94,9 +94,14 @@ words and mark it `[TO VERIFY]`. Never invent a citation.
   in time. The exact statutory basis differs per jurisdiction - identify the
   user's regime and mark specifics `[TO VERIFY]` per country.
 - **GDPR** - personal data of the client and of third parties inside a prompt is
-  processing: definition of personal data (Art. 4(1)), the AI provider as a
-  processor requiring a data processing agreement (Art. 28), transfers outside
-  the EEA (Chapter V).
+  processing: definition of personal data (Art. 4(1)); the AI provider's role,
+  which must be classified, not assumed - processor (processes on the firm's
+  behalf, Art. 4(8)), independent controller (determines purposes and means
+  itself, Art. 4(7)), or joint controller (Art. 26). An Art. 28 data processing
+  agreement covers only processing done on the firm's behalf; processing for the
+  provider's own purposes, such as model training or product improvement, falls
+  outside it and needs the provider's controller terms and its own lawful basis
+  assessed; transfers outside the EEA (Chapter V).
 - **Trade Secrets Directive (EU) 2016/943** - protection depends on "reasonable
   steps" to keep the information secret; pasting a client's trade secret into a
   public chatbot is an argument AGAINST reasonable steps and can weaken the
@@ -133,8 +138,10 @@ basis for processing their data in a cloud AI tool is usually the weakest link.
 
 **(e) Where the prompt goes.** The AI provider's terms: is prompt content used for
 model training, what is the retention period (and can it be switched off), where
-are the servers, is there a transfer outside the EEA and on what basis, is there a
-data processing agreement (Art. 28 GDPR), free tier or business tier (the terms
+are the servers, is there a transfer outside the EEA and on what basis, what role
+the provider takes under GDPR (processor, controller, or joint controller) and -
+only where it acts as processor - is there a data processing agreement (Art. 28
+GDPR), free tier or business tier (the terms
 can differ radically). If the user does not know - assume the worst variant and
 say so explicitly.
 
@@ -204,7 +211,7 @@ VERDICT: STOP
 
 Disclosure impact: <2-3 sentences, realistic scenario>
 
-Recommendation: <on STOP - alternatives; on CAUTION - draft below; on SAFE - clear to send>
+Recommendation: <on STOP - alternatives; on CAUTION - draft below; on SAFE - "no risk factor identified - human approval still required before sending">
 
 --- REDACTED VERSION (draft, CAUTION only - requires human approval) ---
 <content with placeholders [CLIENT], [AMOUNT], [DATE]...>

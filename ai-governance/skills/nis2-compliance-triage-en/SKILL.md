@@ -24,7 +24,7 @@ attribution:
     ecosystem; content written from scratch on the text of Directive (EU) 2022/2555.
 metadata:
   author: Wiesław Mazur / MateMatic
-  version: 1.0.2
+  version: 1.1.0
   companion_skills: gdpr-breach-72h-en, matematic-konstytucja-ai, sejm-eli-mcp, mcp-eu-compliance
   parity: nis2-ksc-pl
 ---
@@ -75,8 +75,19 @@ The transposition deadline expired on 17 October 2024 (Art. 41 of the directive)
 missed it to varying degrees, and national acts diverge on registration, deadlines, authority
 structure and penalties. Therefore:
 
-1. Identify the member state(s) whose law applies to the entity (main establishment rule for
-   digital infrastructure and digital providers - verify against Art. 26 [TO VERIFY]).
+1. Identify the member state(s) whose law applies to the entity, using Art. 26:
+
+   | Entity | Member state with jurisdiction |
+   |---|---|
+   | Default - any entity not listed below (Art. 26(1)) | where it is established |
+   | Providers of public electronic communications networks or publicly available electronic communications services (Art. 26(1)(a)) | where it provides its services |
+   | DNS service providers, TLD name registries, entities providing domain name registration services, cloud computing service providers, data centre service providers, CDN providers, managed service providers, managed security service providers, providers of online marketplaces, online search engines and social networking services platforms (Art. 26(1)(b)) | where it has its main establishment in the Union (Art. 26(2)): where cybersecurity risk-management decisions are predominantly taken; failing that, where cybersecurity operations are carried out; failing that, the establishment with the most employees in the Union |
+   | Public administration entities (Art. 26(1)(c)) | the member state that established them |
+
+   The main-establishment rule covers ONLY the closed list in Art. 26(1)(b) - not "digital
+   infrastructure" as a whole (IXPs, trust service providers and electronic communications
+   providers are not on it). An Art. 26(1)(b) entity not established in the Union but offering
+   services in it must designate a representative in the Union (Art. 26(3)).
 2. Verify the transposition status of that state as of the day of use. Examples of national
    acts: Germany - NIS2UmsuCG (NIS-2-Umsetzungs- und Cybersicherheitsstärkungsgesetz), status [TO VERIFY]; Poland -
    Act of 23 January 2026 amending the Act on the National Cybersecurity System (KSC) and
@@ -117,39 +128,81 @@ transposition extends the catalogue ([TO VERIFY] field on the card).
 
 ### Step 2 - size-cap rule and size-independent exceptions (Art. 2)
 
-**Size-cap rule (Art. 2(1)):** the directive covers Annex I or II entities that are at least
-**medium-sized enterprises** under Recommendation 2003/361/EC (roughly: 50+ employees, or annual
-turnover / balance sheet above EUR 10 million; large: 250+ employees, or turnover above EUR 50
-million / balance sheet above EUR 43 million). Micro and small enterprises are, as a rule, out.
+**Size-cap rule (Art. 2(1)):** the directive covers Annex I or II entities that qualify as
+**medium-sized enterprises** under Article 2 of the Annex to Recommendation 2003/361/EC, or
+exceed the ceilings for medium-sized enterprises. Apply the Recommendation's test, not a
+shortcut:
+- **Headcount and financial ceilings** (Annex, Article 2): small - fewer than 50 persons AND
+  annual turnover and/or annual balance sheet total not exceeding EUR 10 million; medium-sized -
+  fewer than 250 persons AND annual turnover not exceeding EUR 50 million and/or annual balance
+  sheet total not exceeding EUR 43 million. So an entity is at least medium-sized if it has 50 or
+  more persons, or if BOTH its turnover AND its balance sheet total exceed EUR 10 million; it
+  exceeds the medium-sized ceilings if it has 250 or more persons, or if its turnover exceeds
+  EUR 50 million AND its balance sheet total exceeds EUR 43 million.
+- **Aggregation** (Annex, Articles 3 and 6(2)): add the data of partner enterprises in proportion
+  to the shareholding or voting rights (whichever is greater), and 100% of the data of linked
+  enterprises. Member states may take into account the entity's degree of independence from its
+  partner or linked enterprises (recital 16 of the directive) - [TO VERIFY in the transposition].
+- **Public ownership:** the rule in Article 3(4) of the Annex (25% or more public control
+  excludes SME status) does not apply for NIS2 purposes (Art. 2(1), second subparagraph).
+- **Two accounting periods** (Annex, Article 4(2)): a change in category takes effect only if the
+  ceilings are crossed over two consecutive accounting periods.
 
-**Size-independent exceptions (Art. 2(2)-(4))** - the entity is in scope regardless of size,
-among others where it:
-- provides public electronic communications networks or publicly available electronic
-  communications services,
-- is a trust service provider, a TLD name registry or a DNS service provider,
-- is the sole provider in a member state of a service essential for critical societal or
-  economic activities,
-- could, by disruption of its service, significantly impact public safety, public security or
-  public health, or induce significant systemic risk,
-- is critical at national or regional level,
-- is a public administration entity (central government; regional per member state decision),
-- has been identified as a critical entity under the CER Directive (2022/2557).
+Micro and small enterprises are, as a rule, out - subject to the size-independent paths below.
+
+**Size-independent paths** - check these BEFORE concluding "out of scope", because some reach
+entities outside Annex I and II:
+- **Domain name registration services:** entities providing them are in scope regardless of
+  size (Art. 2(4)) - an independent path.
+- **Critical entities** identified under the CER Directive (EU) 2022/2557, regardless of size
+  (Art. 2(3)).
+- **Entities of a type in Annex I or II, regardless of size, where** (Art. 2(2)): (a) the
+  services are provided by providers of public electronic communications networks or publicly
+  available electronic communications services, trust service providers, or TLD name registries
+  and DNS service providers; (b) the entity is the sole provider in a member state of a service
+  essential for critical societal or economic activities; (c) disruption of its service could
+  significantly impact public safety, public security or public health; (d) disruption could
+  induce a significant systemic risk, in particular cross-border; (e) it is critical because of
+  its specific importance at national or regional level; (f) it is a public administration
+  entity of central government, or at regional level following a risk-based assessment.
+- Member states may extend the directive to local public administration and education
+  institutions (Art. 2(5)) - [TO VERIFY in the transposition].
 
 ### Step 3 - essential vs important entity (Art. 3)
 
-**Essential** (indicatively): large entities in Annex I sectors; regardless of size - qualified
-trust service providers, TLD name registries and DNS service providers; medium-sized providers
-of public electronic communications networks or services; critical entities under CER; entities
-designated as essential by a member state. **Important**: all remaining in-scope entities
-(medium-sized Annex I entities plus medium and large Annex II entities). The final national
-split is set by the implementing act - tag the national classification [TO VERIFY] until Step 0
-confirms it. Why it matters: different supervision (ex ante vs ex post) and different penalty
-ceilings (Step 7).
+Run the Art. 3(1) paths in order; the first one that fits makes the entity **essential**:
+1. Annex I entities that exceed the ceilings for medium-sized enterprises (Art. 3(1)(a)).
+2. Qualified trust service providers, TLD name registries and DNS service providers, regardless
+   of size (Art. 3(1)(b)).
+3. Providers of public electronic communications networks or publicly available electronic
+   communications services that qualify as medium-sized enterprises (Art. 3(1)(c)).
+4. Public administration entities of central government (Art. 2(2)(f)(i); Art. 3(1)(d)).
+5. Annex I or II entities that a member state has identified as essential under Art. 2(2)(b)
+   to (e) (Art. 3(1)(e)).
+6. Critical entities under the CER Directive (Art. 2(3); Art. 3(1)(f)).
+7. If the member state so provides, entities it identified before 16 January 2023 as operators
+   of essential services under the NIS1 Directive or national law (Art. 3(1)(g)).
 
-### Step 4 - map of the 10 risk-management measures (Art. 21(2))
+**Important** (Art. 3(2)): every in-scope Annex I or II entity that does not qualify as
+essential - including medium-sized Annex I entities, medium and large Annex II entities,
+non-qualified trust service providers, and entities identified under Art. 2(2)(b) to (e) as
+important rather than essential. Record which path decided the category, never only "Annex plus
+size". The final national split is set by the implementing act - tag the national
+classification [TO VERIFY] until Step 0 confirms it. Why it matters: different supervision (ex
+ante vs ex post) and different penalty ceilings (Step 7).
 
-All in-scope entities (essential and important) implement measures proportionate to the risk,
-covering AT LEAST:
+### Step 4 - sector-specific Union acts (Art. 4), then the 10 risk-management measures (Art. 21(2))
+
+**Pre-check (Art. 4):** where a sector-specific Union legal act requires the entity to adopt
+cybersecurity risk-management measures or to notify significant incidents, and those
+requirements are at least equivalent in effect to the directive's obligations, the corresponding
+NIS2 provisions - including supervision and enforcement under Chapter VII - do not apply to that
+entity. Name the sectoral act, state which NIS2 provisions it displaces (measures, reporting, or
+both), and tag the equivalence assessment [TO VERIFY] until a human confirms it. Only what
+remains under NIS2 goes into the map below and the clock in Step 5.
+
+Entities that remain under Art. 21 after this pre-check (essential and important alike)
+implement measures proportionate to the risk, covering AT LEAST:
 
 1. policies on risk analysis and information system security,
 2. incident handling,
@@ -175,11 +228,16 @@ disruption of the services or financial loss for the entity, OR it has affected 
 affecting other natural or legal persons by causing considerable material or non-material
 damage.
 
-The clock (runs from becoming aware of the significant incident):
-- **24h** - early warning to the CSIRT or competent authority (incl. whether unlawful or
-  malicious action is suspected and whether cross-border impact is possible),
-- **72h** - incident notification (updating the early warning; initial assessment of severity,
-  impact and indicators of compromise),
+The clock (Art. 23(4)). The first two deadlines run from becoming aware of the significant
+incident and are outer limits, not targets - each submission is due WITHOUT UNDUE DELAY and in
+any event within the limit:
+- without undue delay, at the latest within **24h** - early warning to the CSIRT or competent
+  authority (incl. whether unlawful or malicious action is suspected and whether cross-border
+  impact is possible),
+- without undue delay, at the latest within **72h** - incident notification (updating the early
+  warning; initial assessment of severity, impact and indicators of compromise). Exception: a
+  trust service provider must submit the incident notification for a significant incident
+  affecting the provision of its trust services within **24h**, not 72h,
 - on CSIRT/authority request - **intermediate report** on status updates,
 - **1 month** after the incident notification - **final report** (detailed description, threat
   type, root cause, mitigation applied, cross-border impact); if the incident is still ongoing -
@@ -201,7 +259,9 @@ liability (fines on managers, other sanctions) is national - [TO VERIFY in the t
 
 ### Step 7 - penalties (Art. 34)
 
-Ceilings from the directive (maxima each member state must at least provide for):
+Ceilings from the directive for infringements of Art. 21 or Art. 23 (maxima each member state
+must at least provide for; turnover means the total worldwide annual turnover in the preceding
+financial year of the undertaking to which the entity belongs):
 - **essential** entities: at least up to **EUR 10 000 000 or 2%** of total worldwide annual
   turnover - whichever is higher,
 - **important** entities: at least up to **EUR 7 000 000 or 1.4%** of turnover - whichever is
@@ -222,7 +282,9 @@ Analysis regime: [national implementing act / directive 2022/2555 as map + legac
 IN SCOPE: [YES / NO / TO VERIFY]
 Entity category: [essential / important / out of scope / TO VERIFY]
 Sector: [Annex I or II - sector - subsector]
-Basis for inclusion: [size-cap: medium/large / size-independent exception: which one]
+Basis for inclusion: [size-cap: medium/large / size-independent path: which one]
+Category path: [Art. 3(1) point that made it essential / Art. 3(2) important]
+Sector-specific act (Art. 4): [none / act + displaced NIS2 provisions - TO VERIFY equivalence]
 
 MAP OF 10 MEASURES (Art. 21(2)) - status per user declaration:
 | #  | Measure                                      | Status                          | Gap |
@@ -232,9 +294,9 @@ MAP OF 10 MEASURES (Art. 21(2)) - status per user declaration:
 
 REPORTING CLOCK (Art. 23) - [mode: simulation / live incident]:
 - awareness:                  [date+time or "n/a"]
-- early warning (24h):        [deadline]
-- incident notification (72h):[deadline]
-- final report (1 month):     [deadline]
+- early warning (24h):        [outer limit from awareness - without undue delay]
+- incident notification (72h):[outer limit from awareness - 24h for a trust service provider]
+- final report (1 month):     [deadline counted from submission of the incident notification]
 - addressee: [CSIRT/authority per transposition - TO VERIFY if not established]
 - personal data involved: [YES -> gdpr-breach-72h-en in parallel / NO]
 

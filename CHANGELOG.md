@@ -4,6 +4,42 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.21] - 2026-10-21
+
+### Fixed
+
+Mirror of the fixes made in the mike-workflows fork after CodeRabbit reviewed the EU AI Governance
+Pack (open-legal-products/mike-workflows PR #18, merged before the fixes; fork branch
+`fix/eu-ai-governance-coderabbit`). Without this mirror the source and the upstream copy would
+drift. Every changed unit re-read in the act text (`reviews/legal-accuracy.md`, 76/76).
+
+- `eu-ai-act-triage-en` 1.2.0 (`ai-governance`): new step 0a, a scope gate on Art. 2 (the seven
+  limbs of Art. 2(1) and the exclusions in Art. 2(3), (4), (6), (8), (10), (12)); step 0 verifies
+  against the consolidated version 02024R1689-20260727, not the 2024 original, and lists Art. 2
+  and the new Art. 4a among the 2026/1744 changes; Art. 5 points are recorded element by element
+  (MET / NOT MET / UNKNOWN) with a decision rule, and (a), (b), (ba), (bb), 5(1a) and 5(1b) quote
+  the statutory elements; each Art. 50 row carries its exceptions, including the two-condition
+  editorial-responsibility exception; the product manufacturer is a role (Art. 2(1)(e), Art. 25(3))
+  and Art. 25(1)-(2) are stated in full; the Art. 113 timeline separates Art. 5(1)(ba)/(bb) from
+  Chapters I-II and Art. 101 from the 2025 block; the FRIA trigger in Art. 27(1) is two conditions
+  (Art. 6(2) system, excluding Annex III point 2; deployer type or Annex III point 5(b)/(c)).
+  Beyond the fork: Art. 5(1b) is limited to point (ba), Art. 5(1a)(a) keeps the "correct observed
+  or reported misuse" limb, and Art. 2(10) excludes the obligations of personal-use deployers, as
+  the consolidated text says.
+- `nis2-compliance-triage-en` 1.1.0 (`ai-governance`): Art. 26 jurisdiction table (the
+  main-establishment rule covers only the closed list in Art. 26(1)(b)); the size-cap test follows
+  Recommendation 2003/361/EC (headcount OR both financial figures, aggregation, the Art. 3(4)
+  public-ownership rule disapplied, two accounting periods); size-independent paths include the
+  Art. 2(4) domain-registration path; Art. 3(1)(a)-(g) as ordered paths with the deciding path on
+  the card; an Art. 4 pre-check for sector-specific Union acts; the Art. 23(4) deadlines are
+  "without undue delay" outer limits, with the 24-hour notification for trust service providers;
+  the Art. 34 ceilings are scoped to infringements of Art. 21 or 23. The verified Polish
+  transposition in Step 0 (1.0.1-1.0.2) is unchanged.
+- `privilege-preflight-en` 1.1.0 (`ai-governance`): the AI provider's GDPR role is classified
+  (processor Art. 4(8), controller Art. 4(7), joint controller Art. 26), and an Art. 28 agreement
+  covers only processing on the firm's behalf; SAFE now reads "no risk factor identified - human
+  approval still required before sending" instead of "clear to send".
+
 ## [2026.10.19e] - 2026-10-19
 
 ### Added
