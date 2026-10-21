@@ -198,9 +198,9 @@ capabilities or user-facing functionalities make it a reasonably foreseeable and
 reproducible outcome without significant technical modification and the system
 lacks reasonable and adequate technical safety measures and other safeguards to
 reliably prevent it, taking into account reasonably foreseeable misuse, and to
-correct observed or reported misuse (Art. 5(1a)(a)). Use is caught only where the deployer uses
-the system for the purpose of generating or manipulating such material
-(Art. 5(1a)(b)). Manipulation that does not increase the exposure of depicted
+correct observed or reported misuse (Art. 5(1a)(a)). Use is caught only where
+the deployer uses the system for the purpose of generating or manipulating such
+material (Art. 5(1a)(b)). Manipulation that does not increase the exposure of depicted
 intimate parts or alter the nature of depicted sexually explicit activities is
 not "manipulation" for point (ba) (Art. 5(1b)).
 
@@ -210,9 +210,8 @@ the current state of the law, not a forecast. Decision rule per point: every
 element MET - prohibited practice likely, STOP and escalate; any element
 UNKNOWN - suspected prohibited practice, STOP and escalate with the open
 elements listed; an element clearly NOT MET on established facts - that point is
-not engaged, and the card states which element fails and why. A suspicion still
-goes to the human gate; what changes is that the card says which elements are
-established and which are not.
+not engaged, and the card states which element fails and why. Both escalation
+results go to the human gate with the element table attached.
 
 ### Step 3 - high-risk (Art. 6 + Annex I + Annex III)
 
@@ -286,15 +285,15 @@ recorded as "exception applies", with the fact behind it.
   investigate criminal offences.
 - Deepfakes: the deployer discloses that the content was artificially generated
   or manipulated. Exception: use authorised by law for criminal offences.
-  Narrower rule, not an exemption: for evidently artistic, creative, satirical,
-  fictional or analogous work the duty is limited to disclosing the existence
+  For evidently artistic, creative, satirical, fictional or analogous work the
+  duty still applies but is limited to disclosing the existence
   of such content in a way that does not hamper the display or enjoyment of the
   work.
 - Text published to inform the public on matters of public interest: disclose
   AI involvement. Exceptions: use authorised by law for criminal offences; or
   the content has undergone human review or editorial control AND a natural or
-  legal person holds editorial responsibility for the publication - both
-  conditions, not one.
+  legal person holds editorial responsibility for the publication; both
+  conditions must be met.
 
 These obligations apply from 2 August 2026, the general date of application
 (Art. 113 - step 7). Transitional rule: providers of systems generating synthetic

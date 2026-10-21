@@ -4,6 +4,17 @@ All notable changes to this hub are recorded here.
 Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/).
 Versioning: CalVer for the hub (`YYYY.MM.DD`), SemVer per skill.
 
+## [2026.10.21b] - 2026-10-21
+
+### Changed
+
+- `eu-ai-act-triage-en`, `nis2-compliance-triage-en` (`ai-governance`): wording pass after an
+  editorial review of the 2026.10.21 changes - negative parallelisms and a sentence describing the
+  previous version replaced by plain rules; the Art. 23(4) clock no longer repeats "without undue
+  delay" in capitals; the partner-enterprise aggregation states the cross-holdings rule
+  (Recommendation 2003/361/EC, Annex Art. 6(2)). No change to any legal determination, so skill
+  versions stay at 1.2.0 and 1.1.0.
+
 ## [2026.10.21] - 2026-10-21
 
 ### Fixed
